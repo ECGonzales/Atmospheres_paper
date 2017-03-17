@@ -22,12 +22,30 @@ phot1626_w, phot1626_f, phot1626_err = np.loadtxt('Redone/MIR(2)1626+3925 (L4sd)
 # ------------------ Remove bad visual spikes form 1256-0224 -----------------------------
 # ----------------------------------------------------------------------------------------
 
-# Split an array
-a = w_1256[w_1256 >= 1.10]
-b = a[a < 1.15]
+# Use dem pandas
+import pandas as pd
+data = pd.read_csv('Redone/FIRE1256-0224 (L3.5sd) SED.txt',sep=" ", header = 1)
+data.columns = ["w", "f", "err"]
 
-c = f_1256[8602:9559] # I had to look this up in the txt file. HELP!!!
-bad = np.amax(b)
+data.max()
+data['f'].argmax()
+df =data.drop(data['f'].argxmax())
+df.max()
+df1 = df.drop(df['f'].argmax())
+df1.max()
+df2 = df1.drop(df1['f'].argmax())
+
+df3 = df2.drop(df2['f'].argmax())
+# TODO: How to do this task more effectively
+
+# continue on removing maxes
+
+# To slice by wavelength
+df=data[(data['w'] >= 1.10) & (data['w']< 1.15)]
+df1 = df.loc[df['f']!=df['f'].max()] # finds values that aren't the flux max
+
+# ----To Plot
+df1.plot(x='w', y='f', loglog = True)
 
 
 # -------- Generate plot ---------------------------
