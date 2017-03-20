@@ -1,58 +1,41 @@
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy
+
 
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # -------------------------------------------------------------------------------------
 
-# ------------ 1256-0224 (Proper- spikes kept in SED)----------------
-w_1256, f_1256, unc_1256 = np.loadtxt('Redone/FIRE1256-0224 (L3.5sd) SED.txt', delimiter=' ', unpack=True)
-phot1256_w, phot1256_f , phot1256_err = np.loadtxt('Redone/FIRE1256-0224 (L3.5sd) phot.txt', delimiter=' ',
+# ------------ 1256-0224 (Poster in SED)----------------
+
+w_1256, f_1256, unc_1256 = np.loadtxt('Redone/', delimiter=' ', unpack=True)
+phot1256_w, phot1256_f , phot1256_err = np.loadtxt('Redone/', delimiter=' ',
                                                    usecols=(1,2,3), unpack=True)
 
+# TODO: Add in comparison objects and plot
 # ------------- Comparison Objects -------------------
 # No problem spectra for 1626+3925
 w_1626, f_1626, unc_1626 = np.loadtxt('Redone/MIR(2)1626+3925 (L4sd) SED.txt', delimiter=' ', unpack=True)
 phot1626_w, phot1626_f, phot1626_err = np.loadtxt('Redone/MIR(2)1626+3925 (L4sd) phot.txt', delimiter=' ',
                                                   usecols=(1,2,3), unpack=True)
+# ---------------------- Same Teff ----------------------------------
 
-# ----------------------------------------------------------------------------------------
-# ------------------ Remove bad visual spikes form 1256-0224 -----------------------------
-# ----------------------------------------------------------------------------------------
+w_0036, f_0036, u_0036 = np.loadtxt('Redone/0036+1821 (L3.5) SED.txt', delimiter=' ', unpack=True)
+wp_0036, fp_0036, up_0036 = np.loadtxt('Redone/0036+1821 (L3.5) phot.txt', delimiter= ' ', usecols=(1,2,3),unpack=True)
+# 1207
 
-# Use dem pandas
-import pandas as pd
-data = pd.read_csv('Redone/FIRE1256-0224 (L3.5sd) SED.txt',sep=" ", header = 1)
-data.columns = ["w", "f", "err"]
-
-data.max()
-data['f'].argmax()
-df =data.drop(data['f'].argxmax())
-df.max()
-df1 = df.drop(df['f'].argmax())
-df1.max()
-df2 = df1.drop(df1['f'].argmax())
-
-df3 = df2.drop(df2['f'].argmax())
-# TODO: How to do this task more effectively
-
-# continue on removing maxes
-
-# To slice by wavelength
-df=data[(data['w'] >= 1.10) & (data['w']< 1.15)]
-df1 = df.loc[df['f']!=df['f'].max()] # finds values that aren't the flux max
-
-# ----To Plot
-df1.plot(x='w', y='f', loglog = True)
+# ---------------- Same Lbol -------------------------------------
+#0501
+#0153
 
 
 # -------- Generate plot ---------------------------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)  # 111 tells you how many rows, how many columns, and which subplot talking about
 
-ax1.loglog(w_1256, f_1256, c='blue')
+ax1.loglog(w_1256n, f_1256n, c='blue')
 ax1.scatter(phot1256_w, phot1256_f,  c='blue')
 ax1.loglog(w_1626, f_1626, c='black')
 ax1.scatter(phot1626_w, phot1626_f, c='black')
@@ -69,3 +52,45 @@ ax2 = fig2.add_subplot(111)  # 111 tells you how many rows, how many columns, an
 
 ax2.loglog(nw, nf, c='blue')
 ax2.scatter(phot1256_w, phot1256_f,  c='blue')
+
+
+# ------Not Using anymore------
+# data = pd.read_csv('Redone/optsmoothed1256-0224 (L3.5sd) SED.txt',sep=" ", header = 1)
+# data.columns = ["w", "f", "err"]
+# phot = pd.read_csv('Redone/optsmoothed1256-0224 (L3.5sd) phot.txt',sep=" ", header = 1)
+# phot.columns = ['filter', "wav", "flux", 'unc']
+# ----------------------------------------------------------------------------------------
+# ------------------ Remove bad visual spikes form 1256-0224 -----------------------------
+# ----------------------------------------------------------------------------------------
+
+# data.max()
+# data['f'].argmax()
+# df =data.drop(data['f'].argmax())
+# df.max()
+# df1 = df.drop(df['f'].argmax())
+# df1.max()
+# df2 = df1.drop(df1['f'].argmax())
+#
+# df3 = df2.drop(df2['f'].argmax())
+# # TODO: How to do this task more effectively
+#
+# # continue on removing maxes
+#
+# # ---- Using numpy.delete
+# f_1256n.max()
+# Out[87]: 1.4832570122223082e-13
+# f_1256n.argmax()
+# Out[88]: 9335
+# f_1256n = np.delete(f_1256n, 9335)
+# w_1256n = np.delete(w_1256n, 9335)
+#
+#
+# # To slice by wavelength
+# df=data[(data['w'] >= 1.10) & (data['w']< 1.15)]
+# df1 = df.loc[df['f']!=df['f'].max()] # finds values that aren't the flux max
+#
+# # ----To Plot
+# df1.plot(x='w', y='f', loglog = True)
+#
+# ax = phot.plot(x='wav', y='flux', loglog = True, legend = False, kind = 'scatter',yerr='unc', color = 'black', s = 50)
+# df4.plot(x='w', y='f', loglog = True, legend = False, ax=ax)
