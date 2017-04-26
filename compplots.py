@@ -34,27 +34,7 @@ wp_0036, fp_0036, up_0036 = np.loadtxt('Redone/0036+1821 (L3.5) phot.txt', delim
 # Make subarrays for color coding
 opt = df[(df['w'] <= 0.950454)]
 overlap = df[(df['w'] >= 0.950328) & (df['w'] <= 1.03426)]
-nir = df[(df['w'] > 1.03426)]
-
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-ax1.loglog(opt['w'], opt['f'], c='#0179FF')
-ax1.loglog(overlap['w'], overlap['f'], c='#009B45', lw=5, alpha=0.5)
-ax1.loglog(overlap['w'], overlap['f'], c='#0179FF', alpha=0.8)  # alpha=0.3 for transparency
-ax1.loglog(nir['w'], nir['f'], c='#009B45')
-ax1.scatter(df2['w'][0], df2['f'][0],  c='#f768a1', s=100)
-ax1.errorbar(df2['w'][0], df2['f'][0], yerr=df2['err'][0], c='#f768a1')
-ax1.scatter(df2['w'][1], df2['f'][1],  c='#c51b8a', s=100)
-ax1.errorbar(df2['w'][1], df2['f'][1], yerr=df2['err'][1], c='#c51b8a')
-ax1.scatter(df2['w'][2], df2['f'][2],  c='#c51b8a', s=100)
-ax1.errorbar(df2['w'][2], df2['f'][2], yerr=df2['err'][2], c='#c51b8a')
-ax1.scatter(df2['w'][3], df2['f'][3],  c='#7a0177', s=100)
-ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
-ax1.scatter(df2['w'][4], df2['f'][4],  c='#7a0177', s=100)
-ax1.errorbar(df2['w'][4], df2['f'][4], yerr=df2['err'][4], c='#7a0177')
-
-
-# ---- Removing some of the junk in K and H Bands ***THIS IS THE BETTER PLOT ------------------
+# nir = df[(df['w'] > 1.03426)]  # Split bands and cut out some junk
 h = df[(df['w'] >= 1.48933) & (df['w'] <= 1.8)]
 k = df[(df['w'] >= 2.0175)]
 zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
@@ -68,15 +48,15 @@ ax1.loglog(zj['w'], zj['f'], c='#009B45')
 ax1.loglog(h['w'], h['f'], c='#009B45')
 ax1.loglog(k['w'], k['f'], c='#009B45')
 ax1.scatter(df2['w'][0], df2['f'][0],  c='#f768a1', s=100)
-ax1.errorbar(df2['w'][0], df2['f'][0], yerr=df2['err'][0], c='#f768a1')
+# ax1.errorbar(df2['w'][0], df2['f'][0], yerr=df2['err'][0], c='#f768a1')  #Errorbars are too small on this scale
 ax1.scatter(df2['w'][1], df2['f'][1],  c='#c51b8a', s=100)
-ax1.errorbar(df2['w'][1], df2['f'][1], yerr=df2['err'][1], c='#c51b8a')
+# ax1.errorbar(df2['w'][1], df2['f'][1], yerr=df2['err'][1], c='#c51b8a')
 ax1.scatter(df2['w'][2], df2['f'][2],  c='#c51b8a', s=100)
-ax1.errorbar(df2['w'][2], df2['f'][2], yerr=df2['err'][2], c='#c51b8a')
+# ax1.errorbar(df2['w'][2], df2['f'][2], yerr=df2['err'][2], c='#c51b8a')
 ax1.scatter(df2['w'][3], df2['f'][3],  c='#7a0177', s=100)
-ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
+# ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
 ax1.scatter(df2['w'][4], df2['f'][4],  c='#7a0177', s=100)
-ax1.errorbar(df2['w'][4], df2['f'][4], yerr=df2['err'][4], c='#7a0177')
+# ax1.errorbar(df2['w'][4], df2['f'][4], yerr=df2['err'][4], c='#7a0177')
 
 # -------- Generate plots ---------------------------
 fig = plt.figure()
