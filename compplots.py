@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import ScalarFormatter
 
 
 # ------------------------------------------------------------------------------------
@@ -48,14 +49,31 @@ ax1.loglog(zj['w'], zj['f'], c='#009B45')
 ax1.loglog(h['w'], h['f'], c='#009B45')
 ax1.loglog(k['w'], k['f'], c='#009B45')
 ax1.scatter(df2['w'][0], df2['f'][0],  c='#f768a1', s=100)
-# ax1.errorbar(df2['w'][0], df2['f'][0], yerr=df2['err'][0], c='#f768a1')  #Errorbars are too small on this scale
 ax1.scatter(df2['w'][1], df2['f'][1],  c='#c51b8a', s=100)
-# ax1.errorbar(df2['w'][1], df2['f'][1], yerr=df2['err'][1], c='#c51b8a')
 ax1.scatter(df2['w'][2], df2['f'][2],  c='#c51b8a', s=100)
-# ax1.errorbar(df2['w'][2], df2['f'][2], yerr=df2['err'][2], c='#c51b8a')
 ax1.scatter(df2['w'][3], df2['f'][3],  c='#7a0177', s=100)
-# ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
 ax1.scatter(df2['w'][4], df2['f'][4],  c='#7a0177', s=100)
+plt.xlim([0.59, 4.8])
+ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_formatter(ScalarFormatter())
+# plt.xticks(fontsize=15)  # TODO: Look into how to change size of minor ticks, but only show some
+# plt.yticks(fontsize=15)
+plt.xlabel('$\lambda$ ($\mu m$)', fontsize=15)
+
+# plt.xticks([0.6, 1, 2, 3, 4], fontsize=15)
+
+
+
+
+
+
+
+# Error bars are too small on this scale, keep for later?
+# ax1.errorbar(df2['w'][0], df2['f'][0], yerr=df2['err'][0], c='#f768a1')
+# ax1.errorbar(df2['w'][1], df2['f'][1], yerr=df2['err'][1], c='#c51b8a')
+# ax1.errorbar(df2['w'][2], df2['f'][2], yerr=df2['err'][2], c='#c51b8a')
+# ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
+# ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
 # ax1.errorbar(df2['w'][4], df2['f'][4], yerr=df2['err'][4], c='#7a0177')
 
 # -------- Generate plots ---------------------------
