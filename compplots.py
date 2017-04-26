@@ -31,7 +31,11 @@ wp_0036, fp_0036, up_0036 = np.loadtxt('Redone/0036+1821 (L3.5) phot.txt', delim
 # 0153
 
 
-# -------- Generate labeled spectra plot ---------------------------
+# -------------------------------------------------------------------------------------
+# ------------------------- Plotting --------------------------------------------------
+# -------------------------------------------------------------------------------------
+
+# -------- Generate spectral regime SED plot ---------------------------
 # Make subarrays for color coding
 opt = df[(df['w'] <= 0.950454)]
 overlap = df[(df['w'] >= 0.950328) & (df['w'] <= 1.03426)]
@@ -42,26 +46,39 @@ zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
+# ----- Plot Spectra -----------
 ax1.loglog(opt['w'], opt['f'], c='#0179FF')
 ax1.loglog(overlap['w'], overlap['f'], c='#009B45', lw=5, alpha=0.5)
 ax1.loglog(overlap['w'], overlap['f'], c='#0179FF', alpha=0.8)  # alpha=0.3 for transparency
 ax1.loglog(zj['w'], zj['f'], c='#009B45')
 ax1.loglog(h['w'], h['f'], c='#009B45')
 ax1.loglog(k['w'], k['f'], c='#009B45')
+# ----- Plot Photometric points -----
 ax1.scatter(df2['w'][0], df2['f'][0],  c='#f768a1', s=100)
 ax1.scatter(df2['w'][1], df2['f'][1],  c='#c51b8a', s=100)
 ax1.scatter(df2['w'][2], df2['f'][2],  c='#c51b8a', s=100)
 ax1.scatter(df2['w'][3], df2['f'][3],  c='#7a0177', s=100)
 ax1.scatter(df2['w'][4], df2['f'][4],  c='#7a0177', s=100)
+# ----- Set X axis limit, reformat ticks -----------
 plt.xlim([0.59, 4.8])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
-# plt.xticks(fontsize=15)  # TODO: Look into how to change size of minor ticks, but only show some
-# plt.yticks(fontsize=15)
-plt.xlabel('$\lambda$ ($\mu m$)', fontsize=15)
-
-# plt.xticks([0.6, 1, 2, 3, 4], fontsize=15)
-
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.6,2, 3, 4]))
+ax1.tick_params(axis='x', which='major',labelsize=12)
+ax1.tick_params(axis='x', which='minor',labelsize=12)
+plt.yticks(fontsize=12)
+# ------ Axes Labels --------
+plt.xlabel('$\lambda$ ($\mu m$)', fontsize=12)
+plt.ylabel('$Normalized\ Flux\  (F_\lambda)$', fontsize=12)
+# ------ Labeling Spectra and Photometric points --------
+ax1.text(0.35, 0.7, 'FIRE', transform=ax1.transAxes, color='#009B45', fontsize=8)
+ax1.text(0.01, 0.8, 'LDSS3', transform=ax1.transAxes, color='#0179FF', fontsize=8)
+ax1.text(0.8, 0.55, 'WISE W1', transform=ax1.transAxes, color='#7a0177', fontsize=8)
+ax1.text(0.85, 0.45, 'WISE W2', transform=ax1.transAxes, color='#7a0177', fontsize=8)
+ax1.text(0.52, 0.77, 'MKO H', transform=ax1.transAxes, color='#c51b8a', fontsize=8)
+ax1.text(0.52, 0.6, 'MKO K', transform=ax1.transAxes, color='#c51b8a', fontsize=8)
+ax1.text(0.35, 0.9, '2MASS J', transform=ax1.transAxes, color='#f768a1', fontsize=8)
+plt.savefig('Plots/regimes.png')
 
 
 
@@ -76,12 +93,12 @@ plt.xlabel('$\lambda$ ($\mu m$)', fontsize=15)
 # ax1.errorbar(df2['w'][3], df2['f'][3], yerr=df2['err'][3], c='#7a0177')
 # ax1.errorbar(df2['w'][4], df2['f'][4], yerr=df2['err'][4], c='#7a0177')
 
-# -------- Generate plots ---------------------------
+# -------- Comparison Plot: Teff ---------------------------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)  # 111 tells you how many rows, how many columns, and which subplot talking about
 
-ax1.loglog(w_1256, f_1256, c='blue')
-ax1.scatter(phot1256_w, phot1256_f,  c='blue')
+ax1.loglog(df['w'], df['f'], c='blue')
+ax1.scatter(df2['w'],df2['f'],  c='blue')
 ax1.loglog(w_1626, f_1626, c='black')
 ax1.scatter(phot1626_w, phot1626_f, c='black')
 
