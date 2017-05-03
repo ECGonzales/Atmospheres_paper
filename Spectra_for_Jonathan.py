@@ -43,7 +43,7 @@ norm_df_fire = df_fire['f']/(np.max(normregion['f']))
 normregion2 = df_spex[(df_spex['w'] >= 12750) & (df_spex['w'] <= 13250)]
 norm_df_spex = df_spex['f']/(np.max(normregion2['f']))
 
-fig2= plt.figure()
+fig2 = plt.figure()
 ax2 = fig2.add_subplot(111)
 ax2.plot(df_fire['w'], norm_df_fire)
 ax2.plot(df_spex['w'], norm_df_spex)
