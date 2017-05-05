@@ -57,7 +57,7 @@ plt.yticks(fontsize=20)
 
 # ------ Axes Labels --------
 plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
-plt.ylabel('Flux  ($F_\lambda$)', fontsize=25)
+plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
 ax1.text(0.3, 0.7, 'FIRE', transform=ax1.transAxes, color='#009B45', fontsize=15)
