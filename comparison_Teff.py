@@ -1,41 +1,73 @@
-# TODO: Add in comparison objects and plot
-# ------------- Comparison Objects -------------------
-# No problem spectra for 1626+3925
-w_1626, f_1626, unc_1626 = np.loadtxt('Redone/MIR(2)1626+3925 (L4sd) SED.txt', delimiter=' ', unpack=True)
-phot1626_w, phot1626_f, phot1626_err = np.loadtxt('Redone/MIR(2)1626+3925 (L4sd) phot.txt', delimiter=' ',
-                                                  usecols=(1, 2, 3), unpack=True)
-# ---------------------- Same Teff ----------------------------------
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.ticker import ScalarFormatter
 
-w_0036, f_0036, u_0036 = np.loadtxt('Redone/0036+1821 (L3.5) SED.txt', delimiter=' ', unpack=True)
-wp_0036, fp_0036, up_0036 = np.loadtxt('Redone/0036+1821 (L3.5) phot.txt', delimiter=' ',
-                                       usecols=(1, 2, 3), unpack=True)
-# 1207
+# ------------------------------------------------------------------------------------
+# ------------------- Read in Spectra and Photometry files ---------------------------
+# ------------------------------------------------------------------------------------
+# Read  all in as pandas dataframes
 
-# ---------------- Same Lbol -------------------------------------
-# 0501
-# 0153
+df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_1256_phot = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
-# -------- Comparison Plot: Teff ---------------------------
+# -------------- Comparison objects of the same Teff ----------------------------------
+df_young = pd.read_csv('Data/1207-3900 (L0gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_young_phot = pd.read_csv('Data/1207-3900 (L0gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_field_phot = pd.read_csv('Data/0036+1821 (L3.5) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+
+
+# -------------------------------------------------------------------------------------
+# ------------------- Plotting: Comparison of same Teff -------------------------------
+# -------------------------------------------------------------------------------------
+# ------ Set up figure layout --------
 fig = plt.figure()
-ax1 = fig.add_subplot(111)  # 111 tells you how many rows, how many columns, and which subplot talking about
+ax1 = fig.add_subplot(111)
+fig.set_size_inches(10, 8)
+plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 
-ax1.loglog(df['w'], df['f'], c='blue')
-ax1.scatter(df2['w'],df2['f'],  c='blue')
-ax1.loglog(w_1626, f_1626, c='black')
-ax1.scatter(phot1626_w, phot1626_f, c='black')
+# -------- Add data -----------
+ax1.loglog(df_young['w'], df_young['f'], c='#D01810')
+ax1.scatter(df_young_phot['w'],df_young_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
+ax1.scatter(df_young_phot['w'],df_young_phot['f'], c='#D01810', s=50)        # black border
+ax1.loglog(df_field['w'], df_field['f'], c='#7C7D70')
+ax1.scatter(df_field_phot['w'],df_field_phot['f'], c='k', s=70)
+ax1.scatter(df_field_phot['w'],df_field_phot['f'], c='#7C7D70', s=50)
+ax1.loglog(df_1256['w'], df_1256['f'], c='blue')
+ax1.scatter(df_1256_phot['w'],df_1256_phot['f'], c='k', s=70)
+ax1.scatter(df_1256_phot['w'],df_1256_phot['f'], c='blue', s=50)
 
+# ----- Set axes limits, reformat ticks -----------
+plt.xlim([0.33, 36])
+plt.ylim([6*10**(-20), 1.2*10**(-14)])
+ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35,0.6, 2, 3, 34]))
+ax1.tick_params(axis='x', which='major', labelsize=20)
+ax1.tick_params(axis='x', which='minor', labelsize=20)
+plt.yticks(fontsize=20)
 
-plt.xlabel('$\lambda$ ($\mu m$)', fontsize=18)
-plt.ylabel('$F_\lambda (erg\ s^{-1} cm^{-2} A^{-1})$', fontsize=18)  # slash\ in mathrm is a space!
-plt.title('$Subdwarfs$', fontsize=18)
+# ------ Axes Labels --------
+plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
+plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
-plt.savefig('/Plots/Subdwarf_comaprison.png')
+# ------ Labeling Spectra and Photometric points --------
+# Old
+ax1.text(0.2, 0.4, '1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.2, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.2, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.2, 0.25, 'T$_\mathrm{eff}:1887\pm 95$', transform=ax1.transAxes, color='blue', fontsize=15)
 
-fig2 = plt.figure()
-ax2 = fig2.add_subplot(111)  # 111 tells you how many rows, how many columns, and which subplot talking about
+# Field
+ax1.text(0.79, 0.6, '0036+1821', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.7, 0.55, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.79, 0.5, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.79, 0.45, 'T$_\mathrm{eff}:1868\pm 65$', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 
-ax2.loglog(nw, nf, c='blue')
-ax2.scatter(phot1256_w, phot1256_f,  c='blue')
+# Young
+ax1.text(0.6, 0.95, '1207-3900', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.9, 'Age: 8 - 20 Myr (TW Hydra)', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2017\pm 210$', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
-
-
+plt.savefig('Plots/comparison_Teff.png')
