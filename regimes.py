@@ -9,8 +9,8 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('Redone/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
-df2 = pd.read_csv('Redone/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df2 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 
 # -------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ ax1.scatter(df2['w'][4], df2['f'][4],  c='#f768a1', s=150)  # SDSS_z
 ax1.scatter(df2['w'][5], df2['f'][5],  c='#7a0177', s=150)  # WISE_W1
 ax1.scatter(df2['w'][6], df2['f'][6],  c='#7a0177', s=150)  #WISE_W2
 
-# ----- Set X axis limit, reformat ticks -----------
+# ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.59, 4.8])
 plt.ylim([2*10**(-19), 10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
