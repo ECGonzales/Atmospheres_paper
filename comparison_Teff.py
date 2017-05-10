@@ -28,21 +28,21 @@ plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 
 # -------- Add data -----------
 ax1.loglog(df_young['w'], df_young['f'], c='#D01810')
-ax1.scatter(df_young_phot['w'],df_young_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
-ax1.scatter(df_young_phot['w'],df_young_phot['f'], c='#D01810', s=50)        # black border
+ax1.scatter(df_young_phot['w'], df_young_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
+ax1.scatter(df_young_phot['w'], df_young_phot['f'], c='#D01810', s=50)        # black border
 ax1.loglog(df_field['w'], df_field['f'], c='#7C7D70')
-ax1.scatter(df_field_phot['w'],df_field_phot['f'], c='k', s=70)
-ax1.scatter(df_field_phot['w'],df_field_phot['f'], c='#7C7D70', s=50)
+ax1.scatter(df_field_phot['w'], df_field_phot['f'], c='k', s=70)
+ax1.scatter(df_field_phot['w'], df_field_phot['f'], c='#7C7D70', s=50)
 ax1.loglog(df_1256['w'], df_1256['f'], c='blue')
-ax1.scatter(df_1256_phot['w'],df_1256_phot['f'], c='k', s=70)
-ax1.scatter(df_1256_phot['w'],df_1256_phot['f'], c='blue', s=50)
+ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=70)
+ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='blue', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.33, 36])
 plt.ylim([6*10**(-20), 1.2*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
-ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35,0.6, 2, 3, 34]))
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35, 0.6, 2, 3, 34]))
 ax1.tick_params(axis='x', which='major', labelsize=20)
 ax1.tick_params(axis='x', which='minor', labelsize=20)
 plt.yticks(fontsize=20)
