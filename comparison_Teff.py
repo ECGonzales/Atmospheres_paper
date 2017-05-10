@@ -11,8 +11,8 @@ df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", 
 df_1256_phot = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/1207-3900 (L0gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_young_phot = pd.read_csv('Data/1207-3900 (L0gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/teff1207-3900 (L0gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_young_phot = pd.read_csv('Data/teff1207-3900 (L0gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
 df_field_phot = pd.read_csv('Data/0036+1821 (L3.5) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
@@ -68,6 +68,6 @@ ax1.text(0.79, 0.45, 'T$_\mathrm{eff}:1868\pm 65$', transform=ax1.transAxes, col
 ax1.text(0.6, 0.95, '1207-3900', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.9, 'Age: 8 - 20 Myr (TW Hydra)', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2017\pm 210$', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2020\pm 210$', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.savefig('Plots/comparison_Teff.png')

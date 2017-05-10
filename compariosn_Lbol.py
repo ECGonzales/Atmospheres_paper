@@ -13,8 +13,8 @@ df_1256_phot = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep
 # -------------- Comparison objects of the same Lbol ----------------------------------
 df_young = pd.read_csv('Data/0501-0010 (L4gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
 df_young_phot = pd.read_csv('Data/0501-0010 (L4gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_field = pd.read_csv('Data/lbol0445-3048 (L2) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_field_phot = pd.read_csv('Data/lbol0445-3048 (L2) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/lbol0342-6817 (L2/) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_field_phot = pd.read_csv('Data/lbol0342-6817 (L2/) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 
 # -------------------------------------------------------------------------------------
