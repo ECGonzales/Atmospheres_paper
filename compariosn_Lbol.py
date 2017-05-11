@@ -13,8 +13,8 @@ df_1256_phot = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep
 # -------------- Comparison objects of the same Lbol ----------------------------------
 df_young = pd.read_csv('Data/0501-0010 (L4gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
 df_young_phot = pd.read_csv('Data/0501-0010 (L4gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_field = pd.read_csv('Data/lbol0342-6817 (L2) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_field_phot = pd.read_csv('Data/lbol0342-6817 (L2) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/lbol1424+0917 (L4) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_field_phot = pd.read_csv('Data/lbol1424+0917 (L4) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 
 # -------------------------------------------------------------------------------------
@@ -59,13 +59,15 @@ ax1.text(0.25, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.25, 0.25, 'L$_\mathrm{bol}:-3.974\pm 0.086$', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
-ax1.text(0.6, 0.95, '0342-6817', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.6, 0.9, 'Age: 10.0-40.0 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.6, 0.95, '1424+0917', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.6, 0.9, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 ax1.text(0.6, 0.85, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.6, 0.8, 'L$_\mathrm{bol}:-3.913\pm0.372 $', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.6, 0.8, 'L$_\mathrm{bol}:-4.032\pm0.069 $', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 
 # Young
-ax1.text(0.6, 0.2, '0501-0010', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.15, 'Age: 10-150', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.1, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.05, 'L$_\mathrm{bol}:-4.003\pm0.063 $', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.7, 0.2, '0501-0010', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.7, 0.15, 'Age: 10-150 Myr', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.7, 0.1, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.7, 0.05, 'L$_\mathrm{bol}:-4.003\pm0.063 $', transform=ax1.transAxes, color='#D01810', fontsize=15)
+
+plt.savefig('Plots/comparison_Lbol.png')

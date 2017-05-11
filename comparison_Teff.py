@@ -11,8 +11,8 @@ df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", 
 df_1256_phot = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff1207-3900 (L0gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_young_phot = pd.read_csv('Data/teff1207-3900 (L0gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/teff0223-5815 (L0gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_young_phot = pd.read_csv('Data/teff0223-5815 (L0gamma) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
 df_field_phot = pd.read_csv('Data/0036+1821 (L3.5) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
@@ -56,18 +56,18 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 ax1.text(0.2, 0.4, '1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.2, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.2, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.2, 0.25, 'T$_\mathrm{eff}:1887\pm 95$', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.2, 0.25, 'T$_\mathrm{eff}:1887\pm 95$ K', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
-ax1.text(0.79, 0.6, '0036+1821', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.7, 0.55, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.79, 0.5, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.79, 0.45, 'T$_\mathrm{eff}:1868\pm 65$', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.54, 0.2, '0036+1821', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.54, 0.15, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.54, 0.1, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.54, 0.05, 'T$_\mathrm{eff}:1868\pm 65$ K', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 
 # Young
-ax1.text(0.6, 0.95, '1207-3900', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.9, 'Age: 8 - 20 Myr (TW Hydra)', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.95, '0223-5815', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.9, 'Age: 10 - 40 Myr (Tuc-Hor)', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2020\pm 210$', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:1772\pm 91$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.savefig('Plots/comparison_Teff.png')
