@@ -7,11 +7,13 @@ import matplotlib.pyplot as plt
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff0223-5815 (L0gamma) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
-df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/teff0223-5815 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+                       names=["w", "f", "err"])
+df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
