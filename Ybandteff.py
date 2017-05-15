@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-
 df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
@@ -52,7 +51,7 @@ ax1.plot(df_young['w'], norm_df_young + 1, c='#D01810')
 
 # ------- Label Features --------------------------
 FeH1 = pd.DataFrame()
-FeH1['x'] = [0.989, 1.0]
+FeH1['x'] = [0.9896, 1.0]
 FeH1['y'] = [2.3, 2.3]
 plt.plot(FeH1['x'], FeH1['y'], color='k')
 ax1.text(0.26, 0.66, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
