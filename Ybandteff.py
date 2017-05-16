@@ -51,6 +51,22 @@ ax1.plot(df_young['w'], norm_df_young + 1, c='#D01810')
 
 # ------- Label Features --------------------------
 # --- To make line for feature
+Ti1 = pd.DataFrame()
+Ti1['x'] = [0.96, 0.97]
+Ti1['y'] = [0.3, 0.3]
+plt.plot(Ti1['x'], Ti1['y'], color='k')
+ax1.text(0.075, 0.04, 'Ti I', transform=ax1.transAxes, color='k', fontsize=15)
+# -- To make a vertical line
+Ti1up = pd.DataFrame()
+Ti1up['x'] = [0.96, 0.96]
+Ti1up['y'] = [0.3, 0.45]
+plt.plot(Ti1up['x'], Ti1up['y'], color='k')
+Ti1up2 = pd.DataFrame()
+Ti1up2['x'] = [0.97, 0.97]
+Ti1up2['y'] = [0.3, 0.45]
+plt.plot(Ti1up2['x'], Ti1up2['y'], color='k')
+
+# --- To make line for feature
 FeH1 = pd.DataFrame()
 FeH1['x'] = [0.9896, 1.0]
 FeH1['y'] = [2.4, 2.4]

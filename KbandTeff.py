@@ -53,10 +53,16 @@ ax1.plot(df_field['w'], norm_df_field + 1.2, c='#7C7D70')
 ax1.plot(df_young['w'], norm_df_young + 1.7, c='#D01810')
 
 # ------- Label Features --------------------------
-CIA_H2O = pd.DataFrame()
-CIA_H2O['x'] = [2.01, 2.34]
-CIA_H2O['y'] = [3.2, 3.2]
-plt.plot(CIA_H2O['x'], CIA_H2O['y'], color='k')
+H2O = pd.DataFrame()
+H2O['x'] = [2.00, 2.20]
+H2O['y'] = [2.84, 2.84]
+plt.plot(H2O['x'], H2O['y'], color='k')
+ax1.text(0.25, 0.825, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
+
+CIA_H2 = pd.DataFrame()
+CIA_H2['x'] = [2.01, 2.34]
+CIA_H2['y'] = [3.2, 3.2]
+plt.plot(CIA_H2['x'], CIA_H2['y'], color='k')
 ax1.text(0.45, 0.925, 'CIA H$_\mathrm{2} $', transform=ax1.transAxes, color='k', fontsize=15)
 
 CO = pd.DataFrame()
