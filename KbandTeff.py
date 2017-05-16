@@ -14,7 +14,7 @@ df_young = pd.read_csv('Data/teff0223-5815 (L0gamma) SED.txt', sep=" ", comment=
                        names=["w", "f", "err"])
 df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
-# -------- Remove lines from when triming with SEDkit for 1256
+# -------- Remove lines from when trimming with SEDkit for 1256
 df_1256k = df_1256[(df_1256['w'] >= 2.051515)]
 
 # -------------------------------------------------------------------------------------
