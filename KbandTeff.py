@@ -57,7 +57,7 @@ CIA_H2O = pd.DataFrame()
 CIA_H2O['x'] = [2.01, 2.34]
 CIA_H2O['y'] = [3.2, 3.2]
 plt.plot(CIA_H2O['x'], CIA_H2O['y'], color='k')
-ax1.text(0.45, 0.925, 'CIA H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.45, 0.925, 'CIA H$_\mathrm{2} $', transform=ax1.transAxes, color='k', fontsize=15)
 
 CO = pd.DataFrame()
 CO['x'] = [2.295, 2.34]
