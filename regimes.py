@@ -9,8 +9,10 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", header=1, names=["w", "f", "err"])
+df = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+                 names=["w", "f", "err"])
 df2 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+# header=1 skips the 2MASS H which is ok here but not other times, use stuff above
 
 
 # -------------------------------------------------------------------------------------
@@ -46,7 +48,7 @@ ax1.scatter(df2['w'][2], df2['f'][2],  c='#ae017e', s=150)  # MKO_K
 ax1.scatter(df2['w'][3], df2['f'][3],  c='#f768a1', s=150)  # SDSS_i
 ax1.scatter(df2['w'][4], df2['f'][4],  c='#f768a1', s=150)  # SDSS_z
 ax1.scatter(df2['w'][5], df2['f'][5],  c='#7a0177', s=150)  # WISE_W1
-ax1.scatter(df2['w'][6], df2['f'][6],  c='#7a0177', s=150)  #WISE_W2
+ax1.scatter(df2['w'][6], df2['f'][6],  c='#7a0177', s=150)  # WISE_W2
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.59, 4.8])
