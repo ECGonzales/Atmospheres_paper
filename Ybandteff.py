@@ -69,33 +69,33 @@ plt.plot(Ti1up2['x'], Ti1up2['y'], color='k')
 # --- To make line for feature
 FeH1 = pd.DataFrame()
 FeH1['x'] = [0.9896, 1.0]
-FeH1['y'] = [2.4, 2.4]
+FeH1['y'] = [2.3, 2.3]
 plt.plot(FeH1['x'], FeH1['y'], color='k')
-ax1.text(0.272, 0.69, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.272, 0.66, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
 # -- To make a vertical line
 FeH1d = pd.DataFrame()
 FeH1d['x'] = [0.9896, 0.9896]
-FeH1d['y'] = [2.3, 2.4]
+FeH1d['y'] = [2.15, 2.3]
 plt.plot(FeH1d['x'], FeH1d['y'], color='k')
 
 FeH2 = pd.DataFrame()
 FeH2['x'] = [0.998, 1.085]
-FeH2['y'] = [2.85, 2.85]
+FeH2['y'] = [2.75, 2.75]
 plt.plot(FeH2['x'], FeH2['y'], color='k')
-ax1.text(0.55, 0.82, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.55, 0.79, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
 FeH2d = pd.DataFrame()
 FeH2d['x'] = [0.998, 0.998]
-FeH2d['y'] = [2.7, 2.85]
+FeH2d['y'] = [2.6, 2.75]
 plt.plot(FeH2d['x'], FeH2d['y'], color='k')
 
 H2O = pd.DataFrame()
 H2O['x'] = [1.08, 1.099]
-H2O['y'] = [3.1, 3.1]
+H2O['y'] = [3, 3]
 plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.text(0.9, 0.9, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.9, 0.87, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
 H2Od = pd.DataFrame()
 H2Od['x'] = [1.08, 1.08]
-H2Od['y'] = [2.95, 3.1]
+H2Od['y'] = [2.85, 3]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
 plt.savefig('Plots/YbandTeff.png')
