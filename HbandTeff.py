@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff0223-5815 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 # -------- Remove lines from when trimming with SEDkit for 1256
 df_1256h = df_1256[(df_1256['w'] >= 1.49786) & (df_1256['w'] <= 1.79593)]
@@ -55,22 +55,22 @@ ax1.plot(df_young['w'], norm_df_young + 1, c='#D01810')
 # ------- Label Features --------------------------
 FeH = pd.DataFrame()
 FeH['x'] = [1.581, 1.66]
-FeH['y'] = [2.6, 2.6]
+FeH['y'] = [2.5, 2.5]
 plt.plot(FeH['x'], FeH['y'], color='k')
-ax1.text(0.5, 0.75, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.5, 0.72, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
 FeHd = pd.DataFrame()
 FeHd['x'] = [1.581, 1.581]
-FeHd['y'] = [2.5, 2.6]
+FeHd['y'] = [2.35, 2.5]
 plt.plot(FeHd['x'], FeHd['y'], color='k')
 
 CH4 = pd.DataFrame()
 CH4['x'] = [1.67, 1.75]
-CH4['y'] = [2.8, 2.8]
+CH4['y'] = [2.7, 2.7]
 plt.plot(CH4['x'], CH4['y'], color='k')
-ax1.text(0.74, 0.81, 'CH$_\mathrm{4}$', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.74, 0.785, 'CH$_\mathrm{4}$', transform=ax1.transAxes, color='k', fontsize=15)
 CH4d = pd.DataFrame()
 CH4d['x'] = [1.67, 1.67]
-CH4d['y'] = [2.6, 2.8]
+CH4d['y'] = [2.5, 2.7]
 plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.savefig('Plots/HbandTeff.png')
