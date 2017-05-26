@@ -7,17 +7,17 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_1256_phot = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff0223-5815 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_young_phot = pd.read_csv('Data/teff0223-5815 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
+df_young_phot = pd.read_csv('Data/teff2000-7523 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_field = pd.read_csv('Data/0036+1821 (L3.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_field_phot = pd.read_csv('Data/0036+1821 (L3.5) phot.txt', sep=" ", comment='#', header=None,
+df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
 
@@ -42,11 +42,11 @@ ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=70)
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='blue', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
-plt.xlim([0.33, 36])
-plt.ylim([6*10**(-20), 1.2*10**(-14)])
+plt.xlim([0.33, 16])
+plt.ylim([6*10**(-19), 4*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
-ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35, 0.6, 2, 3, 34]))
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35, 0.6, 2, 3, 16]))
 ax1.tick_params(axis='x', which='major', labelsize=20)
 ax1.tick_params(axis='x', which='minor', labelsize=20)
 plt.yticks(fontsize=20)
@@ -57,21 +57,21 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
 # Old
-ax1.text(0.2, 0.4, '1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.2, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.2, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.2, 0.25, 'T$_\mathrm{eff}:1887\pm 95$ K', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.23, 0.4, '1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.23, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.23, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.23, 0.25, 'T$_\mathrm{eff}:2344\pm 314$ K', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
-ax1.text(0.54, 0.2, '0036+1821', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.54, 0.15, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.54, 0.1, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.54, 0.05, 'T$_\mathrm{eff}:1868\pm 65$ K', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.62, 0.2, '0024-0158', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.62, 0.15, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.62, 0.1, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.62, 0.05, 'T$_\mathrm{eff}:2385\pm 77$ K', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 
 # Young
-ax1.text(0.6, 0.95, '0223-5815', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.9, 'Age: 10 - 40 Myr (Tuc-Hor)', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.95, '2000-7523', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.9, 'Age: 12 - 22 Myr', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:1772\pm 91$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2365\pm 74$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.savefig('Plots/comparison_Teff.png')
