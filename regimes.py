@@ -9,9 +9,9 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                  names=["w", "f", "err"])
-df2 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df2 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 # header=1 skips the 2MASS H which is ok here but not other times, use stuff above
 
 
@@ -52,7 +52,7 @@ ax1.scatter(df2['w'][6], df2['f'][6],  c='#7a0177', s=150)  # WISE_W2
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.59, 4.8])
-plt.ylim([2*10**(-19), 10**(-14)])
+plt.ylim([5*10**(-19), 3*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.6, 2, 3, 4]))
