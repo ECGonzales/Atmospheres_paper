@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Lbol ----------------------------------
-df_young = pd.read_csv('Data/lbol1424+0917 (L4) SED.txt', sep=" ", comment='#', header=None,
+df_young = pd.read_csv('Data/lbol0223-5815 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_field = pd.read_csv('Data/0501-0010 (L4gamma) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/lbol1048-3956 (M9) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 # -------- Remove lines from when trimming with SEDkit for 1256
 df_1256j = df_1256[(df_1256['w'] >= 1.15311) & (df_1256['w'] <= 1.34807)]
@@ -50,22 +50,22 @@ plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
 # -------- Add data -----------
 ax1.plot(df_1256j['w'], norm_df_1256, c='blue')
 ax1.plot(df_field['w'], norm_df_field + 1, c='#7C7D70')
-ax1.plot(df_young['w'], norm_df_young + 1.5, c='#D01810')
+ax1.plot(df_young['w'], norm_df_young + 1.6, c='#D01810')
 
 # ------- Label Features --------------------------
 NaI = pd.DataFrame()
 NaI['x'] = [1.13656, 1.14269]
-NaI['y'] = [1.25, 1.25]
+NaI['y'] = [1.3, 1.3]
 plt.plot(NaI['x'], NaI['y'], color='k')
-ax1.text(0.0625, 0.3, 'NaI', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.0625, 0.32, 'NaI', transform=ax1.transAxes, color='k', fontsize=15)
 # ----- Making each of the vertical lines on each end --------
 NaId = pd.DataFrame()
 NaId['x'] = [1.13656, 1.13656]
-NaId['y'] = [1.25, 1.35]
+NaId['y'] = [1.3, 1.4]
 plt.plot(NaId['x'], NaId['y'], color='k')
 NaId2 = pd.DataFrame()
 NaId2['x'] = [1.14269, 1.14269]
-NaId2['y'] = [1.25, 1.35]
+NaId2['y'] = [1.3, 1.4]
 plt.plot(NaId2['x'], NaId2['y'], color='k')
 
 KI1 = pd.DataFrame()
@@ -109,12 +109,12 @@ plt.plot(KI2up2['x'], KI2up2['y'], color='k')
 
 H2O = pd.DataFrame()
 H2O['x'] = [1.32, 1.35]
-H2O['y'] = [2.85, 2.85]
+H2O['y'] = [2.95, 2.95]
 plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.text(0.9, 0.825, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.9, 0.855, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
 H2Od = pd.DataFrame()
 H2Od['x'] = [1.32, 1.32]
-H2Od['y'] = [2.7, 2.85]
+H2Od['y'] = [2.8, 2.95]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
 plt.savefig('Plots/JbandLbol.png')

@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Lbol ----------------------------------
-df_young = pd.read_csv('Data/lbol1424+0917 (L4) SED.txt', sep=" ", comment='#', header=None,
+df_young = pd.read_csv('Data/lbol0223-5815 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_field = pd.read_csv('Data/0501-0010 (L4gamma) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/lbol1048-3956 (M9) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 # -------- Remove lines from when trimming with SEDkit for 1256
 df_1256k = df_1256[(df_1256['w'] >= 2.051515)]
@@ -49,8 +49,8 @@ plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_1256k['w'], norm_df_1256, c='blue')
-ax1.plot(df_field['w'], norm_df_field + 1.3, c='#7C7D70')
-ax1.plot(df_young['w'], norm_df_young + 1.8, c='#D01810')
+ax1.plot(df_field['w'], norm_df_field + 1.2, c='#7C7D70')
+ax1.plot(df_young['w'], norm_df_young + 1.7, c='#D01810')
 
 # ------- Label Features --------------------------
 H2O = pd.DataFrame()

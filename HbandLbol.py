@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Lbol ----------------------------------
-df_young = pd.read_csv('Data/lbol1424+0917 (L4) SED.txt', sep=" ", comment='#', header=None,
+df_young = pd.read_csv('Data/lbol0223-5815 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_field = pd.read_csv('Data/0501-0010 (L4gamma) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/lbol1048-3956 (M9) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 # -------- Remove lines from when trimming with SEDkit for 1256
 df_1256h = df_1256[(df_1256['w'] >= 1.49786) & (df_1256['w'] <= 1.79593)]
@@ -50,27 +50,27 @@ plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
 # -------- Add data -----------
 ax1.plot(df_1256h['w'], norm_df_1256, c='blue')
 ax1.plot(df_field['w'], norm_df_field + 0.5, c='#7C7D70')
-ax1.plot(df_young['w'], norm_df_young + 1.5, c='#D01810')
+ax1.plot(df_young['w'], norm_df_young + 1, c='#D01810')
 
 # ------- Label Features --------------------------
 FeH = pd.DataFrame()
 FeH['x'] = [1.581, 1.66]
-FeH['y'] = [3.1, 3.1]
+FeH['y'] = [2.6, 2.6]
 plt.plot(FeH['x'], FeH['y'], color='k')
-ax1.text(0.5, 0.895, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.5, 0.75, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
 FeHd = pd.DataFrame()
 FeHd['x'] = [1.581, 1.581]
-FeHd['y'] = [3.0, 3.1]
+FeHd['y'] = [2.45, 2.6]
 plt.plot(FeHd['x'], FeHd['y'], color='k')
 
 CH4 = pd.DataFrame()
 CH4['x'] = [1.67, 1.75]
-CH4['y'] = [3.3, 3.3]
+CH4['y'] = [2.75, 2.75]
 plt.plot(CH4['x'], CH4['y'], color='k')
-ax1.text(0.74, 0.955, 'CH$_\mathrm{4}$', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.74, 0.8, 'CH$_\mathrm{4}$', transform=ax1.transAxes, color='k', fontsize=15)
 CH4d = pd.DataFrame()
 CH4d['x'] = [1.67, 1.67]
-CH4d['y'] = [3.1, 3.3]
+CH4d['y'] = [2.6, 2.75]
 plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.savefig('Plots/HbandLbol.png')
