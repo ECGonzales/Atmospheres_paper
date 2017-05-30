@@ -72,6 +72,6 @@ ax1.text(0.62, 0.05, 'T$_\mathrm{eff}:2385\pm 77$ K', transform=ax1.transAxes, c
 ax1.text(0.6, 0.95, '2000-7523', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.9, 'Age: 12 - 22 Myr', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2365\pm 74$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2363\pm 74$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.savefig('Plots/comparison_Teff.png')
