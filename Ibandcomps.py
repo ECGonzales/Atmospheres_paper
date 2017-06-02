@@ -109,8 +109,8 @@ plt.savefig('Plots/IbandLbol.png')
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read all in as pandas dataframes
-df_1256 = pd.read_csv('Data/FIRE_rereduced1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-names=["w", "f", "err"])
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
 # -------------- Comparison objects of the same Teff ----------------------------------
 
 df_field = pd.read_csv('Data/NotUsingAsCompariosn/0036+1821 (L3.5) SED.txt', sep=" ", comment='#', header=None,
@@ -144,6 +144,6 @@ plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_1256['w'], norm_df_1256, c='blue')
-ax1.plot(df_field['w'], norm_df_field + 0.6, c='#7C7D70')
+ax1.plot(df_field['w'], norm_df_field - 1, c='#7C7D70')
 
 plt.savefig('Plots/Ibandsamespectraltype.png')
