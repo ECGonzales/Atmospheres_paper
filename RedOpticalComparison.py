@@ -40,7 +40,7 @@ norm_df_fieldspt = df_fieldspt['f']/(np.average(norm_region4['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.60, 0.90])
 plt.ylim([-0.01, 58])
@@ -65,9 +65,13 @@ plt.plot(divide['x'], divide['y'], color='k', linestyle='dashed')
 
 
 # -------- Label the Objects ---------
-ax1.text(0.01, 0.05, '0036+1821  L3.5', transform=ax1.transAxes, color='k', fontsize=15)
-ax1.text(0.01, 0.35, '1256-0024  sdL3.5', transform=ax1.transAxes, color='k', fontsize=15)
-ax1.text(0.01, 0.58, '0024-0158  M9', transform=ax1.transAxes, color='k', fontsize=15)
-ax1.text(0.01, 0.82, '2000-7523  M9$\gamma$', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.1, '0036+1821  (L3.5)', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.05, 'Teff: 1868 $\pm$ 68 K ', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.4, '1256-0024  (sdL3.5)', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.35, 'Teff: 2344 $\pm$ 314 K', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.63, '0024-0158  (M9)', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.58, 'Teff: 2385 $\pm$ 77 K', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.87, '2000-7523  (M9$\gamma$)', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.82, 'Teff: 2363 $\pm$ 74 K', transform=ax1.transAxes, color='k', fontsize=15)
 
 plt.savefig('Plots/RedOpticalComparison.png')
