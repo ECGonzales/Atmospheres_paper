@@ -27,7 +27,7 @@ df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comme
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)  # to make sure proper size run entire code at once and change 8 to 6.45 to
+fig.set_size_inches(10, 6.45)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # match other plots on github (the size will change if done in pieces
 
 # -------- Add data -----------
@@ -70,7 +70,8 @@ ax1.text(0.62, 0.05, 'T$_\mathrm{eff}:2385\pm 77$ K', transform=ax1.transAxes, c
 
 # Young
 ax1.text(0.6, 0.95, '2000-7523', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.9, 'Age: 12 - 22 Myr', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.9, r'Age: 12 - 22 Myr ($\beta$ Pictoris)', transform=ax1.transAxes, color='#D01810', fontsize=15)
+# r is to deal with \a or \b as being special python characters
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2363\pm 74$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
