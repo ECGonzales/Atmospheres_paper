@@ -5,10 +5,10 @@ SSSPMJ1013-1356         sdM9.5      -       20.28  1.96                         
 **SSSPMJ1256-1408**     sdM8.0      -       18.76  1.85                                                                   14.00 0.00 13.61 0.00 13.44 0.00                                             SD   72          1356
 2MASSJ12563716-0224522  sdL3.5      -       11.10  2.88                                                                   16.06 0.10 15.81 0.15 15.42 0.50                                             SD   99, 100, 72 1357
 HD114762B               sdM9.0      sdM9.0  25.87  0.76   not seeing schi09??                                             13.93 0.10 13.47 0.10 12.96 0.10                                             SD   71,72,88*   1359
-LSRJ1425+7102           sdM8.0      -       12.19  1.07                                                                   14.79 0.01 14.40 0.01 14.23 0.01                                             SD   72,64       1372
+LSRJ1425+7102           sdM8.0      -       12.19  1.07   Dahn08: 13.37 0.51                                              14.79 0.01 14.40 0.01 14.23 0.01                                             SD   72,64       1372
 LHS377                  sdM7.0      -       28.40  0.70     not seeing in Schi09                                          13.15 0.03 12.73 0.03 12.46 0.03                                             SD   85*,72      1452
 SSSPMJ1444-2019         sdM9.0      -       61.67  2.12                                                                   12.56 0.01 12.14 0.00 11.93 0.00                                             SD   72,64       1454
-LSRJ1610-0040           sdM7.0      -       33.10  1.32                                                                   12.82 0.01 12.31 0.00 11.98 0.00                                             SD   72,64, 72   1591/1592
+LSRJ1610-0040           sdM7.0      -       33.10  1.32   Koren16:  30.73 0.34                                            12.82 0.01 12.31 0.00 11.98 0.00                                             SD   72,64, 72   1591/1592 astrometric binary
 2MASSJ16262034+3925190  sdL4.0      -       29.85  1.08                                                                   14.44 0.03 14.52 0.05 14.46 0.07                                             SD   41,64, 72   1468
 LSRJ2036+5059           sdM7.5      -       21.60  1.26                                                                   13.59 0.01 13.23 0.00 12.95 0.02                                             SD   72,64       1490
 
@@ -35,4 +35,33 @@ HD114762B == 1312+1731  Pi 71:(24.65,1.44)
 
 In Schi09 and NOT in this list
 2MASS 0937+29 (maybe a subd)
+ Don't need
+FROM Lodi17 https://www.aanda.org/articles/aa/pdf/2017/02/aa29410-16.pdf
+spt     dist        J       name    ref
+sdM4.0 56.6 ± 2.6 13.052 LP 869-24 12          LHS3480
+sdM4.5 20.0 ± 0.5 10.967 LP 141-1 2, 3         LHS3409
+sdM5.0 30.0 ± 1.8 12.820 LP 803-27 12
+sdM6.0 85.7 ± 17.1 14.684 LHS 1074 8,7
+sdM6.5 81.0 ± 8.0 14.259 LHS 1166 12
+sdM7.0 35.2 ± 0.8 13.194 LP 440-52 12
+sdM7.5 46.5 ± 2.8 13.611 LSR J2036+5059 4, 9
+esdM5.0 53.5 ± 11.0 13.639 LHS 515 12
+esdM5.5 75.2 ± 6.7 14.641 LP 417-42 2, 12
+esdM6.0 73.9 ± 14.8 14.907 LHS 2023 7
+esdM6.5 106 ± – 15.717 LSR J0822+1700 5
+esdM7.0 70 ± – 14.887 APMPM J0559−2903 11
 
+Notes. The numbers in the references correspond to the following
+papers: 1 = Burgasser et al. (2008); 2 = Gizis (1997); 3 =
+Gliese & Jahreiss (1995); 4 = Lépine et al. (2002); 5 = Lépine et al.
+(2003d); 6 = Lépine et al. (2003a); 7 = Riaz et al. (2008); 8 =
+Salim & Gould (2003); 9 = Schilbach et al. (2009); 10 = Scholz et al.
+(2004a); 11 = Schweitzer et al. (1999); 12 = van Altena et al. (1995).
+
+
+
+data=list()
+data.append(['source_id','band', 'magnitude', 'magnitude_unc', 'publication_shortname'])
+data.append(['1356','2MASS_J', '14.011', '0.027', 'Cutr03'])
+data.append(['1356','2MASS_H', '13.618', '0.033', 'Cutr03'])
+data.append(['1356','2MASS_Ks', '13.444', '0.037', 'Cutr03'])
