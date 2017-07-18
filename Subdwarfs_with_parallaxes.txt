@@ -59,9 +59,3 @@ Salim & Gould (2003); 9 = Schilbach et al. (2009); 10 = Scholz et al.
 (2004a); 11 = Schweitzer et al. (1999); 12 = van Altena et al. (1995).
 
 
-
-data=list()
-data.append(['source_id','band', 'magnitude', 'magnitude_unc', 'publication_shortname'])
-data.append(['1356','2MASS_J', '14.011', '0.027', 'Cutr03'])
-data.append(['1356','2MASS_H', '13.618', '0.033', 'Cutr03'])
-data.append(['1356','2MASS_Ks', '13.444', '0.037', 'Cutr03'])

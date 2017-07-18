@@ -1,21 +1,21 @@
-Object						Regime	Instrument	Telescope   Obs date(y-m-d) Contact                              REF
-2MASSJ05325346+8246465		OPT		LRIS        Keck I 10m  2003-01-03      Burgasser aburgasser@ucsd.edu        Burg03c -
-							NIR     NIRSPEC     Keck II 10m 2002-12-24      Burgasser                            Burg03c -
-2MASSJ06164006-6407194      NIR     OSIRIS      SOAR        2007-03-12      Cushing  michael.cushing@utoldeo.edu Cush09 -
-SSSPMJ1013-1356             OPT     EMMI        NTT 3.5m    2003-05-2/4     Scholz04      rdscholz@aip.de        Scho04a-
-                     OR     OPT     GMOS                    2004-11-21      Burgasser07                          Burg07a -
-                            OPT     LDSS3                   2006-05-08      Burgasser07                          Burg07a -
+Object						Regime	Instrument	Telescope   Obs date(y-m-d) Contact                              REF    E  Received
+2MASSJ05325346+8246465		OPT		LRIS        Keck I 10m  2003-01-03      Burgasser aburgasser@ucsd.edu        Burg03c - -
+							NIR     NIRSPEC     Keck II 10m 2002-12-24      Burgasser                            Burg03c - -
+2MASSJ06164006-6407194      NIR     OSIRIS      SOAR        2007-03-12      Cushing  michael.cushing@utoldeo.edu Cush09 - -
+SSSPMJ1013-1356             OPT     EMMI        NTT 3.5m    2003-05-2/4     Scholz04      rdscholz@aip.de        Scho04a- -
+                     OR     OPT     GMOS                    2004-11-21      Burgasser07                          Burg07a - -
+                            OPT     LDSS3                   2006-05-08      Burgasser07                          Burg07a - -
 SSSPMJ1256-1408             OPT     ******No spectra of this object*****
                             NIR
 HD114762B                   OPT ***NONE***
 LSRJ1425+7102               OPT     RC          Kitt Peak    2002-05-19     Lepine  slepine@astro.gsu.edu        Lepi03b -
                             NIR ***NONE***
-LHS377                      NIR     X-Shooter   VLT         Oct14-Mar15     Rajpurohit  2016  arvindr@prl.res.in        -
-SSSPMJ1444-2019             OPT     EFOSC2      ESO 3.6m    2004-03-16      Scholz                               Scho04c -
+LHS377                      NIR     X-Shooter   VLT         Oct14-Mar15     Rajpurohit  2016  arvindr@prl.res.in        - -
+SSSPMJ1444-2019             OPT     EFOSC2      ESO 3.6m    2004-03-16      Scholz                               Scho04c - -
 LSRJ1610-0040               OPT     MkII        MDM 2.4m    2003-02-19      Lepine                              Lepi03c  -
-                            NIR   Spex SXD LXD  IRTF        2003-07-06      Cushing        2006AJ....131.1797C  Cush06add -
+                            NIR   Spex SXD LXD  IRTF        2003-07-06      Cushing        2006AJ....131.1797C  Cush06add - -
 LSRJ2036+5059               OPT   KAST          Lick 3m     2001-12-09      Lepine                               Lepi03a -
-                            NIR *****NONE*******
+                            NIR  Spex SXD       IRTF        2003-10-06      Cushing       2006AJ....131.1797C  Cush06add - -
 
 
 
