@@ -201,7 +201,7 @@ norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
+fig.set_size_inches(11.71, 7.43)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 # -------- Add data -----------
 ax1.loglog(df_0532['w'], norm_df_0532, c='indigo')  # sdL7 1647
