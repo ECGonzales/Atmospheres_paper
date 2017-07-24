@@ -285,3 +285,59 @@ ax1.legend(handles=[spec_0532, spec_0616, spec_1626, spec_1444, spec_1256, spec_
                     spec_HD, spec_2036, spec_125614])
 
 plt.savefig('Plots/Subdwarfs_normalized.png')  # Problem for 1425 because have no NIR yet
+
+# Red Optical
+# ----- Set axes limits, reformat ticks -----------
+plt.xlim([0.6, 0.9])
+plt.ylim([-0.08, 1])
+ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.yaxis.set_major_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.6,0.7,0.8, 0.9]))
+ax1.tick_params(axis='x', which='major', labelsize=20)
+ax1.tick_params(axis='x', which='minor', labelsize=20)
+plt.yticks(fontsize=20)
+
+plt.savefig('Plots/Subdwarfs_redoptical.png')
+
+# J
+# ----- Set axes limits, reformat ticks -----------
+plt.xlim([1.10, 1.35])
+plt.ylim([0.035, 2.5])
+ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.yaxis.set_major_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_locator(plt.FixedLocator([1.10, 1.15, 1.20, 1.25, 1.30, 1.35]))
+ax1.tick_params(axis='x', which='major', labelsize=20)
+ax1.tick_params(axis='x', which='minor', labelsize=20)
+plt.yticks(fontsize=20)
+
+plt.savefig('Plots/Subdwarfs_Jband.png')
+
+# H
+# ----- Set axes limits, reformat ticks -----------
+plt.xlim([1.42, 1.80])
+plt.ylim([0.025, 1.5])
+ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.yaxis.set_major_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_locator(plt.FixedLocator([1.42, 1.45, 1.50, 1.55, 1.60, 1.65, 1.70, 1.75, 1.80]))
+ax1.tick_params(axis='x', which='major', labelsize=20)
+ax1.tick_params(axis='x', which='minor', labelsize=20)
+plt.yticks(fontsize=20)
+
+plt.savefig('Plots/Subdwarfs_Hband.png')
+
+# K
+# ----- Set axes limits, reformat ticks -----------
+plt.xlim([2, 2.35])
+plt.ylim([0.01, 1])
+ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.yaxis.set_major_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_formatter(ScalarFormatter())
+ax1.xaxis.set_minor_locator(plt.FixedLocator([2, 2.10, 2.15, 2.20, 2.25, 2.30, 2.35]))
+ax1.tick_params(axis='x', which='major', labelsize=20)
+ax1.tick_params(axis='x', which='minor', labelsize=20)
+plt.yticks(fontsize=20)
+
+plt.savefig('Plots/Subdwarfs_Kband.png')
