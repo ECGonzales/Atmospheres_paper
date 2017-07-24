@@ -172,7 +172,7 @@ norm_region_1013 = df_1013[(df_1013['w'] >= 0.98) & (df_1013['w'] <= 0.988)]
 df_1013_phot['f'] = df_1013_phot['f']/(np.average(norm_region_1013['f']))
 norm_df_1013 = df_1013['f']/(np.average(norm_region_1013['f']))
 
-norm_region_LHS = df_LHS[(df_0532['w'] >= 0.98) & (df_LHS['w'] <= 0.988)]
+norm_region_LHS = df_LHS[(df_LHS['w'] >= 0.98) & (df_LHS['w'] <= 0.988)]
 df_LHS_phot['f'] = df_LHS_phot['f']/(np.average(norm_region_LHS['f']))
 norm_df_LHS = df_LHS['f']/(np.average(norm_region_LHS['f']))
 
@@ -254,8 +254,9 @@ ax1.scatter(df_2036_phot['w'], df_2036_phot['f'], c='#F7BE0F', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.33, 15])
-plt.ylim([3*10**(-5), 40])
+plt.ylim([3*10**(-5), 2.5])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
+ax1.yaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35, 0.6, 2, 3]))
 ax1.tick_params(axis='x', which='major', labelsize=20)
