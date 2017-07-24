@@ -36,8 +36,8 @@ df_1425_phot = pd.read_csv('Data/1425+7102 (M8sd) phot.txt', sep=" ", comment='#
 df_LHS = pd.read_csv('Data/1439+1839 (M7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_LHS_phot = pd.read_csv('Data/1439+1839 (M7sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
-df_1444 = pd.read_csv('Data/1444-2019 (M9sd) SED.txt', sep=" ", comment='#', header=None,names=["w", "f", "err"])
-df_1444_phot = pd.read_csv('Data/1444-2019 (M9sd) phot.txt', sep=" ", comment='#', header=None,names=["w", "f", "err"])
+df_1444 = pd.read_csv('Data/1444-2019 (M9sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_1444_phot = pd.read_csv('Data/1444-2019 (M9sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 df_1610 = pd.read_csv('Data/1610-0040 (M7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_1610_phot = pd.read_csv('Data/1610-0040 (M7sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
@@ -127,7 +127,7 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 
-#Label Sources
+# Label Sources
 spec_0532 = mpatches.Patch(color='indigo', label='0532+8246')
 spec_0616 = mpatches.Patch(color='darkviolet', label='0616-6407')
 spec_1626 = mpatches.Patch(color='#531CF7', label='1626+3925')
@@ -148,51 +148,51 @@ plt.savefig('Plots/Subdwarfs_nonnormalized.png')
 # -------------------------------------------------------------------------------------
 # --------- Normalize to 1256 and plot-------------
 # -------------------------------------------------------------------------------------
-norm_region = df_1256[(df_1256['w'] >= 0.98) &(df_1256['w'] <=0.988)]
+norm_region = df_1256[(df_1256['w'] >= 0.98) & (df_1256['w'] <= 0.988)]
 df_1256_phot['f'] = df_1256_phot['f']/(np.average(norm_region['f']))
 norm_df_1256 = df_1256['f']/(np.average(norm_region['f']))
 
-norm_region_0532 = df_0532[(df_0532['w'] >= 0.98) &(df_0532['w'] <=0.988)]
+norm_region_0532 = df_0532[(df_0532['w'] >= 0.98) & (df_0532['w'] <= 0.988)]
 df_0532_phot['f'] = df_0532_phot['f']/(np.average(norm_region_0532['f']))
 norm_df_0532 = df_0532['f']/(np.average(norm_region_0532['f']))
 
-# norm_region_0616 = df_0616[(df_0616['w'] >= 0.98) &(df_0616['w'] <=0.988)]
+# norm_region_0616 = df_0616[(df_0616['w'] >= 0.98) &(df_0616['w'] <= 0.988)]
 # df_0616_phot['f'] = df_0616_phot['f']/(np.average(norm_region_0616['f']))
 # norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
 
-norm_region_1626 = df_1626[(df_1626['w'] >= 0.98) &(df_1626['w'] <=0.988)]
+norm_region_1626 = df_1626[(df_1626['w'] >= 0.98) & (df_1626['w'] <= 0.988)]
 df_1626_phot['f'] = df_1626_phot['f']/(np.average(norm_region_1626['f']))
 norm_df_1626 = df_1626['f']/(np.average(norm_region_1626['f']))
 
-norm_region_1444 = df_1444[(df_1444['w'] >= 0.98) &(df_1444['w'] <=0.988)]
+norm_region_1444 = df_1444[(df_1444['w'] >= 0.98) & (df_1444['w'] <= 0.988)]
 df_1444_phot['f'] = df_1444_phot['f']/(np.average(norm_region_1444['f']))
 norm_df_1444 = df_1444['f']/(np.average(norm_region_1444['f']))
 
-norm_region_1013 = df_1013[(df_1013['w'] >= 0.98) &(df_1013['w'] <=0.988)]
+norm_region_1013 = df_1013[(df_1013['w'] >= 0.98) & (df_1013['w'] <= 0.988)]
 df_1013_phot['f'] = df_1013_phot['f']/(np.average(norm_region_1013['f']))
 norm_df_1013 = df_1013['f']/(np.average(norm_region_1013['f']))
 
-norm_region_LHS = df_LHS[(df_0532['w'] >= 0.98) &(df_LHS['w'] <=0.988)]
+norm_region_LHS = df_LHS[(df_0532['w'] >= 0.98) & (df_LHS['w'] <= 0.988)]
 df_LHS_phot['f'] = df_LHS_phot['f']/(np.average(norm_region_LHS['f']))
 norm_df_LHS = df_LHS['f']/(np.average(norm_region_LHS['f']))
 
-norm_region_1425 = df_1425[(df_1425['w'] >= 0.98) & (df_1425['w'] <=0.988)]
+norm_region_1425 = df_1425[(df_1425['w'] >= 0.98) & (df_1425['w'] <= 0.988)]
 df_1425_phot['f'] = df_1425_phot['f']/(np.average(norm_region_1425['f']))
 norm_df_1425 = df_1425['f']/(np.average(norm_region_1425['f']))
 
-norm_region_1610 = df_1610[(df_1610['w'] >= 0.98) &(df_1610['w'] <=0.988)]
+norm_region_1610 = df_1610[(df_1610['w'] >= 0.98) & (df_1610['w'] <= 0.988)]
 df_1610_phot['f'] = df_1610_phot['f']/(np.average(norm_region_1610['f']))
 norm_df_1610 = df_1610['f']/(np.average(norm_region_1610['f']))
 
-norm_region_HD = df_HD[(df_HD['w'] >= 0.98) &(df_HD['w'] <=0.988)]
+norm_region_HD = df_HD[(df_HD['w'] >= 0.98) & (df_HD['w'] <= 0.988)]
 df_HD_phot['f'] = df_HD_phot['f']/(np.average(norm_region_HD['f']))
 norm_df_HD = df_HD['f']/(np.average(norm_region_HD['f']))
 
-norm_region_2036 = df_2036[(df_2036['w'] >= 0.98) &(df_2036['w'] <=0.988)]
+norm_region_2036 = df_2036[(df_2036['w'] >= 0.98) & (df_2036['w'] <= 0.988)]
 df_2036_phot['f'] = df_2036_phot['f']/(np.average(norm_region_2036['f']))
 norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 
-# norm_region_125614 = df_0532[(df_0532['w'] >= 0.98) &(df_0532['w'] <=0.988)]
+# norm_region_125614 = df_0532[(df_0532['w'] >= 0.98) & (df_0532['w'] <=0.988)]
 # df_0532_phot['f'] = df_0532_phot['f']/(np.average(norm_region_0532['f']))
 # norm_df_0532 = df_0532['f']/(np.average(norm_region_0532['f']))
 # -------------------------------------------------------------------------------------
@@ -254,7 +254,7 @@ ax1.scatter(df_2036_phot['w'], df_2036_phot['f'], c='#F7BE0F', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.33, 15])
-plt.ylim([3*10**(-5), 4*10**(1)])
+plt.ylim([3*10**(-5), 40])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.35, 0.6, 2, 3]))
@@ -267,7 +267,7 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 
-#Label Sources
+# Label Sources
 spec_0532 = mpatches.Patch(color='indigo', label='0532+8246')
 spec_0616 = mpatches.Patch(color='darkviolet', label='0616-6407')
 spec_1626 = mpatches.Patch(color='#531CF7', label='1626+3925')
@@ -283,4 +283,4 @@ spec_125614 = mpatches.Patch(color='#C56201', label='1256-1408')
 ax1.legend(handles=[spec_0532, spec_0616, spec_1626, spec_1444, spec_1256, spec_1013, spec_LHS, spec_1425, spec_1610,
                     spec_HD, spec_2036, spec_125614])
 
-plt.savefig('Plots/Subdwarfs_normalized.png') # Problem for 1425 because have no NIR yet
+plt.savefig('Plots/Subdwarfs_normalized.png')  # Problem for 1425 because have no NIR yet
