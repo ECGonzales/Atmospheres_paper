@@ -79,7 +79,7 @@ norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
+fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.95, 1.10])
 plt.ylim([0, 9.5])
