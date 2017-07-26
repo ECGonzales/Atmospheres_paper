@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
-import numpy as np
 import matplotlib.patches as mpatches
 
 # ------------------------------------------------------------------------------------
@@ -17,10 +16,8 @@ df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ",
 df_0532 = pd.read_csv('Data/0532+8246 (L7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_0532_phot = pd.read_csv('Data/0532+8246 (L7sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
-# df_0616 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-#                       names=["w", "f", "err"])
-# df_0616_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-#                       names=["w", "f", "err"])
+df_0616 = pd.read_csv('Data/0616-6407 (L5sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_0616_phot = pd.read_csv('Data/0616-6407 (L5sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 df_1013 = pd.read_csv('Data/1013-1356 (-) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_1013_phot = pd.read_csv('Data/1013-1356 (-) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
@@ -64,23 +61,23 @@ fig.set_size_inches(11.71, 7.43)   # to make sure proper size run entire code at
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 
 # -------- Add data -----------
-ax1.loglog(df_0532['w'], df_0532['f'], c='indigo')  # sdL7 1647
+ax1.loglog(df_0532['w'], df_0532['f'], c='indigo')                                 # sdL7 1647
 ax1.scatter(df_0532_phot['w'], df_0532_phot['f'], c='k', s=70)
 ax1.scatter(df_0532_phot['w'], df_0532_phot['f'], c='indigo', s=50)
 
-# ax1.loglog(df_0616['w'], df_0616['f'], c='darkviolet')                             # sdL5 ???
-# ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='k', s=70)
-# ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='darkviolet', s=50)
+ax1.loglog(df_0616['w'], df_0616['f'], c='darkviolet')                             # sdL5 1668
+ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='k', s=70)
+ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='darkviolet', s=50)
 
-ax1.loglog(df_1626['w'], df_1626['f'], c='#531CF7')                               # sdL4 2158
+ax1.loglog(df_1626['w'], df_1626['f'], c='#531CF7')                                # sdL4 2158
 ax1.scatter(df_1626_phot['w'], df_1626_phot['f'], c='k', s=70)
 ax1.scatter(df_1626_phot['w'], df_1626_phot['f'], c='#531CF7', s=50)
 
-ax1.loglog(df_1444['w'], df_1444['f'], c='mediumblue')                               # sdM9 2303
+ax1.loglog(df_1444['w'], df_1444['f'], c='mediumblue')                             # sdM9 2303
 ax1.scatter(df_1444_phot['w'], df_1444_phot['f'], c='k', s=70)
 ax1.scatter(df_1444_phot['w'], df_1444_phot['f'], c='mediumblue', s=50)
 
-ax1.loglog(df_1256['w'], df_1256['f'], c='k')                               # sdL3.5  2338
+ax1.loglog(df_1256['w'], df_1256['f'], c='k')                                      # sdL3.5  2338
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=70)
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=50)
 

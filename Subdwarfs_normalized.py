@@ -17,10 +17,8 @@ df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ",
 df_0532 = pd.read_csv('Data/0532+8246 (L7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_0532_phot = pd.read_csv('Data/0532+8246 (L7sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
-# df_0616 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-#                       names=["w", "f", "err"])
-# df_0616_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-#                       names=["w", "f", "err"])
+df_0616 = pd.read_csv('Data/0616-6407 (L5sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_0616_phot = pd.read_csv('Data/0616-6407 (L5sd) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 
 df_1013 = pd.read_csv('Data/1013-1356 (-) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_1013_phot = pd.read_csv('Data/1013-1356 (-) phot.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
@@ -65,9 +63,9 @@ norm_region_0532 = df_0532[(df_0532['w'] >= 0.98) & (df_0532['w'] <= 0.988)]
 df_0532_phot['f'] = df_0532_phot['f']/(np.average(norm_region_0532['f']))
 norm_df_0532 = df_0532['f']/(np.average(norm_region_0532['f']))
 
-# norm_region_0616 = df_0616[(df_0616['w'] >= 0.98) &(df_0616['w'] <= 0.988)]
-# df_0616_phot['f'] = df_0616_phot['f']/(np.average(norm_region_0616['f']))
-# norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
+norm_region_0616 = df_0616[(df_0616['w'] >= 0.98) & (df_0616['w'] <= 0.988)]
+df_0616_phot['f'] = df_0616_phot['f']/(np.average(norm_region_0616['f']))
+norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
 
 norm_region_1626 = df_1626[(df_1626['w'] >= 0.98) & (df_1626['w'] <= 0.988)]
 df_1626_phot['f'] = df_1626_phot['f']/(np.average(norm_region_1626['f']))
@@ -119,9 +117,9 @@ ax1.loglog(df_0532['w'], norm_df_0532, c='indigo')  # sdL7 1647
 ax1.scatter(df_0532_phot['w'], df_0532_phot['f'], c='k', s=70)
 ax1.scatter(df_0532_phot['w'], df_0532_phot['f'], c='indigo', s=50)
 
-# ax1.loglog(df_0616['w'], df_0616['f'], c='darkviolet')                             # sdL5 ???
-# ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='k', s=70)
-# ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='darkviolet', s=50)
+ax1.loglog(df_0616['w'], norm_df_0616, c='darkviolet')                             # sdL5 ???
+ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='k', s=70)
+ax1.scatter(df_0616_phot['w'], df_0616_phot['f'], c='darkviolet', s=50)
 
 ax1.loglog(df_1626['w'], norm_df_1626, c='#531CF7')                               # sdL4 2158
 ax1.scatter(df_1626_phot['w'], df_1626_phot['f'], c='k', s=70)
