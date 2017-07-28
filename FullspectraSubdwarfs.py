@@ -29,46 +29,41 @@ df_2036 = pd.read_csv('Data/2036+5059 (M7.5sd) SED.txt', sep=" ", comment='#', h
 # -------------------------------------------------------------------------------------
 df_HD = df_HD[(df_HD['w'] > 0.91) & (df_HD['w'] <= 3)]
 
-# -------- Remove lines from when trimming with SEDkit for 1256
-df_1256 = df_1256[(df_1256['w'] >= 1.15311) & (df_1256['w'] <= 1.34807)]
-df_0532 = df_0532[(df_0532['w'] >= 1.15) & (df_0532['w'] <= 1.35)]
-df_0616 = df_0616[(df_0616['w'] >= 1.262)]
-
 # -------------------------------------------------------------------------------------
 # --------- Normalize the spectra to same as before for 1256 --------------------------
 # -------------------------------------------------------------------------------------
 # Determine region good for all spectra to take the average flux over
-norm_region = df_1256[(df_1256['w'] >= 1.29) & (df_1256['w'] <= 1.31)]
+norm_region = df_1256[(df_1256['w'] >= 0.98) & (df_1256['w'] <= 0.988)]
 norm_df_1256 = df_1256['f']/(np.average(norm_region['f']))
 
-norm_region_0532 = df_0532[(df_0532['w'] >= 1.29) & (df_0532['w'] <= 1.31)]
+norm_region_0532 = df_0532[(df_0532['w'] >= 0.98) & (df_0532['w'] <= 0.988)]
 norm_df_0532 = df_0532['f']/(np.average(norm_region_0532['f']))
 
-norm_region_0616 = df_0616[(df_0616['w'] >= 1.29) & (df_0616['w'] <= 1.31)]
+norm_region_0616 = df_0616[(df_0616['w'] >= 0.98) & (df_0616['w'] <= 0.988)]
 norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
 
-norm_region_1626 = df_1626[(df_1626['w'] >= 1.29) & (df_1626['w'] <= 1.31)]
+norm_region_1626 = df_1626[(df_1626['w'] >= 0.98) & (df_1626['w'] <= 0.988)]
 norm_df_1626 = df_1626['f']/(np.average(norm_region_1626['f']))
 
-norm_region_1444 = df_1444[(df_1444['w'] >= 1.29) & (df_1444['w'] <= 1.31)]
+norm_region_1444 = df_1444[(df_1444['w'] >= 0.98) & (df_1444['w'] <= 0.988)]
 norm_df_1444 = df_1444['f']/(np.average(norm_region_1444['f']))
 
-norm_region_1013 = df_1013[(df_1013['w'] >= 1.29) & (df_1013['w'] <= 1.31)]
+norm_region_1013 = df_1013[(df_1013['w'] >= 0.98) & (df_1013['w'] <= 0.988)]
 norm_df_1013 = df_1013['f']/(np.average(norm_region_1013['f']))
 
-norm_region_LHS = df_LHS[(df_LHS['w'] >= 1.29) & (df_LHS['w'] <= 1.31)]
+norm_region_LHS = df_LHS[(df_LHS['w'] >= 0.98) & (df_LHS['w'] <= 0.988)]
 norm_df_LHS = df_LHS['f']/(np.average(norm_region_LHS['f']))
 
-norm_region_1425 = df_1425[(df_1425['w'] >= 1.29) & (df_1425['w'] <= 1.31)]
+norm_region_1425 = df_1425[(df_1425['w'] >= 0.98) & (df_1425['w'] <= 0.988)]
 norm_df_1425 = df_1425['f']/(np.average(norm_region_1425['f']))
 
-norm_region_1610 = df_1610[(df_1610['w'] >= 1.29) & (df_1610['w'] <= 1.31)]
+norm_region_1610 = df_1610[(df_1610['w'] >= 0.98) & (df_1610['w'] <= 0.988)]
 norm_df_1610 = df_1610['f']/(np.average(norm_region_1610['f']))
 
-norm_region_HD = df_HD[(df_HD['w'] >= 1.29) & (df_HD['w'] <= 1.31)]
+norm_region_HD = df_HD[(df_HD['w'] >= 0.98) & (df_HD['w'] <= 0.988)]
 norm_df_HD = df_HD['f']/(np.average(norm_region_HD['f']))
 
-norm_region_2036 = df_2036[(df_2036['w'] >= 1.29) & (df_2036['w'] <= 1.31)]
+norm_region_2036 = df_2036[(df_2036['w'] >= 0.98) & (df_2036['w'] <= 0.988)]
 norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 
 # norm_region_125614 = df_125614[(df_125614['w'] >= 1.29) & (df_125614['w'] <= 1.31)]
@@ -82,7 +77,7 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([1.12, 1.35])
+plt.xlim([0.6, 2.35])
 plt.ylim([0, 10.5])
 
 # ------ Axes Labels --------
