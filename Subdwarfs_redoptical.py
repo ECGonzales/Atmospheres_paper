@@ -139,13 +139,13 @@ KII = pd.DataFrame()
 KII['x'] = [0.767, 0.767]
 KII['y'] = [6.7, 7]
 ax1.plot(KII['x'], KII['y'], color='k')
-ax1.text(0.54, 0.75, 'K II', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.54, 0.75, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
 
 Rb = pd.DataFrame()
 Rb['x'] = [0.795, 0.795]
-Rb['y'] = [5, 5.5]
+Rb['y'] = [5.3, 5.5]
 ax1.plot(Rb['x'], Rb['y'], color='k')
-ax1.text(0.62, 0.5, 'Rb', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.62, 0.52, 'Rb$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
 
 
 ax1.text(0.71, 0.35, 'NaI', transform=ax1.transAxes, color='k', fontsize=12)
