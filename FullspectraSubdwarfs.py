@@ -72,13 +72,15 @@ norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 # -------------------------------------------------------------------------------------
 # --------- Plotting: Comparison of in order of decreasing Teff/ Spt Type -------------
 # -------------------------------------------------------------------------------------
+
+# ------- Not enough detail if in one figure => make two ------------------
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.6, 2.35])
-plt.ylim([0, 10.5])
+plt.ylim([0, 5.15])
 
 # ------ Axes Labels --------
 plt.xticks(fontsize=20)
@@ -88,35 +90,66 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                # sdL7 1647
-ax1.plot(df_0616['w'], norm_df_0616 + 1, c='darkviolet')                          # sdL5 ???
-ax1.plot(df_1626['w'], norm_df_1626 + 2, c='#531CF7')                               # sdL4 2158
-ax1.plot(df_1444['w'], norm_df_1444 + 3, c='mediumblue')                            # sdM9 2303
-ax1.plot(df_1256['w'], norm_df_1256 + 4, c='k')                                     # sdL3.5  2338
-ax1.plot(df_1013['w'], norm_df_1013 + 5, c='#015DF7')                               # sdM9.5 2457
-ax1.plot(df_LHS['w'], norm_df_LHS + 6, c='#01A1D6')                                 # sdM7 2775
-ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                               # sdM8 2823
-ax1.plot(df_1610['w'], norm_df_1610 + 7, c='#04A57F')                               # sdM7 2852
-ax1.plot(df_HD['w'], norm_df_HD + 8, c='#09D67E')                                   # sd--IRM9 2859
-ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                               # sdM7.5 3049
-# ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
+ax1.plot(df_0616['w'], norm_df_0616 + 1, c='darkviolet')                        # sdL5 ???
+ax1.plot(df_1626['w'], norm_df_1626 + 2, c='#531CF7')                         # sdL4 2158
+ax1.plot(df_1444['w'], norm_df_1444 + 3, c='mediumblue')                        # sdM9 2303
+ax1.plot(df_1256['w'], norm_df_1256 + 4, c='k')                                 # sdL3.5  2338
+# ax1.plot(df_1013['w'], norm_df_1013 + 5, c='#015DF7')                         # sdM9.5 2457
+# ax1.plot(df_LHS['w'], norm_df_LHS + 6, c='#01A1D6')                           # sdM7 2748
+# # ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                             # sdM8 2823      only MIR spectra
+# ax1.plot(df_1610['w'], norm_df_1610 + 7, c='#04A57F')                           # sdM7 2852
+# ax1.plot(df_HD['w'], norm_df_HD + 8, c='#09D67E')                             # sd--IRM9 2859
+# ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                         # sdM7.5 3049
+# # ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
 
 # ------- Label Sources -------------
 # not alot of space to label
-# ax1.text(0, 0.04, '0532+8246 (sdL7) T$_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',
-#          fontsize=12)
-# ax1.text(0, 0.18, '1626+3925 (sdL4) T$_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7',
-#          fontsize=12)
-# ax1.text(0, 0.32, '1444-2019 (sdM9) T$_\mathrm{eff}: 2303 \pm 67$ K', transform=ax1.transAxes, color='mediumblue',
-#          fontsize=12)
-# ax1.text(0, 0.42, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2338 \pm 313$ K', transform=ax1.transAxes, color='k',
-#          fontsize=12)
-# ax1.text(0, 0.55, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
-#          fontsize=12)
-# ax1.text(0, 0.68, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2775 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6',
-#          fontsize=12)
-# ax1.text(0, 0.8, '1610-0040 (sdM7) T$_\mathrm{eff}: 2852 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
-#          fontsize=12)
-# ax1.text(0, 0.9, '2036+5059 (sdM7.5) T$_\mathrm{eff}: 3049 \pm 108$ K', transform=ax1.transAxes, color='#F7BE0F',
-#          fontsize=12)
+ax1.text(0.73, 0.14, '0532+8246 (sdL7)', transform=ax1.transAxes, color='indigo', fontsize=12)
+ax1.text(0.73, 0.1, 'T$_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',fontsize=12)
+ax1.text(0.73, 0.28, '0616-6407 (sdL5)', transform=ax1.transAxes, color='darkviolet', fontsize=12)
+ax1.text(0.73, 0.24, 'T$_\mathrm{eff}: 1668 \pm 284$ K ', transform=ax1.transAxes, color='darkviolet',fontsize=12)
+ax1.text(0.73, 0.48, '1626+3925 (sdL4)', transform=ax1.transAxes, color='#531CF7', fontsize=12)
+ax1.text(0.73, 0.44, 'T$_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7', fontsize=12)
+ax1.text(0.73, 0.7, '1444-2019 (sdM9)', transform=ax1.transAxes, color='mediumblue', fontsize=12)
+ax1.text(0.73, 0.66, 'T$_\mathrm{eff}: 2303 \pm 67$ K', transform=ax1.transAxes, color='mediumblue', fontsize=12)
+ax1.text(0.73, 0.85, '1256-0224 (sdL3.5)', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.73, 0.81, 'T$_\mathrm{eff}: 2338 \pm 313$ K', transform=ax1.transAxes, color='k', fontsize=12)
 
-plt.savefig('Plots/Subdwarfs_Jbandstack.png')
+plt.savefig('Plots/Subdwarfs_secondpannel.png')
+
+# ------ Set up figure layout --------
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
+plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+plt.xlim([0.6, 2.35])
+plt.ylim([0, 5.15])
+
+# ------ Axes Labels --------
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
+plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
+
+# -------- Add data -----------
+ax1.plot(df_1013['w'], norm_df_1013 , c='#015DF7')                         # sdM9.5 2457
+ax1.plot(df_LHS['w'], norm_df_LHS + 1, c='#01A1D6')                           # sdM7 2748
+# ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                             # sdM8 2823      only MIR spectra
+ax1.plot(df_1610['w'], norm_df_1610 + 2, c='#04A57F')                           # sdM7 2852
+ax1.plot(df_HD['w'], norm_df_HD + 3, c='#09D67E')                             # sd--IRM9 2859
+ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                         # sdM7.5 3049
+# ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
+
+# ------- Label Sources -------------
+ax1.text(0.72, 0.11, '1013-1356 (sdM9.5)', transform=ax1.transAxes, color='#015DF7', fontsize=12)
+ax1.text(0.72, 0.07, 'T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7', fontsize=12)
+ax1.text(0.72, 0.3, 'LHS 377 (sdM7)', transform=ax1.transAxes, color='#01A1D6',  fontsize=12)
+ax1.text(0.72, 0.26, 'T$_\mathrm{eff}: 2748 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6', fontsize=12)
+ax1.text(0.72, 0.54, '1610-0040 (sdM7)', transform=ax1.transAxes, color='#04A57F', fontsize=12)
+ax1.text(0.72, 0.5, 'T$_\mathrm{eff}: 2850 \pm 20$ K', transform=ax1.transAxes, color='#04A57F', fontsize=12)
+ax1.text(0.7, 0.74, 'HD114762B (d/sdM9)', transform=ax1.transAxes, color='#09D67E', fontsize=12)
+ax1.text(0.72, 0.7, 'T$_\mathrm{eff}: 2859 \pm 50$ K', transform=ax1.transAxes, color='#09D67E', fontsize=12)
+ax1.text(0.7, 0.9, '2036+5059 (sdM7.5)', transform=ax1.transAxes, color='#F7BE0F', fontsize=12)
+ax1.text(0.72, 0.86, 'T$_\mathrm{eff}: 3049 \pm 108$ K', transform=ax1.transAxes, color='#F7BE0F',fontsize=12)
+
+plt.savefig('Plots/Subdwarfs_firstpannel.png')
