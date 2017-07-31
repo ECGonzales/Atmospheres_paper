@@ -114,11 +114,52 @@ ax1.text(0, 0.48, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2338 \pm 313$ K', transfo
          fontsize=12)
 ax1.text(0, 0.6, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
-ax1.text(0, 0.72, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2824 \pm 37$ K', transform=ax1.transAxes, color='#01A1D6',
+ax1.text(0, 0.76, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2824 \pm 37$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
 ax1.text(0, 0.82, '1610-0040 (sdM7) T$_\mathrm{eff}: 2852 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
          fontsize=12)
 ax1.text(0, 0.92, '2036+5059 (sdM7.5) T$_\mathrm{eff}: 3049 \pm 108$ K', transform=ax1.transAxes, color='#F7BE0F',
          fontsize=12)
+
+# ---- Label Features ------
+
+CaH = pd.DataFrame()
+CaH['x'] = [0.69, 0.69]
+CaH['y'] = [6.42, 6.75]
+ax1.plot(CaH['x'], CaH['y'], color='k')
+ax1.text(0.27, 0.72, 'CaH', transform=ax1.transAxes, color='k', fontsize=12)
+
+TiO = pd.DataFrame()
+TiO['x'] = [0.715, 0.715]
+TiO['y'] = [6.45, 6.75]
+ax1.plot(TiO['x'], TiO['y'], color='k')
+ax1.text(0.36, 0.72, 'TiO', transform=ax1.transAxes, color='k', fontsize=12)
+
+KII = pd.DataFrame()
+KII['x'] = [0.767, 0.767]
+KII['y'] = [6.7, 7]
+ax1.plot(KII['x'], KII['y'], color='k')
+ax1.text(0.54, 0.75, 'K II', transform=ax1.transAxes, color='k', fontsize=12)
+
+Rb = pd.DataFrame()
+Rb['x'] = [0.795, 0.795]
+Rb['y'] = [5, 5.5]
+ax1.plot(Rb['x'], Rb['y'], color='k')
+ax1.text(0.62, 0.5, 'Rb', transform=ax1.transAxes, color='k', fontsize=12)
+
+
+ax1.text(0.71, 0.35, 'NaI', transform=ax1.transAxes, color='k', fontsize=12)
+
+CrH = pd.DataFrame()
+CrH['x'] = [0.864, 0.864]
+CrH['y'] = [5, 5.3]
+ax1.plot(CrH['x'], CrH['y'], color='k')
+ax1.text(0.84, 0.57, 'CrH', transform=ax1.transAxes, color='k', fontsize=12)
+
+FeH = pd.DataFrame()
+FeH['x'] = [0.872, 0.872]
+FeH['y'] = [5, 5.3]
+ax1.plot(FeH['x'], FeH['y'], color='k')
+ax1.text(0.9, 0.57, 'FeH', transform=ax1.transAxes, color='k', fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_redoptical_split.png')
