@@ -76,7 +76,7 @@ norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(8, 11)  # to make sure proper size run entire code at once and change 8 to 6.45 to
-plt.gcf().subplots_adjust(bottom=0.15, left=0.15, top=0.15)
+plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.6, 0.9])
 plt.ylim([-0.05, 9.5])
 
@@ -198,7 +198,7 @@ CrHd = pd.DataFrame()
 CrHd['x'] = [0.86, 0.86]
 CrHd['y'] = [5.25, 5.4]
 ax1.plot(CrHd['x'], CrHd['y'], color='k')
-ax1.text(0.85, 0.57, 'CrH', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.84, 0.575, 'CrH', transform=ax1.transAxes, color='k', fontsize=12)
 
 FeH = pd.DataFrame()
 FeH['x'] = [0.867, 0.875]
@@ -208,6 +208,6 @@ FeH = pd.DataFrame()
 FeH['x'] = [0.867, 0.867]
 FeH['y'] = [5, 5.2]
 ax1.plot(FeH['x'], FeH['y'], color='k')
-ax1.text(0.89, 0.555, 'FeH', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.89, 0.553, 'FeH', transform=ax1.transAxes, color='k', fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_redoptical_split.png')
