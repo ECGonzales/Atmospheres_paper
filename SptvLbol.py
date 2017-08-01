@@ -23,7 +23,7 @@ ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 645)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([5, 30])
-plt.ylim([-6, -2.4])
+plt.ylim([-6, -2.3])
 
 # ------ Axes Labels --------
 plt.xticks([5, 10, 15, 20, 25, 30], ['M5', 'L0', 'L5', 'T0', 'T5', 'Y0'], fontsize=20)
