@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 df_sub = pd.read_csv('Data/Subdwarf_Spt_v_Teff.txt', sep=" ", comment='#', header=None,
-                      names=["name", "SpT", "Teff", 'err', 'lbol', 'lbol_err'])
+                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err'])
 df_comb = pd.read_csv('Data/Lbol+Teff-February2017.txt', sep="\t", comment='#', header=None,
                       names=["name", "Lbol", "Lbol_err", 'Teff', 'Teff_err', 'spt', 'spt_unc', 'group', 'grav'])
 
@@ -23,7 +23,7 @@ ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 645)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([5, 30])
-plt.ylim([500, 3100])
+plt.ylim([500, 3200])
 
 # ------ Axes Labels --------
 plt.xticks([5, 10, 15, 20, 25, 30], ['M5', 'L0', 'L5', 'T0', 'T5', 'Y0'], fontsize=20)
@@ -33,7 +33,11 @@ plt.ylabel('T$_\mathrm{eff}$ (K)', fontsize=25)
 
 # ------- Add Data ------
 plt.scatter(df_fld['spt'], df_fld['Teff'], color='#7C7D70')
+ax1.errorbar(df_fld['spt'], df_fld['Teff'], yerr=df_fld['Teff_err'], c='#7C7D70', fmt='o')
 plt.scatter(df_young['spt'], df_young['Teff'], color='#D01810')
-plt.scatter(df_sub['SpT'], df_sub['Teff'], color='blue', s=70)
+ax1.errorbar(df_young['spt'], df_young['Teff'], yerr=df_young['Teff_err'], c='#D01810', fmt='o')
+plt.scatter(df_sub['SpT'], df_sub['Teff'], color='blue', s=100, zorder=5)
+ax1.errorbar(df_sub['SpT'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', fmt='o', zorder=6)
+# zorder makes it go on top even if it covers other points!
 
 plt.savefig('Plots/SptvTeff.png')

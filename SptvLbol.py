@@ -33,7 +33,10 @@ plt.ylabel('log(L$_\mathrm{bol}$/L$_\odot$)', fontsize=25)
 
 # ------- Add Data ------
 plt.scatter(df_fld['spt'], df_fld['Lbol'], color='#7C7D70')
+ax1.errorbar(df_fld['spt'], df_fld['Lbol'], yerr=df_fld['Lbol_err'], c='#7C7D70', fmt='o')
 plt.scatter(df_young['spt'], df_young['Lbol'], color='#D01810')
-plt.scatter(df_sub['SpT'], df_sub['lbol'], color='blue', s=70)
+ax1.errorbar(df_young['spt'], df_young['Lbol'], yerr=df_young['Lbol_err'], c='#D01810', fmt='o')
+plt.scatter(df_sub['SpT'], df_sub['lbol'], color='blue', s=100, zorder=5)
+ax1.errorbar(df_sub['SpT'], df_sub['lbol'], yerr=df_sub['lbol_err'], c='blue', fmt='o', zorder=6)
 
 plt.savefig('Plots/SptvLbol.png')
