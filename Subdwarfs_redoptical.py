@@ -75,8 +75,8 @@ norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
-plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+fig.set_size_inches(8, 11)  # to make sure proper size run entire code at once and change 8 to 6.45 to
+plt.gcf().subplots_adjust(bottom=0.15, left=0.15, top=0.15)
 plt.xlim([0.6, 0.9])
 plt.ylim([-0.05, 9.5])
 
@@ -114,7 +114,7 @@ ax1.text(0, 0.48, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2338 \pm 313$ K', transfo
          fontsize=12)
 ax1.text(0, 0.6, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
-ax1.text(0, 0.76, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2824 \pm 37$ K', transform=ax1.transAxes, color='#01A1D6',
+ax1.text(0, 0.77, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2824 \pm 37$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
 ax1.text(0, 0.82, '1610-0040 (sdM7) T$_\mathrm{eff}: 2852 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
          fontsize=12)
@@ -122,18 +122,47 @@ ax1.text(0, 0.92, '2036+5059 (sdM7.5) T$_\mathrm{eff}: 3049 \pm 108$ K', transfo
          fontsize=12)
 
 # ---- Label Features ------
+CaH2 = pd.DataFrame()
+CaH2['x'] = [0.635, 0.64]
+CaH2['y'] = [6.65, 6.65]
+ax1.plot(CaH2['x'], CaH2['y'], color='k')
+CaHd2 = pd.DataFrame()
+CaHd2['x'] = [0.635, 0.635]
+CaHd2['y'] = [6.45, 6.65]
+ax1.plot(CaHd2['x'], CaHd2['y'], color='k')
+ax1.text(0.11, 0.705, 'CaH', transform=ax1.transAxes, color='k', fontsize=12)
+
+CaI = pd.DataFrame()
+CaI['x'] = [0.658, 0.658]
+CaI['y'] = [6.5, 6.65]
+ax1.plot(CaI['x'], CaI['y'], color='k')
+ax1.text(0.17, 0.705, 'Ca$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
+
+TiO2 = pd.DataFrame()
+TiO2['x'] = [0.658, 0.685]
+TiO2['y'] = [6.9, 6.9]
+ax1.plot(TiO2['x'], TiO2['y'], color='k')
+ax1.text(0.223, 0.73, 'TiO', transform=ax1.transAxes, color='k', fontsize=12)
 
 CaH = pd.DataFrame()
-CaH['x'] = [0.69, 0.69]
-CaH['y'] = [6.42, 6.75]
+CaH['x'] = [0.676, 0.705]
+CaH['y'] = [6.65, 6.65]
 ax1.plot(CaH['x'], CaH['y'], color='k')
-ax1.text(0.27, 0.72, 'CaH', transform=ax1.transAxes, color='k', fontsize=12)
+CaHd = pd.DataFrame()
+CaHd['x'] = [0.676, 0.676]
+CaHd['y'] = [6.45, 6.65]
+ax1.plot(CaHd['x'], CaHd['y'], color='k')
+ax1.text(0.27, 0.705, 'CaH', transform=ax1.transAxes, color='k', fontsize=12)
 
 TiO = pd.DataFrame()
-TiO['x'] = [0.715, 0.715]
-TiO['y'] = [6.45, 6.75]
+TiO['x'] = [0.705, 0.72]
+TiO['y'] = [6.75, 6.755]
 ax1.plot(TiO['x'], TiO['y'], color='k')
-ax1.text(0.36, 0.72, 'TiO', transform=ax1.transAxes, color='k', fontsize=12)
+TiOd = pd.DataFrame()
+TiOd['x'] = [0.705, 0.705]
+TiOd['y'] = [6.61, 6.75]
+ax1.plot(TiOd['x'], TiOd['y'], color='k')
+ax1.text(0.36, 0.715, 'TiO', transform=ax1.transAxes, color='k', fontsize=12)
 
 KII = pd.DataFrame()
 KII['x'] = [0.767, 0.767]
@@ -141,25 +170,44 @@ KII['y'] = [6.7, 7]
 ax1.plot(KII['x'], KII['y'], color='k')
 ax1.text(0.54, 0.75, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
 
+Rb1 = pd.DataFrame()
+Rb1['x'] = [0.78, 0.78]
+Rb1['y'] = [4.4, 4.7]
+ax1.plot(Rb1['x'], Rb1['y'], color='k')
+ax1.text(0.58, 0.5, 'Rb$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
+
 Rb = pd.DataFrame()
 Rb['x'] = [0.795, 0.795]
 Rb['y'] = [5.3, 5.5]
 ax1.plot(Rb['x'], Rb['y'], color='k')
-ax1.text(0.62, 0.52, 'Rb$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.62, 0.53, 'Rb$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
 
+ax1.text(0.71, 0.36, 'NaI', transform=ax1.transAxes, color='k', fontsize=12)
 
-ax1.text(0.71, 0.35, 'NaI', transform=ax1.transAxes, color='k', fontsize=12)
+TiI = pd.DataFrame()
+TiI['x'] = [0.844, 0.844]
+TiI['y'] = [7.4, 7.6]
+ax1.plot(TiI['x'], TiI['y'], color='k')
+ax1.text(0.79, 0.76, 'Ti$\,$I', transform=ax1.transAxes, color='k', fontsize=12)
 
 CrH = pd.DataFrame()
-CrH['x'] = [0.864, 0.864]
-CrH['y'] = [5, 5.3]
+CrH['x'] = [0.86, 0.865]
+CrH['y'] = [5.4, 5.4]
 ax1.plot(CrH['x'], CrH['y'], color='k')
-ax1.text(0.84, 0.57, 'CrH', transform=ax1.transAxes, color='k', fontsize=12)
+CrHd = pd.DataFrame()
+CrHd['x'] = [0.86, 0.86]
+CrHd['y'] = [5.25, 5.4]
+ax1.plot(CrHd['x'], CrHd['y'], color='k')
+ax1.text(0.85, 0.57, 'CrH', transform=ax1.transAxes, color='k', fontsize=12)
 
 FeH = pd.DataFrame()
-FeH['x'] = [0.872, 0.872]
-FeH['y'] = [5, 5.3]
+FeH['x'] = [0.867, 0.875]
+FeH['y'] = [5.2, 5.2]
 ax1.plot(FeH['x'], FeH['y'], color='k')
-ax1.text(0.9, 0.57, 'FeH', transform=ax1.transAxes, color='k', fontsize=12)
+FeH = pd.DataFrame()
+FeH['x'] = [0.867, 0.867]
+FeH['y'] = [5, 5.2]
+ax1.plot(FeH['x'], FeH['y'], color='k')
+ax1.text(0.89, 0.555, 'FeH', transform=ax1.transAxes, color='k', fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_redoptical_split.png')
