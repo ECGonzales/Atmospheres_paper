@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 df_sub = pd.read_csv('Data/Subdwarf_Spt_v_Teff.txt', sep=" ", comment='#', header=None,
-                      names=["name", "SpT", "Teff", 'err', 'lbol', 'lbol_err'])
+                      names=["name", "SpT", "Teff", 'err', 'lbol', 'lbol_err', 'mass', 'mass_unc'])
 df_comb = pd.read_csv('Data/Lbol+Teff-February2017.txt', sep="\t", comment='#', header=None,
                       names=["name", "Lbol", "Lbol_err", 'Teff', 'Teff_err', 'spt', 'spt_unc', 'group', 'grav'])
 
