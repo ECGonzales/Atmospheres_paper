@@ -110,7 +110,7 @@ ax1.text(0, 0.27, '1626+3925 (sdL4) T$_\mathrm{eff}: 2158 \pm 41$ K', transform=
          fontsize=12)
 ax1.text(0, 0.39, '1444-2019 (sdM9) T$_\mathrm{eff}: 2303 \pm 67$ K', transform=ax1.transAxes, color='mediumblue',
          fontsize=12)
-ax1.text(0, 0.48, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2338 \pm 313$ K', transform=ax1.transAxes, color='k',
+ax1.text(0, 0.48, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k',
          fontsize=12)
 ax1.text(0, 0.6, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
