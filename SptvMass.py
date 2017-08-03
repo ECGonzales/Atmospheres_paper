@@ -2,7 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 df_sub = pd.read_csv('Data/Subdwarf_Spt_v_Teff.txt', sep=" ", comment='#', header=None,
-                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc'])
+                     names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ', 'MJ_unc',
+                            'MH', 'MH_unc', 'MK', 'MK_unc', 'MW1', 'MW1_unc', 'MW2', 'MW2_unc'])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Spt v mass ------------------------------------
