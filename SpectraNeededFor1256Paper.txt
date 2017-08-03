@@ -12,12 +12,8 @@ LSRJ1425+7102               OPT     RC          Kitt Peak    2002-05-19     Lepi
                             NIR ***NONE***
 LHS377                      NIR     X-Shooter   VLT         Oct14-Mar15     Rajpurohit  2016  arvindr@prl.res.in        - -
 SSSPMJ1444-2019             OPT     EFOSC2      ESO 3.6m    2004-03-16      Scholz                               Scho04c - -
-LSRJ1610-0040               OPT     MkII        MDM 2.4m    2003-02-19      Lepine                              Lepi03c  - -
+LSRJ1610-0040               OPT     MkIII        MDM 2.4m    2003-02-19      Lepine                              Lepi03c  - -
                             NIR   Spex SXD LXD  IRTF        2003-07-06      Cushing        2006AJ....131.1797C  Cush06add - -
 LSRJ2036+5059               OPT   KAST          Lick 3m     2001-12-09      Lepine                               Lepi03a - -
                             NIR  Spex SXD       IRTF        2003-10-06      Cushing       2006AJ....131.1797C  Cush06add - -
 
-
-
-
-ipyth
