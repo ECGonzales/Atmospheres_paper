@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 df_sub = pd.read_csv('Data/Subdwarf_Spt_v_Teff.txt', sep=" ", comment='#', header=None,
                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ', 'MJ_unc',
@@ -40,5 +41,10 @@ ax1.errorbar(df_young['spt'], df_young['Teff'], yerr=df_young['Teff_err'], c='#D
 plt.scatter(df_sub['SpT'], df_sub['Teff'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', fmt='o', zorder=6)
 # zorder makes it go on top even if it covers other points!
+
+# ------ Fit polynomial for subdwarfs ------
+# drop nan from coulmn need to get polynomial
+df_subpoly = df_sub[pd.notnull(df_sub['Teff'])]
+np.polyfit(df_subpoly['SpT'], df_subpoly['Teff'], 2, full=True, w=df_subpoly['Teff_err'])
 
 plt.savefig('Plots/SptvTeff.png')
