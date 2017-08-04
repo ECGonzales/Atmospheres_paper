@@ -137,7 +137,7 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 # -------- Add data -----------
 ax1.plot(df_1013['w'], norm_df_1013 , c='#015DF7')                         # sdM9.5 2457
 ax1.plot(df_LHS['w'], norm_df_LHS + 1, c='#01A1D6')                           # sdM7 2748
-ax1.plot(df_1425['w'], norm_df_1425 +2, c='#09D5D6')                             # sdM8 2822
+ax1.plot(df_1425['w'], norm_df_1425 +2, c='#09D5D6')                             # sdM8 2822 ---
 ax1.plot(df_HD['w'], norm_df_HD + 3, c='#09D67E')                             # sd--IRM9 2859
 ax1.plot(df_1610['w'], norm_df_1610 + 2, c='#04A57F')                           # sdM7 2878
 ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                         # sdM7.5 3021
