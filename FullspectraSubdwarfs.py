@@ -29,6 +29,9 @@ df_2036 = pd.read_csv('Data/2036+5059 (M7.5sd) SED.txt', sep=" ", comment='#', h
 # -------------------------------------------------------------------------------------
 df_HD = df_HD[(df_HD['w'] > 0.91) & (df_HD['w'] <= 3)]
 
+# Trim connecting line between opt and MIR
+df_1425= df_1425[(df_1425['w'] <= 0.92)]
+
 # -------------------------------------------------------------------------------------
 # --------- Normalize the spectra to same as before for 1256 --------------------------
 # -------------------------------------------------------------------------------------
@@ -54,7 +57,7 @@ norm_df_1013 = df_1013['f']/(np.average(norm_region_1013['f']))
 norm_region_LHS = df_LHS[(df_LHS['w'] >= 0.98) & (df_LHS['w'] <= 0.988)]
 norm_df_LHS = df_LHS['f']/(np.average(norm_region_LHS['f']))
 
-norm_region_1425 = df_1425[(df_1425['w'] >= 0.98) & (df_1425['w'] <= 0.988)]
+norm_region_1425 = df_1425[(df_1425['w'] >= 0.90) & (df_1425['w'] <= 0.91)]
 norm_df_1425 = df_1425['f']/(np.average(norm_region_1425['f']))
 
 norm_region_1610 = df_1610[(df_1610['w'] >= 0.98) & (df_1610['w'] <= 0.988)]
@@ -134,10 +137,10 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 # -------- Add data -----------
 ax1.plot(df_1013['w'], norm_df_1013 , c='#015DF7')                         # sdM9.5 2457
 ax1.plot(df_LHS['w'], norm_df_LHS + 1, c='#01A1D6')                           # sdM7 2748
-# ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                             # sdM8 2823      only MIR spectra
-ax1.plot(df_1610['w'], norm_df_1610 + 2, c='#04A57F')                           # sdM7 2852
+ax1.plot(df_1425['w'], norm_df_1425 +2, c='#09D5D6')                             # sdM8 2822
 ax1.plot(df_HD['w'], norm_df_HD + 3, c='#09D67E')                             # sd--IRM9 2859
-ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                         # sdM7.5 3049
+ax1.plot(df_1610['w'], norm_df_1610 + 2, c='#04A57F')                           # sdM7 2878
+ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                         # sdM7.5 3021
 # ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
 
 # ------- Label Sources -------------
