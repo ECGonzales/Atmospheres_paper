@@ -94,10 +94,10 @@ ax1.plot(df_1444['w'], norm_df_1444 + 3, c='mediumblue')                        
 ax1.plot(df_1256['w'], norm_df_1256 + 4, c='k')                                     # sdL3.5  2338
 ax1.plot(df_1013['w'], norm_df_1013 + 5, c='#015DF7')                               # sdM9.5 2457
 ax1.plot(df_LHS['w'], norm_df_LHS + 6, c='#01A1D6')                                 # sdM7 2824
-# ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                               # sdM8 2823
-ax1.plot(df_1610['w'], norm_df_1610 + 7, c='#04A57F')                               # sdM7 2852
-# ax1.plot(df_HD['w'], norm_df_HD + 7, c='#09D67E')                                   # sd--IRM9 2859
-ax1.plot(df_2036['w'], norm_df_2036 + 8, c='#F7BE0F')                               # sdM7.5 3049
+ax1.plot(df_1425['w'], norm_df_1425 + 7, c='#09D5D6')                               # sdM8 2822
+# ax1.plot(df_HD['w'], norm_df_HD + 7, c='#09D67E')                                 # sd--IRM9 2859
+ax1.plot(df_1610['w'], norm_df_1610 + 8, c='#04A57F')                               # sdM7 2878
+ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                               # sdM7.5 3021
 # ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
 
 
@@ -116,9 +116,9 @@ ax1.text(0, 0.6, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transfor
          fontsize=12)
 ax1.text(0, 0.77, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2824 \pm 37$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
-ax1.text(0, 0.82, '1610-0040 (sdM7) T$_\mathrm{eff}: 2852 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
+ax1.text(0, 0.82, '1610-0040 (sdM7) T$_\mathrm{eff}: 2878 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
          fontsize=12)
-ax1.text(0, 0.92, '2036+5059 (sdM7.5) T$_\mathrm{eff}: 3049 \pm 108$ K', transform=ax1.transAxes, color='#F7BE0F',
+ax1.text(0, 0.92, '2036+5059 (sdM7.5) T$_\mathrm{eff}: 3021 \pm 102$ K', transform=ax1.transAxes, color='#F7BE0F',
          fontsize=12)
 
 # ---- Label Features ------
