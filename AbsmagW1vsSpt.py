@@ -11,7 +11,7 @@ df_field = pd.read_csv('Data/Parallaxes-Normal_modified.txt', sep="\t", comment=
                               'W4magn', 'W4err', 'Jmagn', 'Jerr', 'Hmagn', 'Herr', 'Kmagn', 'Kerr', 'Lmag', 'Lerr'])
 
 # ------------ remove -100s from Dataframe ---------
-df_field = df_field[df_field['Jmagn'] > -100]
+df_field = df_field[df_field['W1magn'] > -100]
 
 # -------------------------------------------------------------------------------------
 # ------------------- Get abs Mag from relative mag -----------------------------------
@@ -21,13 +21,13 @@ d = np.round(1000/(df_field['Pi']), 2)  # 1000/mas or 1/arcsec round to 2 decima
 d_err = np.round((df_field['Pi_er']/(df_field['Pi']**2))*1000, 2)  # convert to arcsec from mas
 
 # ------ Convert apparent mag to Abs Mag -------
-AbsJ = np.round(df_field['Jmagn']-(5*np.log10(d)-5), 3)
-AbsJ_err = np.round(np.sqrt(df_field['Jerr'] ** 2 + 25 * (d_err/(d * np.log(10))) ** 2), 3)
-df_field['AbsJ'] = AbsJ
-df_field['AbsJ_err'] = AbsJ_err
+AbsW1 = np.round(df_field['W1magn']-(5*np.log10(d)-5), 3)
+AbsW1_err = np.round(np.sqrt(df_field['W1err'] ** 2 + 25 * (d_err/(d * np.log(10))) ** 2), 3)
+df_field['AbsW1'] = AbsW1
+df_field['AbsW1_err'] = AbsW1_err
 
 # -------------------------------------------------------------------------------------
-# ------------------------- Make Plot: Spt v Abs Mags ---------------------------------
+# ------------------------- Make Plot: Spt v Abs Mags W1 ---------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
 fig = plt.figure()
@@ -41,21 +41,23 @@ plt.ylim([20, 6])
 plt.xticks([5, 10, 15, 20, 25, 30], ['M5', 'L0', 'L5', 'T0', 'T5', 'Y0'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
-plt.ylabel('M$_\mathrm{J}$ (2MASS)', fontsize=25)
+plt.ylabel('M$_\mathrm{W1}$ ', fontsize=25)
 
 # ----- Add data -----
-plt.scatter(df_field['spt'], df_field['AbsJ'], color='#7C7D70')
-ax1.errorbar(df_field['spt'], df_field['AbsJ'], yerr=df_field['AbsJ_err'], c='#7C7D70', fmt='o')
+plt.scatter(df_field['spt'], df_field['AbsW1'], color='#7C7D70')
+ax1.errorbar(df_field['spt'], df_field['AbsW1'], yerr=df_field['AbsW1_err'], c='#7C7D70', fmt='o')
 # plt.scatter(df_young['spt'], df_young['mass'], color='#D01810')
 # ax1.errorbar(df_young['spt'], df_young['mass'], yerr=df_young['mass_unc'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['MJ'], color='blue',s=100, zorder=5)
-ax1.errorbar(df_sub['SpT'], df_sub['MJ'], yerr=df_sub['MJ_unc'], c='blue', fmt='o', zorder=6)
+plt.scatter(df_sub['SpT'], df_sub['MW1'], color='blue',s=100, zorder=5)
+ax1.errorbar(df_sub['SpT'], df_sub['MW1'], yerr=df_sub['MW1_unc'], c='blue', fmt='o', zorder=6)
 
 # ---- Fit polynomial for subdwarfs -------
-coeffs = np.polyfit(df_sub['SpT'], df_sub['MJ'], 5)
+# Need to drop nans
+df_sub2 =df_sub.drop(df_sub.index[[1,5,11]])
+coeffs = np.polyfit(df_sub2['SpT'], df_sub2['MW1'], 5)
 line = np.poly1d(coeffs)
 xp = np.linspace(5, 30, 100)
-plt.plot(df_sub['SpT'], df_sub['MJ'], '.', xp, line(xp), '-')
+plt.plot(xp, line(xp), '-', color='#ff7f0e')
 # still need to figure out how to get the uncertainies for the fit
 
-plt.savefig('Plots/MJvspt.png')
+plt.savefig('Plots/W1vspt.png')
