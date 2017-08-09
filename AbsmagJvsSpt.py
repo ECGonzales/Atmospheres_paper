@@ -12,9 +12,9 @@ df_field = pd.read_csv('Data/Parallaxes-Normal_modified.txt', sep="\t", comment=
                               'W4magn', 'W4err', 'Jmagn', 'Jerr', 'Hmagn', 'Herr', 'Kmagn', 'Kerr', 'Lmag', 'Lerr'])
 
 df_young = pd.read_csv('Data/For-CMD-NEW-NEW.txt', sep='\t', comment="#", header=0,
-                       names=['Grp', 'ID', 'SpT','lowg', 'Jmag', 'Jerr', 'H', 'Herr', 'K', 'Kerr', 'W1', 'W1er', 'W2', 'W2er',
-                              'W3', 'W3er', 'W4', 'W4er', 'PI', 'Pier', 'MKOJ', 'MKOJer', 'MKOH', 'MKOHer', 'MKOK',
-                              'MKOKer', 'Lband', 'Lbander'])
+                       names=['Grp', 'ID', 'SpT', 'lowg', 'Jmag', 'Jerr', 'H', 'Herr', 'K', 'Kerr', 'W1', 'W1er', 'W2',
+                              'W2er', 'W3', 'W3er', 'W4', 'W4er', 'PI', 'Pier', 'MKOJ', 'MKOJer', 'MKOH', 'MKOHer',
+                              'MKOK', 'MKOKer', 'Lband', 'Lbander'])
 
 # ------------ remove -100s from Dataframe ---------
 df_field = df_field[df_field['Jmagn'] > -100]
@@ -50,11 +50,11 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([5, 30])
-plt.ylim([20, 6])
+plt.xlim([5, 18.5])
+plt.ylim([18, 6])
 
 # ------ Axes Labels --------
-plt.xticks([5, 10, 15, 20, 25, 30], ['M5', 'L0', 'L5', 'T0', 'T5', 'Y0'], fontsize=20)
+plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6', 'M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('M$_\mathrm{J}$ (2MASS)', fontsize=25)
@@ -64,14 +64,35 @@ plt.scatter(df_field['spt'], df_field['AbsJ'], color='#7C7D70')
 ax1.errorbar(df_field['spt'], df_field['AbsJ'], yerr=df_field['AbsJ_err'], c='#7C7D70', fmt='o')
 plt.scatter(df_young['SpT'], df_young['AbsJ'], color='#D01810')
 ax1.errorbar(df_young['SpT'], df_young['AbsJ'], yerr=df_young['AbsJ_err'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['MJ'], color='blue',s=100, zorder=5)
+plt.scatter(df_sub['SpT'], df_sub['MJ'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['MJ'], yerr=df_sub['MJ_unc'], c='blue', fmt='o', zorder=6)
 
-# ---- Fit polynomial for subdwarfs -------
-coeffs = np.polyfit(df_sub['SpT'], df_sub['MJ'], 5)
+# --- Designate 1256-0224 -----
+plt.scatter(df_sub['SpT'][0], df_sub['MJ'][0], color='blue', s=500, zorder=7, marker="*")
+ax1.annotate('1256-0224', xy=(12.7, 10.5), color='k', fontsize=12)
+
+# -------------------------------------------------------------------------------------
+# ------------------------- Polynomial fits  -----------------------------------------
+# -------------------------------------------------------------------------------------
+# --- Get uncertainites for upper and lower teff limits ----
+df_sub['AbsJ_up'] = df_sub['MJ'] + df_sub['MJ_unc']
+df_sub['AbsJ_d'] = df_sub['MJ'] - df_sub['MJ_unc']
+
+# ------ Fit the values --------
+coeffs = np.polyfit(df_sub['SpT'], df_sub['MJ'], 1)
 line = np.poly1d(coeffs)
+
+coeffs_up = np.polyfit(df_sub['SpT'], df_sub['AbsJ_up'], 1)
+line_up = np.poly1d(coeffs_up)
+
+coeffs_d = np.polyfit(df_sub['SpT'], df_sub['AbsJ_d'], 1)
+line_d = np.poly1d(coeffs_d)
+
+# ---- Plot the fit lines -----
 xp = np.linspace(5, 30, 100)
-plt.plot(df_sub['SpT'], df_sub['MJ'], '.', xp, line(xp), '-')
-# still need to figure out how to get the uncertainies for the fit
+plt.plot(xp, line(xp), '-', color='k')
+plt.plot(xp, line_up(xp), '-', color='#17becf', alpha=.25)
+plt.plot(xp, line_d(xp), '-', color='#17becf', alpha=.25)
+ax1.fill_between(xp, line_up(xp), line_d(xp), alpha=.25, color='#17becf')
 
 plt.savefig('Plots/MJvspt.png')

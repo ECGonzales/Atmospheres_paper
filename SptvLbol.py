@@ -28,7 +28,7 @@ plt.xlim([5.5, 18.5])
 plt.ylim([-6, -2.3])
 
 # ------ Axes Labels --------
-plt.xticks([6, 10, 15, 18], ['M6', 'L0', 'L5', 'L8'], fontsize=20)
+plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6','M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('log(L$_\mathrm{bol}$/L$_\odot$)', fontsize=25)
