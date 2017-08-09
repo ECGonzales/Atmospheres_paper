@@ -88,10 +88,10 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                # sdL7 1647
-ax1.plot(df_0616['w'], norm_df_0616 + 1.35, c='darkviolet')                          # sdL5 1668
-ax1.plot(df_1626['w'], norm_df_1626 + 2.3, c='#531CF7')                               # sdL4 2158
-ax1.plot(df_1444['w'], norm_df_1444 + 3, c='mediumblue')                            # sdM9 2303
-ax1.plot(df_1256['w'], norm_df_1256 + 4, c='k')                                     # sdL3.5  2338
+ax1.plot(df_0616['w'], norm_df_0616 + 1.35, c='darkviolet')                          # sdL5 1731
+ax1.plot(df_1626['w'], norm_df_1626 + 2.1, c='#531CF7')                               # sdL4 2158
+ax1.plot(df_1256['w'], norm_df_1256 + 3, c='k')                                     # sdL3.5  2338
+ax1.plot(df_1444['w'], norm_df_1444 + 4, c='mediumblue')                            # sdM9 2359
 ax1.plot(df_1013['w'], norm_df_1013 + 5, c='#015DF7')                               # sdM9.5 2457
 ax1.plot(df_LHS['w'], norm_df_LHS + 6, c='#01A1D6')                                 # sdM7 2748
 ax1.plot(df_1425['w'], norm_df_1425 + 7, c='#09D5D6')                               # sdM8 2822
@@ -104,13 +104,13 @@ ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                           
 # ------- Label Sources -------------
 ax1.text(0, 0.04, '0532+8246 (sdL7) T$_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',
          fontsize=12)
-ax1.text(0, 0.175, '0616-6407 (sdL5) T$_\mathrm{eff}: 1668 \pm 284$ K ', transform=ax1.transAxes, color='darkviolet',
+ax1.text(0, 0.17, '0616-6407 (sdL5) T$_\mathrm{eff}: 1731 \pm 283$ K ', transform=ax1.transAxes, color='darkviolet',
          fontsize=12)
-ax1.text(0, 0.26, '1626+3925 (sdL4) T$_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7',
+ax1.text(0, 0.24, '1626+3925 (sdL4) T$_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7',
          fontsize=12)
-ax1.text(0, 0.34, '1444-2019 (sdM9) T$_\mathrm{eff}: 2303 \pm 67$ K', transform=ax1.transAxes, color='mediumblue',
+ax1.text(0, 0.34, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k',
          fontsize=12)
-ax1.text(0, 0.42, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k',
+ax1.text(0, 0.43, '1444-2019 (sdM9) T$_\mathrm{eff}: 2359 \pm 42$ K', transform=ax1.transAxes, color='mediumblue',
          fontsize=12)
 ax1.text(0, 0.52, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
@@ -174,15 +174,15 @@ ax1.annotate('K$\,$I', xy=(0.761, 10.065), color='k', fontsize=12)
 
 Rb1 = pd.DataFrame()
 Rb1['x'] = [0.78, 0.78]
-Rb1['y'] = [4.4, 4.7]
+Rb1['y'] = [3.4, 3.7]
 ax1.plot(Rb1['x'], Rb1['y'], color='k')
-ax1.annotate('Rb$\,$I', xy=(0.77, 4.75), color='k', fontsize=12)
+ax1.annotate('Rb$\,$I', xy=(0.77, 3.75), color='k', fontsize=12)
 
 Rb = pd.DataFrame()
-Rb['x'] = [0.795, 0.795]
+Rb['x'] = [0.794, 0.794]
 Rb['y'] = [10, 10.3]
 ax1.plot(Rb['x'], Rb['y'], color='k')
-ax1.annotate('Rb$\,$I', xy=(0.79, 10.35), color='k', fontsize=12)
+ax1.annotate('Rb$\,$I', xy=(0.785, 10.35), color='k', fontsize=12)
 
 NaI = pd.DataFrame()
 NaI['x'] = [0.818, 0.818]
@@ -198,22 +198,22 @@ ax1.annotate('Ti$\,$I', xy=(0.836, 9.1), color='k', fontsize=12)
 
 CrH = pd.DataFrame()
 CrH['x'] = [0.86, 0.865]
-CrH['y'] = [5.4, 5.4]
+CrH['y'] = [4.5, 4.5]
 ax1.plot(CrH['x'], CrH['y'], color='k')
 CrHd = pd.DataFrame()
 CrHd['x'] = [0.86, 0.86]
-CrHd['y'] = [5.2, 5.4]
+CrHd['y'] = [4.3, 4.5]
 ax1.plot(CrHd['x'], CrHd['y'], color='k')
-ax1.annotate('CrH', xy=(0.85, 5.45), color='k', fontsize=12)
+ax1.annotate('CrH', xy=(0.85, 4.55), color='k', fontsize=12)
 
 FeH = pd.DataFrame()
 FeH['x'] = [0.867, 0.875]
-FeH['y'] = [5.2, 5.2]
+FeH['y'] = [4.2, 4.2]
 ax1.plot(FeH['x'], FeH['y'], color='k')
 FeH = pd.DataFrame()
 FeH['x'] = [0.867, 0.867]
-FeH['y'] = [5, 5.2]
+FeH['y'] = [4, 4.2]
 ax1.plot(FeH['x'], FeH['y'], color='k')
-ax1.annotate('FeH', xy=(0.865, 5.25), color='k', fontsize=12)
+ax1.annotate('FeH', xy=(0.865, 4.25), color='k', fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_redoptical_split.png')
