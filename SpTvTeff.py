@@ -45,6 +45,6 @@ ax1.errorbar(df_sub['SpT'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', f
 # ------ Fit polynomial for subdwarfs ------
 # drop nan from coulmn need to get polynomial
 df_subpoly = df_sub[pd.notnull(df_sub['Teff'])]
-np.polyfit(df_subpoly['SpT'], df_subpoly['Teff'], 2, full=True, w=df_subpoly['Teff_err'])
+np.polyfit(df_subpoly['SpT'], df_subpoly['Teff'], 1)
 
 plt.savefig('Plots/SptvTeff.png')
