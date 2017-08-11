@@ -34,17 +34,20 @@ plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('T$_\mathrm{eff}$ (K)', fontsize=25)
 
 # ------- Add Data ------
-plt.scatter(df_fld['spt'], df_fld['Teff'], color='#7C7D70')
+fld = plt.scatter(df_fld['spt'], df_fld['Teff'], color='#7C7D70')
 ax1.errorbar(df_fld['spt'], df_fld['Teff'], yerr=df_fld['Teff_err'], c='#7C7D70', fmt='o')
-plt.scatter(df_young['spt'], df_young['Teff'], color='#D01810')
+young = plt.scatter(df_young['spt'], df_young['Teff'], color='#D01810')
 ax1.errorbar(df_young['spt'], df_young['Teff'], yerr=df_young['Teff_err'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['Teff'], color='blue', s=100, zorder=5)
+sub = plt.scatter(df_sub['SpT'], df_sub['Teff'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', fmt='o', zorder=6)
 # zorder makes it go on top even if it covers other points!
 
 # --- Designate 1256-0224 -----
-plt.scatter(df_sub['SpT'][0], df_sub['Teff'][0], color='blue', s=500, zorder=7, marker="*")
+sub1256 = plt.scatter(df_sub['SpT'][0], df_sub['Teff'][0], color='blue', s=500, zorder=7, marker="*")
 ax1.annotate('1256-0224', xy=(12.7, 2700), color='k', fontsize=12)
+
+# ---- Add Legend ----
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Polynomial fits  -----------------------------------------

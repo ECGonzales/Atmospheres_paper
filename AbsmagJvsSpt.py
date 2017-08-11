@@ -60,17 +60,19 @@ plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('M$_\mathrm{J}$ (2MASS)', fontsize=25)
 
 # ----- Add data -----
-plt.scatter(df_field['spt'], df_field['AbsJ'], color='#7C7D70')
+fld = plt.scatter(df_field['spt'], df_field['AbsJ'], color='#7C7D70')
 ax1.errorbar(df_field['spt'], df_field['AbsJ'], yerr=df_field['AbsJ_err'], c='#7C7D70', fmt='o')
-plt.scatter(df_young['SpT'], df_young['AbsJ'], color='#D01810')
+young = plt.scatter(df_young['SpT'], df_young['AbsJ'], color='#D01810')
 ax1.errorbar(df_young['SpT'], df_young['AbsJ'], yerr=df_young['AbsJ_err'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['MJ'], color='blue', s=100, zorder=5)
+sub = plt.scatter(df_sub['SpT'], df_sub['MJ'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['MJ'], yerr=df_sub['MJ_unc'], c='blue', fmt='o', zorder=6)
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], df_sub['MJ'][0], color='blue', s=500, zorder=7, marker="*")
 ax1.annotate('1256-0224', xy=(12.7, 10.5), color='k', fontsize=12)
 
+# ---- Add Legend ----
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False)
 # -------------------------------------------------------------------------------------
 # ------------------------- Polynomial fits  -----------------------------------------
 # -------------------------------------------------------------------------------------

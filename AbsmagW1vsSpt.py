@@ -62,11 +62,11 @@ plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('M$_\mathrm{W1}$ ', fontsize=25)
 
 # ----- Add data -----
-plt.scatter(df_field['spt'], df_field['AbsW1'], color='#7C7D70')
+fld = plt.scatter(df_field['spt'], df_field['AbsW1'], color='#7C7D70')
 ax1.errorbar(df_field['spt'], df_field['AbsW1'], yerr=df_field['AbsW1_err'], c='#7C7D70', fmt='o')
-plt.scatter(df_young['SpT'], df_young['AbsW1'], color='#D01810')
+young = plt.scatter(df_young['SpT'], df_young['AbsW1'], color='#D01810')
 ax1.errorbar(df_young['SpT'], df_young['AbsW1'], yerr=df_young['AbsW1_err'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['MW1'], color='blue', s=100, zorder=5)
+sub = plt.scatter(df_sub['SpT'], df_sub['MW1'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['MW1'], yerr=df_sub['MW1_unc'], c='blue', fmt='o', zorder=6)
 
 # --- Designate 1256-0224 -----
@@ -76,6 +76,9 @@ pointer = pd.DataFrame()
 pointer['x'] = [13.5, 13.5]
 pointer['y'] = [9.8, 9.1]
 ax1.plot(pointer['x'], pointer['y'], color='k')
+
+# ---- Add Legend ----
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Polynomial fits  -----------------------------------------

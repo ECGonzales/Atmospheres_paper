@@ -34,16 +34,19 @@ plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('log(L$_\mathrm{bol}$/L$_\odot$)', fontsize=25)
 
 # ------- Add Data ------
-plt.scatter(df_fld['spt'], df_fld['Lbol'], color='#7C7D70')
+fld = plt.scatter(df_fld['spt'], df_fld['Lbol'], color='#7C7D70')
 ax1.errorbar(df_fld['spt'], df_fld['Lbol'], yerr=df_fld['Lbol_err'], c='#7C7D70', fmt='o')
-plt.scatter(df_young['spt'], df_young['Lbol'], color='#D01810')
+young = plt.scatter(df_young['spt'], df_young['Lbol'], color='#D01810')
 ax1.errorbar(df_young['spt'], df_young['Lbol'], yerr=df_young['Lbol_err'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['lbol'], color='blue', s=100, zorder=5)
+sub = plt.scatter(df_sub['SpT'], df_sub['lbol'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['lbol'], yerr=df_sub['lbol_err'], c='blue', fmt='o', zorder=6)
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], df_sub['lbol'][0], color='blue', s=500, zorder=7, marker="*")
 ax1.annotate('1256-0224', xy=(12.7, -3.25), color='k', fontsize=12)
+
+# ---- Add Legend ----
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Polynomial fits  -----------------------------------------
