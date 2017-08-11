@@ -102,3 +102,10 @@ plt.savefig('Plots/SptvTeff.png')
 # ax.axis('tight')
 # fg.canvas.draw()
 # plt.show()
+
+
+# Another example says that you can get the errors for m and b from the square of the diagonals of the covarient matrix
+# i.e coeffs, cov = np.polyfit(df_subpoly['SpT'], df_subpoly['Teff'], 1, cov=True)
+# err = np.sqrt(np.diag(cov))
+# Out[73]: array([  18.5512183 ,  206.48294636])
+
