@@ -43,13 +43,13 @@ sdM4.5 20.0 ± 0.5 10.967 LP 141-1 2, 3         LHS3409
 sdM5.0 30.0 ± 1.8 12.820 LP 803-27 12
 sdM6.0 85.7 ± 17.1 14.684 LHS 1074 8,7
 sdM6.5 81.0 ± 8.0 14.259 LHS 1166 12
-sdM7.0 35.2 ± 0.8 13.194 LP 440-52 12
+sdM7.0 35.2 ± 0.8 13.194 LP 440-52 12           LHS 377
 sdM7.5 46.5 ± 2.8 13.611 LSR J2036+5059 4, 9
 esdM5.0 53.5 ± 11.0 13.639 LHS 515 12
 esdM5.5 75.2 ± 6.7 14.641 LP 417-42 2, 12
 esdM6.0 73.9 ± 14.8 14.907 LHS 2023 7
 esdM6.5 106 ± – 15.717 LSR J0822+1700 5
-esdM7.0 70 ± – 14.887 APMPM J0559−2903 11
+esdM7.0 70 ± – 14.887 APMPM J0559−2903 11       2MASS J05585891-2903267
 
 Notes. The numbers in the references correspond to the following
 papers: 1 = Burgasser et al. (2008); 2 = Gizis (1997); 3 =
