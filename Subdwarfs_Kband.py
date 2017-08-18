@@ -81,7 +81,7 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([2.0, 2.35])
+plt.xlim([2.2, 2.35])
 plt.ylim([-0.05, 10.5])
 
 # ------ Axes Labels --------
@@ -94,11 +94,11 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                # sdL7 1647
 ax1.plot(df_0616['w'], norm_df_0616 + 1, c='darkviolet')                          # sdL5 ???
 ax1.plot(df_1626['w'], norm_df_1626 + 2, c='#531CF7')                               # sdL4 2158
-ax1.plot(df_1444['w'], norm_df_1444 + 3, c='mediumblue')                            # sdM9 2303
-ax1.plot(df_1256['w'], norm_df_1256 + 4, c='k')                                     # sdL3.5  2338
+ax1.plot(df_1256['w'], norm_df_1256 + 3, c='k')                                     # sdL3.5  2338
+ax1.plot(df_1444['w'], norm_df_1444 + 4, c='mediumblue')                            # sdM9 2303
 ax1.plot(df_1013['w'], norm_df_1013 + 5, c='#015DF7')                               # sdM9.5 2457
 ax1.plot(df_LHS['w'], norm_df_LHS + 6, c='#01A1D6')                                 # sdM7 2775
-# ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                               # sdM8 2823
+ax1.plot(df_1425['w'], norm_df_1425, c='#09D5D6')                               # sdM8 2823
 ax1.plot(df_1610['w'], norm_df_1610 + 7, c='#04A57F')                               # sdM7 2852
 ax1.plot(df_HD['w'], norm_df_HD + 8, c='#09D67E')                                   # sd--IRM9 2859
 ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                               # sdM7.5 3049
