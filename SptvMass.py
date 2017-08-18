@@ -8,6 +8,9 @@ df_young = pd.read_csv('Data/young_masses.txt', sep="\s+", comment='#', header=N
                        names=['name', 'spt', 'mass', 'mass_unc', 'Teff', 'Teff_unc'])
 df_field = pd.read_csv('Data/field_masses.txt', sep="\t", comment='#', header=None,
                        names=['name', 'spt', 'mass', 'mass_unc', 'Teff', 'Teff_unc'])
+
+df_dupuy = pd.read_csv('Data/Dupuy2017dynmaicalmasses.txt', sep='\t', header=0, names=['name', 'spt', 'mass',
+                                                                                       'm_low', 'm_high'])
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Spt v mass ------------------------------------
 # -------------------------------------------------------------------------------------
@@ -16,26 +19,32 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([5, 30])
+plt.xlim([5.5, 19.5]) # sample goes into T's keep all or only relavent to subs?
 #plt.ylim([500, 3200])
 
 # ------ Axes Labels --------
-plt.xticks([5, 10, 15, 20, 25, 30], ['M5', 'L0', 'L5', 'T0', 'T5', 'Y0'], fontsize=20)
+plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6','M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('Mass (M$_\mathrm{J}$)', fontsize=25)
 
 # ----- Add data -----
-plt.scatter(df_field['spt'], df_field['mass'], color='#7C7D70')
+fld = plt.scatter(df_field['spt'], df_field['mass'], color='#7C7D70')
 ax1.errorbar(df_field['spt'], df_field['mass'], yerr=df_field['mass_unc'], c='#7C7D70', fmt='o')
-plt.scatter(df_young['spt'], df_young['mass'], color='#D01810')
+young = plt.scatter(df_young['spt'], df_young['mass'], color='#D01810')
 ax1.errorbar(df_young['spt'], df_young['mass'], yerr=df_young['mass_unc'], c='#D01810', fmt='o')
-plt.scatter(df_sub['SpT'], df_sub['mass'], color='blue', s=65, zorder=5)
+sub = plt.scatter(df_sub['SpT'], df_sub['mass'], color='blue', s=100, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['mass'], yerr=df_sub['mass_unc'], c='blue', fmt='o', zorder=6)
+dupuy = plt.scatter(df_dupuy['spt'], df_dupuy['mass'], color='k', zorder=7, s=65)
+plt.errorbar(df_dupuy['spt'], df_dupuy['mass'], yerr=[df_dupuy['m_low'], df_dupuy['m_high']], fmt='o',
+             color='k', zorder=8)
 
 # Make 1256-0224 stand out
-plt.scatter(df_sub['SpT'][0], df_sub['mass'][0], color='blue', s=300, zorder=7, marker="*")
-ax1.annotate('1256-0224', xy=(12, 95), color='k', fontsize=12)
+plt.scatter(df_sub['SpT'][0], df_sub['mass'][0], color='blue', s=400, zorder=7, marker="*")
+ax1.annotate('1256-0224', xy=(12.65, 97), color='k', fontsize=12)
+
+# ---- Add Legend ----
+plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al. 2017"], frameon=False)
 
 plt.savefig('Plots/SptVmass.png')
 
