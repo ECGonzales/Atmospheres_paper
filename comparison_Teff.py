@@ -16,6 +16,8 @@ df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment=
                        names=["w", "f", "err"])
 df_young_phot = pd.read_csv('Data/teff2000-7523 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
+# df_young_phot_synth = pd.read_csv('Data/teff2000-7523_synthetic_phot.txt', sep=" ", comment='#', header=None,
+#                             names=["w", "f", "err"])
 df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
@@ -34,6 +36,8 @@ plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # match other plots on github
 ax1.loglog(df_young['w'], df_young['f'], c='#D01810')
 ax1.scatter(df_young_phot['w'], df_young_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
 ax1.scatter(df_young_phot['w'], df_young_phot['f'], c='#D01810', s=50)        # black border
+# ax1.scatter(df_young_phot_synth['w'], df_young_phot_synth['f'], c='k', s=70, marker='d')
+# ax1.scatter(df_young_phot_synth['w'], df_young_phot_synth['f'], c='#D01810', s=50, marker='d')
 ax1.loglog(df_field['w'], df_field['f'], c='#7C7D70')
 ax1.scatter(df_field_phot['w'], df_field_phot['f'], c='k', s=70)
 ax1.scatter(df_field_phot['w'], df_field_phot['f'], c='#7C7D70', s=50)
