@@ -113,7 +113,7 @@ ax1.text(0.73, 0.52, 'T$_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes,
 ax1.text(0.73, 0.72, '1256-0224 (sdL3.5)', transform=ax1.transAxes, color='k', fontsize=12)
 ax1.text(0.73, 0.68, 'T$_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k', fontsize=12)
 ax1.text(0.73, 0.90, '1444-2019 (sdM9)', transform=ax1.transAxes, color='mediumblue', fontsize=12)
-ax1.text(0.73, 0.86, 'T$_\mathrm{eff}: 2359 \pm 42$ K', transform=ax1.transAxes, color='mediumblue', fontsize=12)
+ax1.text(0.73, 0.86, 'T$_\mathrm{eff}: 2363 \pm 42$ K', transform=ax1.transAxes, color='mediumblue', fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_secondpannel.png')
 
