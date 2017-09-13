@@ -44,7 +44,7 @@ plt.scatter(df_sub['SpT'][0], df_sub['mass'][0], color='blue', s=400, zorder=7, 
 ax1.annotate('1256-0224', xy=(12.65, 97), color='k', fontsize=12)
 
 # ---- Add Legend ----
-plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al. 2017"], frameon=False)
+plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al. 2017"], frameon=False, fontsize=12)
 
 plt.savefig('Plots/SptVmass.png')
 

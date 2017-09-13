@@ -24,19 +24,19 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([900, 3200])
-plt.ylim([-5, -2.3])
+plt.xlim([900, 3100])
+plt.ylim([-5, -2.35])
 
 # ------ Axes Labels --------
-plt.xticks(fontsize=20)
+plt.xticks([1000, 1500, 2000, 2500, 3000], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('T$_\mathrm{eff}$ (K)', fontsize=25)
 plt.ylabel('log(L$_\mathrm{bol}$/L$_\odot$)', fontsize=25)
 
 # ------- Add Data ------
-fld = plt.scatter(df_fld['Teff'], df_fld['lbol'], color='#7C7D70')
+fld = plt.scatter(df_fld['Teff'], df_fld['Lbol'], color='#7C7D70')
 ax1.errorbar(df_fld['Teff'], df_fld['Lbol'], yerr=df_fld['Lbol_err'], c='#7C7D70', fmt='o')
-young = plt.scatter(df_young['Teff'], df_young['lbol'], color='#D01810')
+young = plt.scatter(df_young['Teff'], df_young['Lbol'], color='#D01810')
 ax1.errorbar(df_young['Teff'], df_young['Lbol'], yerr=df_young['Lbol_err'], c='#D01810', fmt='o')
 sub = plt.scatter(df_sub['Teff'], df_sub['lbol'], color='blue', s=100, zorder=3)
 ax1.errorbar(df_sub['Teff'], df_sub['lbol'], yerr=df_sub['lbol_err'], c='blue', fmt='o', zorder=4)
@@ -44,9 +44,9 @@ ax1.errorbar(df_sub['Teff'], df_sub['lbol'], yerr=df_sub['lbol_err'], c='blue', 
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['Teff'][0], df_sub['lbol'][0], color='blue', s=500, zorder=5, marker="*")
-ax1.annotate('1256-0224', xy=(12.7, 2700), color='k', fontsize=12)
+ax1.annotate('1256-0224', xy=(2210, -3.85), color='k', fontsize=12)
 
 # ---- Add Legend ----
-plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarfs'])
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarfs'], fontsize=12, frameon=False)
 
 plt.savefig('Plots/TeffvLbol.png')

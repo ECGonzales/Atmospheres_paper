@@ -78,7 +78,7 @@ pointer['y'] = [9.8, 9.1]
 ax1.plot(pointer['x'], pointer['y'], color='k')
 
 # ---- Add Legend ----
-plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False)
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Polynomial fits  -----------------------------------------
@@ -100,6 +100,11 @@ line_up = np.poly1d(coeffs_up)
 
 coeffs_d = np.polyfit(df_sub2['SpT'], df_sub2['AbsW1_d'], 1)
 line_d = np.poly1d(coeffs_d)
+
+# ---- print values to screen -------
+print coeffs
+print coeffs_up
+print coeffs_d
 
 # ---- Plot the fit lines -----
 xp = np.linspace(5, 30, 100)

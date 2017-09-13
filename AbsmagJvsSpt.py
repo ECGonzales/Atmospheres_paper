@@ -72,7 +72,7 @@ plt.scatter(df_sub['SpT'][0], df_sub['MJ'][0], color='blue', s=500, zorder=7, ma
 ax1.annotate('1256-0224', xy=(12.7, 10.5), color='k', fontsize=12)
 
 # ---- Add Legend ----
-plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False)
+plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)
 # -------------------------------------------------------------------------------------
 # ------------------------- Polynomial fits  -----------------------------------------
 # -------------------------------------------------------------------------------------
@@ -89,6 +89,11 @@ line_up = np.poly1d(coeffs_up)
 
 coeffs_d = np.polyfit(df_sub['SpT'], df_sub['AbsJ_d'], 1)
 line_d = np.poly1d(coeffs_d)
+
+# ---- print values to screen -------
+print coeffs
+print coeffs_up
+print coeffs_d
 
 # ---- Plot the fit lines -----
 xp = np.linspace(5, 30, 100)
