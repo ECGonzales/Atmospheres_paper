@@ -30,7 +30,7 @@ zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # This makes sure that the labels aren't cut off
 
 # ----- Plot Spectra -----------
