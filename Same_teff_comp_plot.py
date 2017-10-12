@@ -18,6 +18,9 @@ df_young = pd.DataFrame()
 df_young['w'] = b[0]
 df_young['f'] = b[1]
 
+# Get ride of lines from tails
+df_young=df_young[df_young['w']>= 0.61]
+
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
 # -------------------------------------------------------------------------------------
@@ -44,8 +47,8 @@ plt.ylim([-0.01, 52])
 # ------Tick size and Axes Labels --------
 plt.yticks(fontsize=20)
 plt.xticks(fontsize=20)
-plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
-plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_1256['w'], norm_df_1256, c='blue')
