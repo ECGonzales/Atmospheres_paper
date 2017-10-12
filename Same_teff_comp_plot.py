@@ -39,7 +39,7 @@ norm_df_young = df_young['f']/(np.average(norm_region4['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.6, 0.9])
 plt.ylim([-0.01, 52])
