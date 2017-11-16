@@ -33,6 +33,7 @@ ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # This makes sure that the labels aren't cut off
 
+
 # ----- Plot Spectra -----------
 ax1.loglog(opt['w'], opt['f'], c='#0179FF')
 ax1.loglog(overlap['w'], overlap['f'], c='#009B45', lw=5, alpha=0.5)
@@ -75,6 +76,7 @@ ax1.text(0.35, 0.93, '2MASS $J$', transform=ax1.transAxes, color='#dd3497', font
 ax1.text(0.03, 0.83, 'SDSS $i$', transform=ax1.transAxes, color='#f768a1', fontsize=15)
 ax1.text(0.12, 0.94, 'SDSS $z$', transform=ax1.transAxes, color='#f768a1', fontsize=15)
 
+# plt.tight_layout() use to minimize whitespace on edges. May be best for figures in the paper
 plt.savefig('Plots/regimes.png')
 
 # -------- Add the bandpasses at the bottom of the plot ---------
