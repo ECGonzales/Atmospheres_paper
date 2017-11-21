@@ -82,6 +82,7 @@ plt.plot(xp, line_up(xp), '-', color='#17becf', alpha=.25)
 plt.plot(xp, line_d(xp), '-', color='#17becf', alpha=.25)
 ax1.fill_between(xp, line_up(xp), line_d(xp), alpha=.25, color='#17becf')
 
+plt.tight_layout()
 plt.savefig('Plots/SptvTeff.png')
 
 # From this example on curve fitting using the cov=True
