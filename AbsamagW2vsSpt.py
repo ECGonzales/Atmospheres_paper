@@ -59,7 +59,7 @@ plt.ylim([13.75, 7])
 plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6', 'M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
-plt.ylabel('M$_\mathrm{W2}$', fontsize=25)
+plt.ylabel('$M_{W2}$', fontsize=25)
 
 # ----- Add data -----
 fld = plt.scatter(df_field['spt'], df_field['AbsW2'], color='#7C7D70')
@@ -71,7 +71,7 @@ ax1.errorbar(df_sub['SpT'], df_sub['MW2'], yerr=df_sub['MW2_unc'], c='blue', fmt
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], df_sub['MW2'][0], color='blue', s=500, zorder=7, marker="*")
-ax1.annotate('1256-0224', xy=(12.7, 13), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(12.7, 13), color='k', fontsize=12)
 pointer = pd.DataFrame()
 pointer['x'] = [13.5, 13.5]
 pointer['y'] = [12.5, 11]
@@ -113,4 +113,5 @@ plt.plot(xp, line_up(xp), '-', color='#17becf', alpha=.25)
 plt.plot(xp, line_d(xp), '-', color='#17becf', alpha=.25)
 ax1.fill_between(xp, line_up(xp), line_d(xp), alpha=.25, color='#17becf')
 
+plt.tight_layout()
 plt.savefig('Plots/W2vspt.png')

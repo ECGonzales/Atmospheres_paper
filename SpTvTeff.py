@@ -31,7 +31,7 @@ plt.ylim([900, 3200])
 plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6','M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
-plt.ylabel('T$_\mathrm{eff}$ (K)', fontsize=25)
+plt.ylabel('$T_\mathrm{eff}$ (K)', fontsize=25)
 
 # ------- Add Data ------
 fld = plt.scatter(df_fld['spt'], df_fld['Teff'], color='#7C7D70')
@@ -44,7 +44,7 @@ ax1.errorbar(df_sub['SpT'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', f
 
 # --- Designate 1256-0224 -----
 sub1256 = plt.scatter(df_sub['SpT'][0], df_sub['Teff'][0], color='blue', s=500, zorder=7, marker="*")
-ax1.annotate('1256-0224', xy=(12.7, 2700), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(12.7, 2700), color='k', fontsize=12)
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)

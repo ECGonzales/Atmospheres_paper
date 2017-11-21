@@ -57,7 +57,7 @@ plt.ylim([17, 7.5])
 plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6', 'M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
-plt.ylabel('M$_\mathrm{K}$ (2MASS)', fontsize=25)
+plt.ylabel('$M_K$ (2MASS)', fontsize=25)
 
 # ----- Add data -----
 fld = plt.scatter(df_field['spt'], df_field['AbsK'], color='#7C7D70')
@@ -69,7 +69,7 @@ ax1.errorbar(df_sub['SpT'], df_sub['MK'], yerr=df_sub['MK_unc'], c='blue', fmt='
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], df_sub['MK'][0], color='blue', s=500, zorder=7, marker="*")
-ax1.annotate('1256-0224', xy=(12.7, 13), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(12.7, 13), color='k', fontsize=12)
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)
@@ -107,4 +107,5 @@ plt.plot(xp, line_up(xp), '-', color='#17becf', alpha=.25)
 plt.plot(xp, line_d(xp), '-', color='#17becf', alpha=.25)
 ax1.fill_between(xp, line_up(xp), line_d(xp), alpha=.25, color='#17becf')
 
+plt.tight_layout()
 plt.savefig('Plots/MKvspt.png')

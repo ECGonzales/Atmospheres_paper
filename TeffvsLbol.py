@@ -30,8 +30,8 @@ plt.ylim([-5, -2.35])
 # ------ Axes Labels --------
 plt.xticks([1000, 1500, 2000, 2500, 3000], fontsize=20)
 plt.yticks(fontsize=20)
-plt.xlabel('T$_\mathrm{eff}$ (K)', fontsize=25)
-plt.ylabel('log(L$_\mathrm{bol}$/L$_\odot$)', fontsize=25)
+plt.xlabel('$T_\mathrm{eff}$ (K)', fontsize=25)
+plt.ylabel('log($L_\mathrm{bol}$/$L_\odot$)', fontsize=25)
 
 # ------- Add Data ------
 fld = plt.scatter(df_fld['Teff'], df_fld['Lbol'], color='#7C7D70')
@@ -44,9 +44,21 @@ ax1.errorbar(df_sub['Teff'], df_sub['lbol'], yerr=df_sub['lbol_err'], c='blue', 
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['Teff'][0], df_sub['lbol'][0], color='blue', s=500, zorder=5, marker="*")
-ax1.annotate('1256-0224', xy=(2210, -3.85), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(2210, -3.85), color='k', fontsize=12)
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarfs'], fontsize=12, frameon=False)
 
+plt.tight_layout()
 plt.savefig('Plots/TeffvLbol.png')
+
+# Zoom in on field v sub doesn't work very well
+# a = plt.axes([.6, .15, .3, .3], facecolor='w')
+# fld = plt.scatter(df_fld['Teff'], df_fld['Lbol'], color='#7C7D70')
+# ax1.errorbar(df_fld['Teff'], df_fld['Lbol'], yerr=df_fld['Lbol_err'], c='#7C7D70', fmt='o')
+# sub = plt.scatter(df_sub['Teff'], df_sub['lbol'], color='blue', s=100, zorder=3)
+# ax1.errorbar(df_sub['Teff'], df_sub['lbol'], yerr=df_sub['lbol_err'], c='blue', fmt='o', zorder=4)
+# plt.xlim([2000, 3100])
+# plt.ylim([-3.8, -2.8])
+# plt.xticks([])
+# plt.yticks([])

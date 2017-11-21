@@ -26,26 +26,28 @@ plt.xlim([5.5, 19.5]) # sample goes into T's keep all or only relavent to subs?
 plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6','M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
 plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
-plt.ylabel('Mass (M$_\mathrm{J}$)', fontsize=25)
+plt.ylabel('Mass ($M_\mathrm{Jup}$)', fontsize=25)
 
 # ----- Add data -----
 fld = plt.scatter(df_field['spt'], df_field['mass'], color='#7C7D70')
 ax1.errorbar(df_field['spt'], df_field['mass'], yerr=df_field['mass_unc'], c='#7C7D70', fmt='o')
 young = plt.scatter(df_young['spt'], df_young['mass'], color='#D01810')
 ax1.errorbar(df_young['spt'], df_young['mass'], yerr=df_young['mass_unc'], c='#D01810', fmt='o')
-sub = plt.scatter(df_sub['SpT'], df_sub['mass'], color='blue', s=100, zorder=5)
-ax1.errorbar(df_sub['SpT'], df_sub['mass'], yerr=df_sub['mass_unc'], c='blue', fmt='o', zorder=6)
-dupuy = plt.scatter(df_dupuy['spt'], df_dupuy['mass'], color='k', zorder=7, s=65)
+sub = plt.scatter(df_sub['SpT'], df_sub['mass'], color='blue', s=100, zorder=8)
+ax1.errorbar(df_sub['SpT'], df_sub['mass'], yerr=df_sub['mass_unc'], c='blue', fmt='o', zorder=8)
+dupuy = plt.scatter(df_dupuy['spt'], df_dupuy['mass'], color='k', zorder=7, s=65)  #, marker='s')
 plt.errorbar(df_dupuy['spt'], df_dupuy['mass'], yerr=[df_dupuy['m_low'], df_dupuy['m_high']], fmt='o',
-             color='k', zorder=8)
+             color='k', zorder=7)
 
 # Make 1256-0224 stand out
-plt.scatter(df_sub['SpT'][0], df_sub['mass'][0], color='blue', s=400, zorder=7, marker="*")
-ax1.annotate('1256-0224', xy=(12.65, 97), color='k', fontsize=12)
+plt.scatter(df_sub['SpT'][0], df_sub['mass'][0], color='blue', s=400, zorder=8, marker="*")
+ax1.annotate('J1256-0224', xy=(12.65, 97), color='k', fontsize=12)
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al. 2017"], frameon=False, fontsize=12)
 
+# ax1.set_yscale('log')  # Test for Jonathan
+plt.tight_layout()
 plt.savefig('Plots/SptVmass.png')
 
 # -------------------------------------------------------------------------------------
@@ -74,4 +76,5 @@ plt.scatter(df_sub['mass'], df_sub['Teff'], color='blue', s=65, zorder=5)
 ax1.errorbar(df_sub['mass'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', fmt='o', zorder=6)
 plt.scatter(df_sub['mass'][0], df_sub['Teff'][0], color='blue', s=300, zorder=7, marker="*")
 
+plt.tight_layout()
 plt.savefig('Plots/TeffVmass.png')
