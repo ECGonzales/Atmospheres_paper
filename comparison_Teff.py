@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
+from astropy import units as u
+from astropy.analytic_functions import blackbody_lambda as bblam
+import numpy as np
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
@@ -22,7 +25,21 @@ df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#'
 df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
+# -----------------------------------------------------------------------------------------
+# ---------------------------------- Create a Blackbody -----------------------------------
+# -----------------------------------------------------------------------------------------
+wavelengths = list(range(1000000)) * u.AA
+temperature = 2344 * u.K
+flux_lam = bblam(wavelengths, temperature)
+flux_lam_scaled=flux_lam/((4*np.pi*(90.09**2))*u.pc.to(u.um)  # how do I scale by the distance??? Check this later
 
+ax1.loglog(wavelengths.to(u.um), flux_lam_scaled)
+plt.xlim([0.35, 16.00])
+
+# import SEDkit.utilities as ut
+# import numpy as np
+# wavelengths = np.arange(0, 20, 0.25)
+# ut.blackbody(wavelengths, 2344)
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Comparison of same Teff -------------------------------
 # -------------------------------------------------------------------------------------
