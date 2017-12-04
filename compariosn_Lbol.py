@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
+from astropy import units as u
+from astropy.analytic_functions import blackbody_lambda as bblam
+import numpy as np
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
@@ -23,7 +26,35 @@ df_field_phot = pd.read_csv('Data/lbol1048-3956 (M9) phot.txt', sep=" ", comment
 # ------------------- Smoothing the spectra, visually ---------------------------------
 # -------------------------------------------------------------------------------------
 
+# -----------------------------------------------------------------------------------------
+# ---------------------------------- Create a Blackbody -----------------------------------
+# -----------------------------------------------------------------------------------------
+#Solve for temp from the Lbol = log(L/L_solar)
+L_sun = 3.828*10**(26)/(4*np.pi*(3.086*10**17)**2)
 
+L_1256 = (10**(-3.518)*L_sun)/(((1.03/10)*(2.2657*10**(-9)))**2)
+temp_lbol_1256 = (L_1256/(5.670*10**(-8)))**(1.0/4.0)
+
+# create the BB with the solved temp.
+wavelengths = list(range(1000000)) * u.AA
+
+temperature_1256 = temp_lbol_1256 * u.K
+flux_lam_1256 = bblam(wavelengths, temperature_1256)
+flux_lam_scaled_1256 = flux_lam_1256*(((1.03/10.0)*(2.2657*10**(-9)))**2)
+
+# field bb
+L_field = (10**(-3.518)*L_sun)/(((1.07/10)*(2.2657*10**(-9)))**2)
+temp_lbol_field = (L_field/(5.670*10**(-8)))**(1.0/4.0)
+temperature_field = temp_lbol_field * u.K
+flux_lam_field = bblam(wavelengths, temperature_field)
+flux_lam_scaled_field = flux_lam_field * (((1.07/10.0)*(2.2657*10**(-9)))**2)
+
+# Young bb
+L_young = (10**(-3.518)*L_sun)/(((1.53/10)*(2.2657*10**(-9)))**2)
+temp_lbol_young = (L_young/(5.670*10**(-8)))**(1.0/4.0)
+temperature_young = temp_lbol_field * u.K
+flux_lam_young = bblam(wavelengths, temperature_young)
+flux_lam_scaled_young = flux_lam_young * (((1.53/10.0)*(2.2657*10**(-9)))**2)
 
 
 # -------------------------------------------------------------------------------------
@@ -32,7 +63,7 @@ df_field_phot = pd.read_csv('Data/lbol1048-3956 (M9) phot.txt', sep=" ", comment
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 
 # -------- Add data -----------
@@ -46,6 +77,10 @@ ax1.loglog(df_1256['w'], df_1256['f'], c='blue')
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=70)
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='blue', s=50)
 
+# -------- Plot the blackbodies -------------------
+ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_1256, c='blue', ls='dashed', zorder=1, alpha=0.75)
+ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_field, c='#7C7D70', ls='dashed', zorder=1, alpha=0.75)
+ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_young, c='#D01810', ls='dashed', zorder=1, alpha=0.75)
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.33, 24])
 plt.ylim([6*10**(-19),2*10**(-14)])

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
 from astropy import units as u
 from astropy.analytic_functions import blackbody_lambda as bblam
-import numpy as np
+
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
@@ -35,14 +35,15 @@ df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comme
 wavelengths = list(range(1000000)) * u.AA
 temperature = 2344 * u.K
 flux_lam = bblam(wavelengths, temperature)
-flux_lam_scaled = flux_lam*(((1.03/10)*(2.2657*10**(-9)))**2)  # how do I scale by the distance??? Check this later
-
-ax1.loglog(wavelengths.to(u.um), flux_lam_scaled)
-plt.xlim([0.35, 16.00])
+flux_lam_scaled = flux_lam*(((1.03/10.0)*(2.2657*10**(-9)))**2)
 
 # May need to scale all of the objects to 1 Jupiter radius. To do that I need to divide all of the fluxes by their r**2
-
-
+young_rscaled_spec = df_young['f']/(1.79**2)
+young_rscaled_phot = df_young_phot['f']/(1.79**2)
+field_rscaled_spec = df_field['f']/(1.09**2)
+field_rscaled_phot = df_field_phot['f']/(1.09**2)
+sub_rscaled_spec = df_1256['f']/(1.03**2)
+sub_rscaled_phot = df_1256_phot['f']/(1.03**2)
 # import SEDkit.utilities as ut
 # import numpy as np
 # wavelengths = np.arange(0, 20, 0.25)
@@ -68,6 +69,9 @@ ax1.scatter(df_field_phot['w'], df_field_phot['f'], c='#7C7D70', s=50)
 ax1.loglog(df_1256['w'], df_1256['f'], c='blue')
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=70)
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='blue', s=50)
+
+# --------- Plot the blackbody --------------------
+ax1.loglog(wavelengths.to(u.um), flux_lam_scaled)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.33, 16])
