@@ -25,16 +25,23 @@ df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#'
 df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
+# -------------------------------------------------------------------------------------
+# ------------------- Smoothing the spectra, visually ---------------------------------
+# -------------------------------------------------------------------------------------
+
 # -----------------------------------------------------------------------------------------
 # ---------------------------------- Create a Blackbody -----------------------------------
 # -----------------------------------------------------------------------------------------
 wavelengths = list(range(1000000)) * u.AA
 temperature = 2344 * u.K
 flux_lam = bblam(wavelengths, temperature)
-flux_lam_scaled=flux_lam/((4*np.pi*(90.09**2))*u.pc.to(u.um)  # how do I scale by the distance??? Check this later
+flux_lam_scaled = flux_lam*(((1.03/10)*(2.2657*10**(-9)))**2)  # how do I scale by the distance??? Check this later
 
 ax1.loglog(wavelengths.to(u.um), flux_lam_scaled)
 plt.xlim([0.35, 16.00])
+
+# May need to scale all of the objects to 1 Jupiter radius. To do that I need to divide all of the fluxes by their r**2
+
 
 # import SEDkit.utilities as ut
 # import numpy as np
