@@ -24,9 +24,11 @@ df2 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1
 opt = df[(df['w'] <= 0.950454)]
 overlap = df[(df['w'] >= 0.950328) & (df['w'] <= 1.03426)]
 # nir = df[(df['w'] > 1.03426)]  # Split bands and cut out some junk
+z = df[(df['w'] >= 0.950328 ) & (df['w'] <= 1.11474)]
+j = df[(df['w'] >= 1.15308) & (df['w'] <= 1.3500 )]
 h = df[(df['w'] >= 1.48933) & (df['w'] <= 1.8)]
 k = df[(df['w'] >= 2.0175)]
-zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
+# zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
@@ -38,7 +40,9 @@ plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # This makes sure that the la
 ax1.loglog(opt['w'], opt['f'], c='#0179FF')
 ax1.loglog(overlap['w'], overlap['f'], c='#009B45', lw=5, alpha=0.5)
 ax1.loglog(overlap['w'], overlap['f'], c='#0179FF', alpha=0.8)  # alpha=0.3 for transparency
-ax1.loglog(zj['w'], zj['f'], c='#009B45')
+# ax1.loglog(zj['w'], zj['f'], c='#009B45')  #remove the combined line from the begining of the J band
+ax1.loglog(z['w'], z['f'], c='#009B45')
+ax1.loglog(j['w'], j['f'], c='#009B45')
 ax1.loglog(h['w'], h['f'], c='#009B45')
 ax1.loglog(k['w'], k['f'], c='#009B45')
 
@@ -63,7 +67,7 @@ plt.yticks(fontsize=20)
 
 # ------ Axes Labels --------
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
-plt.ylabel('Flux  ($\mathrm{erg\ s^{-1} cm^{-2} A^{-1}}$)', fontsize=25)
+plt.ylabel('Flux ($\mathrm{erg\ s^{-1} cm^{-2} A^{-1}}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
 ax1.text(0.3, 0.7, 'FIRE', transform=ax1.transAxes, color='#009B45', fontsize=15)
@@ -76,7 +80,43 @@ ax1.text(0.35, 0.93, '2MASS $J$', transform=ax1.transAxes, color='#dd3497', font
 ax1.text(0.03, 0.83, 'SDSS $i$', transform=ax1.transAxes, color='#f768a1', fontsize=15)
 ax1.text(0.12, 0.94, 'SDSS $z$', transform=ax1.transAxes, color='#f768a1', fontsize=15)
 
-# plt.tight_layout() use to minimize whitespace on edges. May be best for figures in the paper
+# ---------- Add Bandpasses for the photometry -------------
+sdss_i = pd.DataFrame()
+sdss_i['x'] = [0.6430, 0.8630]
+sdss_i['y'] = [7.2961*10**(-19), 7.2961*10**(-19)]
+plt.plot(sdss_i['x'], sdss_i['y'], color='#f768a1', linestyle='solid')
+
+sdss_z = pd.DataFrame()
+sdss_z['x'] = [0.7730, 1.1230]
+sdss_z['y'] = [1.5*10**(-18), 1.5*10**(-18)]
+plt.plot(sdss_z['x'], sdss_z['y'], color='#f768a1', linestyle='solid')
+
+twomass_j = pd.DataFrame()
+twomass_j['x'] = [1.105, 1.349]
+twomass_j['y'] = [7.2961*10**(-19), 7.2961*10**(-19)]
+plt.plot(twomass_j['x'], twomass_j['y'], color='#dd3497', linestyle='solid')
+
+MKO_H = pd.DataFrame()
+MKO_H['x'] = [1.490, 1.780]
+MKO_H['y'] = [1.5*10**(-18), 1.5*10**(-18)]
+plt.plot(MKO_H['x'], MKO_H['y'], color='#ae017e', linestyle='solid')
+
+MKO_K = pd.DataFrame()
+MKO_K['x'] = [1.990, 2.310]
+MKO_K['y'] = [7.2961*10**(-19), 7.2961*10**(-19)]
+plt.plot(MKO_K['x'], MKO_K['y'], color='#ae017e', linestyle='solid')
+
+W1 = pd.DataFrame()
+W1['x'] = [2.75, 3.9]
+W1['y'] = [1.5*10**(-18), 1.5*10**(-18)]
+plt.plot(W1['x'], W1['y'], color='#7a0177', linestyle='solid')
+
+W2 = pd.DataFrame()
+W2['x'] = [4, 5.4]
+W2['y'] = [7.2961*10**(-19), 7.2961*10**(-19)]
+plt.plot(W2['x'], W2['y'], color='#7a0177', linestyle='solid')
+
+plt.tight_layout()  # use to minimize whitespace on edges. May be best for figures in the paper
 plt.savefig('Plots/regimes.png')
 
 # -------- Add the bandpasses at the bottom of the plot ---------
