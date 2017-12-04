@@ -104,15 +104,15 @@ ax1.plot(df_1444['w'], norm_df_1444 + 5, c='mediumblue')                        
 
 # ------- Label Sources -------------
 # not alot of space to label
-ax1.text(0.73, 0.12, '0532+8246 (sdL7)', transform=ax1.transAxes, color='indigo', fontsize=12)
+ax1.text(0.73, 0.12, 'J0532+8246 (sdL7)', transform=ax1.transAxes, color='indigo', fontsize=12)
 ax1.text(0.73, 0.08, '$T_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',fontsize=12)
-ax1.text(0.73, 0.4, '0616-6407 (sdL5)', transform=ax1.transAxes, color='darkviolet', fontsize=12)
+ax1.text(0.73, 0.4, 'J0616-6407 (sdL5)', transform=ax1.transAxes, color='darkviolet', fontsize=12)
 ax1.text(0.73, 0.36, '$T_\mathrm{eff}: 1731 \pm 283$ K ', transform=ax1.transAxes, color='darkviolet',fontsize=12)
-ax1.text(0.73, 0.56, '1626+3925 (sdL4)', transform=ax1.transAxes, color='#531CF7', fontsize=12)
+ax1.text(0.73, 0.56, 'J1626+3925 (sdL4)', transform=ax1.transAxes, color='#531CF7', fontsize=12)
 ax1.text(0.73, 0.52, '$T_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7', fontsize=12)
-ax1.text(0.73, 0.72, '1256-0224 (sdL3.5)', transform=ax1.transAxes, color='k', fontsize=12)
+ax1.text(0.73, 0.72, 'J1256-0224 (sdL3.5)', transform=ax1.transAxes, color='k', fontsize=12)
 ax1.text(0.73, 0.68, '$T_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k', fontsize=12)
-ax1.text(0.73, 0.90, '1444-2019 (sdM9)', transform=ax1.transAxes, color='mediumblue', fontsize=12)
+ax1.text(0.73, 0.90, 'J1444-2019 (sdM9)', transform=ax1.transAxes, color='mediumblue', fontsize=12)
 ax1.text(0.73, 0.86, '$T_\mathrm{eff}: 2363 \pm 42$ K', transform=ax1.transAxes, color='mediumblue', fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_secondpannel.png')
@@ -141,15 +141,15 @@ ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                     # sdM7
 # ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
 
 # ------- Label Sources -------------
-ax1.text(0.72, 0.11, '1013-1356 (sdM9.5)', transform=ax1.transAxes, color='#015DF7', fontsize=12)
+ax1.text(0.72, 0.11, 'J1013-1356 (sdM9.5)', transform=ax1.transAxes, color='#015DF7', fontsize=12)
 ax1.text(0.72, 0.07, '$T_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7', fontsize=12)
 ax1.text(0.72, 0.31, 'LHS 377 (sdM7)', transform=ax1.transAxes, color='#01A1D6',  fontsize=12)
 ax1.text(0.72, 0.27, '$T_\mathrm{eff}: 2748 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6', fontsize=12)
-ax1.text(0.7, 0.55, 'HD114762B (d/sdM9)', transform=ax1.transAxes, color='#09D67E', fontsize=12)
+ax1.text(0.7, 0.55, 'HD114762$\,$B (d/sdM9)', transform=ax1.transAxes, color='#09D67E', fontsize=12)
 ax1.text(0.72, 0.51, '$T_\mathrm{eff}: 2859 \pm 50$ K', transform=ax1.transAxes, color='#09D67E', fontsize=12)
-ax1.text(0.72, 0.74, '1610-0040 (sdM7)', transform=ax1.transAxes, color='#04A57F', fontsize=12)
+ax1.text(0.72, 0.74, 'J1610-0040 (sdM7)', transform=ax1.transAxes, color='#04A57F', fontsize=12)
 ax1.text(0.72, 0.7, '$T_\mathrm{eff}: 2878 \pm 20$ K', transform=ax1.transAxes, color='#04A57F', fontsize=12)
-ax1.text(0.7, 0.9, '2036+5059 (sdM7.5)', transform=ax1.transAxes, color='#F7BE0F', fontsize=12)
+ax1.text(0.7, 0.9, 'J2036+5059 (sdM7.5)', transform=ax1.transAxes, color='#F7BE0F', fontsize=12)
 ax1.text(0.72, 0.86, '$T_\mathrm{eff}: 3021 \pm 102$ K', transform=ax1.transAxes, color='#F7BE0F',fontsize=12)
 
 plt.savefig('Plots/Subdwarfs_firstpannel.png')
