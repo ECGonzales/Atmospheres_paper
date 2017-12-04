@@ -74,4 +74,5 @@ ax1.text(0.01, 0.58, '$T_\mathrm{eff}: 2385 \pm 77$ K', transform=ax1.transAxes,
 ax1.text(0.01, 0.87, 'J2000-7523  (M9$\gamma$)', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.82, '$T_\mathrm{eff}: 2363 \pm 74$ K', transform=ax1.transAxes, color='k', fontsize=15)
 
+plt.tight_layout()
 plt.savefig('Plots/RedOpticalComparison.png')

@@ -108,4 +108,5 @@ H2Od['x'] = [1.08, 1.08]
 H2Od['y'] = [2.85, 3]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
+# plt.tight_layout()
 plt.savefig('Plots/YbandTeff.png')

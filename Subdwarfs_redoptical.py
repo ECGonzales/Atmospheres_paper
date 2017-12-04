@@ -216,4 +216,5 @@ FeH['y'] = [4, 4.2]
 ax1.plot(FeH['x'], FeH['y'], color='k')
 ax1.annotate('FeH', xy=(0.865, 4.25), color='k', fontsize=12)
 
+plt.tight_layout()
 plt.savefig('Plots/Subdwarfs_redoptical_split.png')
