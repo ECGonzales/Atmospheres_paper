@@ -44,8 +44,8 @@ plt.ylim([0, 3.5])
 # ------Tick size and Axes Labels --------
 plt.yticks(fontsize=20)
 plt.xticks(fontsize=20)
-plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
-plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_1256h['w'], norm_df_1256, c='blue')
@@ -73,4 +73,5 @@ CH4d['x'] = [1.67, 1.67]
 CH4d['y'] = [2.5, 2.7]
 plt.plot(CH4d['x'], CH4d['y'], color='k')
 
+# plt.tight_layout()
 plt.savefig('Plots/HbandTeff.png')

@@ -83,7 +83,7 @@ plt.ylim([-0.05, 11])
 # ------ Axes Labels --------
 plt.xticks(fontsize=20)
 plt.yticks(fontsize=20)
-plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
@@ -102,25 +102,25 @@ ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                           
 
 
 # ------- Label Sources -------------
-ax1.text(0, 0.04, '0532+8246 (sdL7) T$_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',
+ax1.text(0, 0.04, '0532+8246 (sdL7) $T_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',
          fontsize=12)
-ax1.text(0, 0.17, '0616-6407 (sdL5) T$_\mathrm{eff}: 1731 \pm 283$ K ', transform=ax1.transAxes, color='darkviolet',
+ax1.text(0, 0.17, '0616-6407 (sdL5) $T_\mathrm{eff}: 1731 \pm 283$ K ', transform=ax1.transAxes, color='darkviolet',
          fontsize=12)
-ax1.text(0, 0.24, '1626+3925 (sdL4) T$_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7',
+ax1.text(0, 0.24, '1626+3925 (sdL4) $T_\mathrm{eff}: 2158 \pm 41$ K', transform=ax1.transAxes, color='#531CF7',
          fontsize=12)
-ax1.text(0, 0.34, '1256-0224 (sdL3.5) T$_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k',
+ax1.text(0, 0.34, '1256-0224 (sdL3.5) $T_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k',
          fontsize=12)
-ax1.text(0, 0.43, '1444-2019 (sdM9) T$_\mathrm{eff}: 2363 \pm 42$ K', transform=ax1.transAxes, color='mediumblue',
+ax1.text(0, 0.43, '1444-2019 (sdM9) $T_\mathrm{eff}: 2363 \pm 42$ K', transform=ax1.transAxes, color='mediumblue',
          fontsize=12)
-ax1.text(0, 0.52, '1013-1356 (sdM9.5) T$_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
+ax1.text(0, 0.52, '1013-1356 (sdM9.5) $T_\mathrm{eff}: 2457 \pm 124$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
-ax1.text(0, 0.615, 'LHS 377 (sdM7) T$_\mathrm{eff}: 2748 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6',
+ax1.text(0, 0.615, 'LHS 377 (sdM7) $T_\mathrm{eff}: 2748 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
-ax1.text(0, 0.71, '1425+7102 (sdM8) T$_\mathrm{eff}: 2822 \pm 60$ K', transform=ax1.transAxes, color='#09D5D6',
+ax1.text(0, 0.71, '1425+7102 (sdM8) $T_\mathrm{eff}: 2822 \pm 60$ K', transform=ax1.transAxes, color='#09D5D6',
          fontsize=12)
-ax1.text(0, 0.79, '1610-0040 (sdM7) T$_\mathrm{eff}: 2878 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
+ax1.text(0, 0.79, '1610-0040 (sdM7) $T_\mathrm{eff}: 2878 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
          fontsize=12)
-ax1.text(0, 0.97, '2036+5059 (sdM7.5) T$_\mathrm{eff}: 3021 \pm 102$ K', transform=ax1.transAxes, color='#F7BE0F',
+ax1.text(0, 0.97, '2036+5059 (sdM7.5) $T_\mathrm{eff}: 3021 \pm 102$ K', transform=ax1.transAxes, color='#F7BE0F',
          fontsize=12)
 
 # ---- Label Features ------

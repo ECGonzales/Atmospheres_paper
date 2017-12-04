@@ -41,8 +41,8 @@ plt.ylim([0, 3.5])
 # ------Tick size and Axes Labels --------
 plt.yticks(fontsize=20)
 plt.xticks(fontsize=20)
-plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
-plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_1256['w'], norm_df_1256, c='blue')
@@ -55,7 +55,7 @@ Ti1 = pd.DataFrame()
 Ti1['x'] = [0.96, 0.97]
 Ti1['y'] = [0.3, 0.3]
 plt.plot(Ti1['x'], Ti1['y'], color='k')
-ax1.text(0.075, 0.04, 'Ti I', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.075, 0.04, 'Ti$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
 # -- To make a vertical line
 Ti1up = pd.DataFrame()
 Ti1up['x'] = [0.96, 0.96]
@@ -65,6 +65,16 @@ Ti1up2 = pd.DataFrame()
 Ti1up2['x'] = [0.97, 0.97]
 Ti1up2['y'] = [0.3, 0.45]
 plt.plot(Ti1up2['x'], Ti1up2['y'], color='k')
+# Add all of the individual lines!!!!
+
+
+
+
+
+
+
+
+
 
 # --- To make line for feature
 FeH1 = pd.DataFrame()

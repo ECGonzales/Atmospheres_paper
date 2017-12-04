@@ -44,8 +44,8 @@ plt.ylim([0, 3.5])
 # ------Tick size and Axes Labels --------
 plt.yticks(fontsize=20)
 plt.xticks(fontsize=20)
-plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
-plt.ylabel('Normalized Flux (F$_\lambda$)', fontsize=25)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_1256j['w'], norm_df_1256, c='blue')
@@ -57,7 +57,7 @@ NaI = pd.DataFrame()
 NaI['x'] = [1.13656, 1.14269]
 NaI['y'] = [1.3, 1.3]
 plt.plot(NaI['x'], NaI['y'], color='k')
-ax1.text(0.0625, 0.32, 'NaI', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.0625, 0.32, 'Na$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
 # ----- Making each of the vertical lines on each end --------
 NaId = pd.DataFrame()
 NaId['x'] = [1.13656, 1.13656]
@@ -72,7 +72,7 @@ KI1 = pd.DataFrame()
 KI1['x'] = [1.16569, 1.18225]
 KI1['y'] = [0.3, 0.3]
 plt.plot(KI1['x'], KI1['y'], color='k')
-ax1.text(0.22, 0.04, 'KI', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.22, 0.04, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
 # ----- Making each of the vertical lines on each end --------
 KI1up1 = pd.DataFrame()
 KI1up1['x'] = [1.16569, 1.16569]
@@ -97,7 +97,7 @@ KI2 = pd.DataFrame()
 KI2['x'] = [1.24175, 1.25616]
 KI2['y'] = [0.6, 0.6]
 plt.plot(KI2['x'], KI2['y'], color='k')
-ax1.text(0.55, 0.12, 'KI', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.55, 0.12, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
 KI2up1 = pd.DataFrame()
 KI2up1['x'] = [1.24175, 1.24175]
 KI2up1['y'] = [0.6, 0.7]
@@ -117,4 +117,5 @@ H2Od['x'] = [1.32, 1.32]
 H2Od['y'] = [2.75, 2.9]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
+# plt.tight_layout()
 plt.savefig('Plots/JbandTeff.png')

@@ -73,28 +73,28 @@ ax1.tick_params(axis='x', which='minor', labelsize=20)
 plt.yticks(fontsize=20)
 
 # ------ Axes Labels --------
-plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
-plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+plt.ylabel('Flux ($\mathrm{erg\ s^{-1} cm^{-2} A^{-1}}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
 # Old
 ax1.text(0.23, 0.4, '1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.23, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.23, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.23, 0.25, 'T$_\mathrm{eff}:2344\pm 314$ K', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.23, 0.25, '$T_\mathrm{eff}:2344\pm 314$ K', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
 ax1.text(0.62, 0.2, '0024-0158', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 ax1.text(0.62, 0.15, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 ax1.text(0.62, 0.1, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.62, 0.05, 'T$_\mathrm{eff}:2385\pm 77$ K', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.62, 0.05, '$T_\mathrm{eff}:2385\pm 77$ K', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 
 # Young
 ax1.text(0.6, 0.95, '2000-7523', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.9, r'Age: 12 - 22 Myr ($\beta$ Pictoris)', transform=ax1.transAxes, color='#D01810', fontsize=15)
 # r is to deal with \a or \b as being special python characters
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, 'T$_\mathrm{eff}:2363\pm 74$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, '$T_\mathrm{eff}:2363\pm 74$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
-plt.tight_layout()  # use to reduce whitespace in paper
+plt.tight_layout() # use to reduce whitespace in paper
 plt.savefig('Plots/comparison_Teff.png')
