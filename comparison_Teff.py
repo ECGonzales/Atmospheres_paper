@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
 from astropy import units as u
 from astropy.analytic_functions import blackbody_lambda as bblam
+from astropy.convolution import Gaussian1DKernel, convolve
+
 
 
 # ------------------------------------------------------------------------------------
@@ -10,14 +12,14 @@ from astropy.analytic_functions import blackbody_lambda as bblam
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED_nan.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
+df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED_updated.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_young_phot = pd.read_csv('Data/teff2000-7523 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
+df_young_phot = pd.read_csv('Data/teff2000-7523 (M9gamma) phot_updated.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 # df_young_phot_synth = pd.read_csv('Data/teff2000-7523_synthetic_phot.txt', sep=" ", comment='#', header=None,
 #                             names=["w", "f", "err"])
@@ -28,6 +30,11 @@ df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comme
 # -------------------------------------------------------------------------------------
 # ------------------- Smoothing the spectra, visually ---------------------------------
 # -------------------------------------------------------------------------------------
+g = Gaussian1DKernel(stddev=10)
+z_young = convolve(df_young['f'].values, g)  # This works but doesn't help with the two different resolutions. Need to
+# do it twice or use Jonathan's code.
+
+plt.plot(df_young['w'], z_young)
 
 # -----------------------------------------------------------------------------------------
 # ---------------------------------- Create a Blackbody -----------------------------------
