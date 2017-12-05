@@ -99,10 +99,16 @@ print coeffs_d
 
 # ---- Plot the fit lines -----
 xp = np.linspace(5, 30, 100)
-plt.plot(xp, line(xp), '-', color='k')
-plt.plot(xp, line_up(xp), '-', color='#17becf', alpha=.25)
-plt.plot(xp, line_d(xp), '-', color='#17becf', alpha=.25)
-ax1.fill_between(xp, line_up(xp), line_d(xp), alpha=.25, color='#17becf')
+
+# define the uncertainty range based on the values from the calcuated uncertainties on the coeffs. (See my table)
+fit = 0.298*xp + 7.781
+up = 0.334*xp + 7.971
+down = 0.262*xp + 7.591
+
+plt.plot(xp, fit, color='k')
+plt.plot(xp, up, color='#17becf', alpha=.25)
+plt.plot(xp, down, color='#17becf', alpha=.25)
+ax1.fill_between(xp, up, down, alpha=.25, color='#17becf')
 
 plt.tight_layout()
 plt.savefig('Plots/MHvspt.png')
