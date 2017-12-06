@@ -1,8 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import emcee
+import pdb  # Use pdb.set_trace() to put a stop in the code like idl
+import corner
 
-df_sub = pd.read_csv('Data/Subdwarf_Spt_v_Teff.txt', sep=" ", comment='#', header=None,
+# Set as stop for debugging
+stop = pdb.set_trace  # stop() to run
+
+# -------- Read in the data --------
+df_sub = pd.read_csv('Data/Subdwarf_Spt_v_Teff.txt', sep="\s+", comment='#', header=None,
                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ', 'MJ_unc',
                             'MH', 'MH_unc', 'MK', 'MK_unc', 'MW1', 'MW1_unc', 'MW2', 'MW2_unc'])
 
@@ -43,7 +50,92 @@ AbsW2y_err = np.round(np.sqrt(df_young['W2er'] ** 2 + 25 * (dy_err/(dy * np.log(
 df_young['AbsW2'] = AbsW2y
 df_young['AbsW2_err'] = AbsW2y_err
 
+# -------------------------------------------------------------------------------------
+# ------------------------- Polynomial fits  -----------------------------------------
+# -------------------------------------------------------------------------------------
+# ------ Fit polynomial for subdwarfs ------
+# Need to drop nans
+df_sub2 = df_sub.drop(df_sub.index[[1, 5, 11]])
 
+# --- Get uncertainites for upper and lower teff limits ----
+df_sub2['AbsW2_up'] = df_sub2['MW2'] + df_sub2['MW2_unc']
+df_sub2['AbsW2_d'] = df_sub2['MW2'] - df_sub2['MW2_unc']
+
+# ------ Fit the values --------
+coeffs = np.polyfit(df_sub2['SpT'], df_sub2['MW2'], 1)
+line = np.poly1d(coeffs)
+
+coeffs_up = np.polyfit(df_sub2['SpT'], df_sub2['AbsW2_up'], 1)
+line_up = np.poly1d(coeffs_up)
+
+coeffs_d = np.polyfit(df_sub2['SpT'], df_sub2['AbsW2_d'], 1)
+line_d = np.poly1d(coeffs_d)
+
+# ---- print values to screen -------
+print coeffs
+print coeffs_up
+print coeffs_d
+
+# ---- Plot the fit lines -----
+# xp = np.linspace(5, 30, 100)
+#
+# # define the uncertainty range based on the values from the calcuated uncertainties on the coeffs. (See my table)
+# fit = 0.266*xp + 7.270
+# up = 0.323*xp + 7.648
+# down = 0.209*xp + 6.892
+#
+# plt.plot(xp, fit, color='k')
+# plt.plot(xp, up, color='#17becf', alpha=.25)
+# plt.plot(xp, down, color='#17becf', alpha=.25)
+# ax1.fill_between(xp, up, down, alpha=.25, color='#17becf')
+
+# -------------------------------------------------------------------------------------
+# ------------------------------ Use emcee to fit instead -----------------------------
+# -------------------------------------------------------------------------------------
+
+# Define the likelihood function: a line y=mx+b
+
+
+def lnprob(x, MW2, MW2_unc, spt):
+    if x[2] < 0:
+        return -np.inf
+    model_line = x[0]*spt + x[1]
+    sigma_dm = (MW2 - model_line)/np.sqrt(MW2_unc**2+x[2]**2)  # Distance between the data points and the model line
+    return -(1./2.)*sum(np.log(x[2]**2+MW2_unc**2))-(1./2.)*sum(sigma_dm**2)-np.log(x[2])  # np.log(x[2]) is an uninformative prior on the intrinsic dispersion
+                                                    # It favors large numbers less
+
+# Define the parameters we need to imput into the mcmc
+ndim = 3  # Number of parameters in my lnprob after the x
+nwalkers = 12
+nsteps = 1000  # this is a standard starting point of 1000
+
+parm_est = [0.248, 7.410, 0]  # This is my estimate on the slope and y-intercept from my polyfits
+parm_scale = [0.025, 0.74, 0.74]  # the scatter about my estimated start points 10%
+parm_scale_2d = np.array(parm_scale).reshape(1, ndim).repeat(nwalkers, axis=0)  # Create a 2D array of values with
+parm_est_2d = np.array(parm_est).reshape(1, ndim).repeat(nwalkers, axis=0)      # nwalkers rows
+pos = parm_est_2d + np.random.rand(nwalkers, ndim)*parm_scale_2d
+
+
+# Start the mcmc add .values to the pandas dataframe to convert to numpy array
+# Use the df_subpoly array that has removed the nans before can rum the mcmc
+sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, args=(df_sub2['MW2'].values,
+                                                              df_sub2['MW2_unc'].values, df_sub2['SpT'].values))
+sampler.run_mcmc(pos, nsteps)
+
+# Check what the burn in is so it can be thrown out
+labels = ["slope", "intercept", 'dispersion']
+for k in range(ndim):
+    plt.figure()
+    for n in range(nwalkers):
+        plt.plot(sampler.chain[n,:,k])
+    plt.ylabel(labels[k], fontsize='16')
+    plt.xlabel("step number", fontsize='12')
+
+# Burn in was around 50 steps, so drop 200 to be safe them from the chain
+samples = sampler.chain[:, 200:, :].reshape((-1, ndim))
+
+# Check the corner plot of the chain
+figcheck = corner.corner(samples, labels=["$m$", "$b$",'dispersion'])
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Spt v Abs Mags W2---------------------------------
 # -------------------------------------------------------------------------------------
@@ -80,44 +172,19 @@ ax1.plot(pointer['x'], pointer['y'], color='k')
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)
 
-# -------------------------------------------------------------------------------------
-# ------------------------- Polynomial fits  -----------------------------------------
-# -------------------------------------------------------------------------------------
-# ------ Fit polynomial for subdwarfs ------
-# Need to drop nans
-df_sub2 = df_sub.drop(df_sub.index[[1, 5, 11]])
+# ---- Plot fit lines  from the mcmc, random 100 -----
+xl = np.array([0, 20])
+for x in samples[np.random.randint(len(samples), size=500)]:
+    plt.plot(xl, x[0]*xl+x[1], color="#17becf", alpha=0.05)
 
-# --- Get uncertainites for upper and lower teff limits ----
-df_sub2['AbsW2_up'] = df_sub2['MW2'] + df_sub2['MW2_unc']
-df_sub2['AbsW2_d'] = df_sub2['MW2'] - df_sub2['MW2_unc']
+# To get the best fit line
+best_fit_coeffs = np.median(samples, axis=0)
+best_fit_line = best_fit_coeffs[0]*xl + best_fit_coeffs[1]
+plt.plot(xl, best_fit_line, c='k', zorder=8)
 
-# ------ Fit the values --------
-coeffs = np.polyfit(df_sub2['SpT'], df_sub2['MW2'], 1)
-line = np.poly1d(coeffs)
-
-coeffs_up = np.polyfit(df_sub2['SpT'], df_sub2['AbsW2_up'], 1)
-line_up = np.poly1d(coeffs_up)
-
-coeffs_d = np.polyfit(df_sub2['SpT'], df_sub2['AbsW2_d'], 1)
-line_d = np.poly1d(coeffs_d)
-
-# ---- print values to screen -------
-print coeffs
-print coeffs_up
-print coeffs_d
-
-# ---- Plot the fit lines -----
-xp = np.linspace(5, 30, 100)
-
-# define the uncertainty range based on the values from the calcuated uncertainties on the coeffs. (See my table)
-fit = 0.266*xp + 7.270
-up = 0.323*xp + 7.648
-down = 0.209*xp + 6.892
-
-plt.plot(xp, fit, color='k')
-plt.plot(xp, up, color='#17becf', alpha=.25)
-plt.plot(xp, down, color='#17becf', alpha=.25)
-ax1.fill_between(xp, up, down, alpha=.25, color='#17becf')
+# ---- Print the best fit coeffs and the std -----
+print(best_fit_coeffs)
+print(np.std(samples, axis=0))
 
 plt.tight_layout()
 plt.savefig('Plots/W2vspt.png')

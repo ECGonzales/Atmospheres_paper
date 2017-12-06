@@ -105,7 +105,7 @@ nwalkers = 12
 nsteps = 1000  # this is a standard starting point of 1000
 
 parm_est = [0.259, 8.450, 0]  # This is my estimate on the slope and y-intercept from my polyfits
-parm_scale = [0.026, 0.85, 0.85]  # the scatter about my estimated start points 10% for teff, 500 Degrees for K
+parm_scale = [0.026, 0.85, 0.85]  # the scatter about my estimated start points 10%
 parm_scale_2d = np.array(parm_scale).reshape(1, ndim).repeat(nwalkers, axis=0)  # Create a 2D array of values with
 parm_est_2d = np.array(parm_est).reshape(1, ndim).repeat(nwalkers, axis=0)      # nwalkers rows
 pos = parm_est_2d + np.random.rand(nwalkers, ndim)*parm_scale_2d
