@@ -5,19 +5,26 @@ import matplotlib.pyplot as plt
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
-# Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-
+# Read all in as pandas dataframes. Jonathan's post smooth is sep= ","
+df_1256 = pd.read_csv('Data/Smoothed_data/Red_optical_comp_smoothed/correctpi1256-0224 (L3.5sd) SED_smoothed.txt',
+                      sep=",", comment='#', header=None, names=["w", "f", "err"])
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/Smoothed_data/Red_optical_comp_smoothed/teff2000-7523 (M9gamma) SED_updated_smoothed.txt',
+                       sep=",", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/Smoothed_data/Red_optical_comp_smoothed/teff0024-0158 (M9.5) SED_smoothed.txt', sep=",",
+                       comment='#', header=None, names=["w", "f", "err"])
 
 # ----------------------- Same SpT ----------------------------------------------------
-df_fieldspt = pd.read_csv('Data/NotUsingAsCompariosn/0036+1821 (L3.5) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
+df_fieldspt = pd.read_csv('Data/Smoothed_data/Red_optical_comp_smoothed/0036+1821 (L3.5) SED_smoothed.txt', sep=",",
+                          comment='#', header=None, names=["w", "f", "err"])
 
+# ------------------------------------------------------------------------------------
+# ------------------- Fix files to read all coulmns as Floats-------------------------
+# ------------------------------------------------------------------------------------
+df_1256 =df_1256.astype(float)
+df_young = df_young.astype(float)
+df_field = df_field.astype(float)
+df_fieldspt = df_fieldspt.astype(float)
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
 # -------------------------------------------------------------------------------------
@@ -42,6 +49,10 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+ax1.xaxis.set_tick_params(length=5, width=1.5)  #Make ticks longer and thicker
+ax1.yaxis.set_tick_params(length=5, width=1.5)
+for axis in ['top','bottom','left','right']:  #Thicken the frame
+  ax1.spines[axis].set_linewidth(1.5)
 plt.xlim([0.60, 0.90])
 plt.ylim([-0.01, 58])
 

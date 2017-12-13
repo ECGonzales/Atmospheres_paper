@@ -30,8 +30,8 @@ df_field_phot = pd.read_csv('Data/1048-3956 (M9) phot.txt', sep=" ", comment='#'
 # -----------------------------------------------------------------------------------------
 # ---------------------------------- Create a Blackbody -----------------------------------
 # -----------------------------------------------------------------------------------------
-#Solve for temp from the Lbol = log(L/L_solar)
-L_sun = 3.828*10**(26)/(4*np.pi*(3.086*10**17)**2)  # Lsun in W / 4pi(distance of 10pc)^2
+# Solve for temp from the Lbol = log(L/L_solar)
+L_sun = 3.828*10**26/(4*np.pi*(3.086*10**17)**2)  # Lsun in W / 4pi(distance of 10pc)^2
 
 L_1256 = (10**(-3.518)*L_sun)/(((1.03/10)*(2.2657*10**(-9)))**2)  # 10^(Lbol)*L_sun/(radius of 1256/10pc)*(1 Rjup in pc)
 temp_lbol_1256 = (L_1256/(5.670*10**(-8)))**(1.0/4.0)  # 5.670-> stefan-boltzmann constant
@@ -79,9 +79,10 @@ ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='k', s=70)
 ax1.scatter(df_1256_phot['w'], df_1256_phot['f'], c='blue', s=50)
 
 # -------- Plot the blackbodies -------------------
-ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_1256, c='blue', ls='dashed', zorder=1, alpha=0.75)
-ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_field, c='#7C7D70', ls='dashed', zorder=1, alpha=0.75)
-ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_young, c='#D01810', ls='dashed', zorder=1, alpha=0.75)
+# Decided not to show in the paper currently
+# ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_1256, c='blue', ls='dashed', zorder=1, alpha=0.75)
+# ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_field, c='#7C7D70', ls='dashed', zorder=1, alpha=0.75)
+# ax1.loglog(wavelengths.to(u.um), flux_lam_scaled_young, c='#D01810', ls='dashed', zorder=1, alpha=0.75)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.33, 24])
