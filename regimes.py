@@ -9,7 +9,7 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED_nan.txt', sep=" ", comment='#', header=None,
                  names=["w", "f", "err"])
 df2 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 # header=1 skips the 2MASS H which is ok here but not other times, use stuff above
@@ -24,8 +24,8 @@ df2 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1
 opt = df[(df['w'] <= 0.950454)]
 overlap = df[(df['w'] >= 0.950328) & (df['w'] <= 1.03426)]
 # nir = df[(df['w'] > 1.03426)]  # Split bands and cut out some junk
-z = df[(df['w'] >= 0.950328 ) & (df['w'] <= 1.11474)]
-j = df[(df['w'] >= 1.15308) & (df['w'] <= 1.3500 )]
+z = df[(df['w'] >= 0.950328) & (df['w'] <= 1.11474)]
+j = df[(df['w'] >= 1.15308) & (df['w'] <= 1.3500)]
 h = df[(df['w'] >= 1.48933) & (df['w'] <= 1.8)]
 k = df[(df['w'] >= 2.0175)]
 # zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
