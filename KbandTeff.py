@@ -6,23 +6,28 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_1256 = pd.read_csv('Data/Smoothed_data/teff_bandbyband_smoothed/correctpi1256-0224 (L3.5sd) SED_smoothed.txt',
+                      sep=",", comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/Smoothed_data/teff_bandbyband_smoothed/teff2000-7523 (M9gamma) SED_updated_smoothed.txt',
+                       sep=",", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/Smoothed_data/teff_bandbyband_smoothed/teff0024-0158 (M9.5) SED_smoothed.txt', sep=",",
+                       comment='#', header=None, names=["w", "f", "err"])
 
-# -------- Remove lines from when trimming with SEDkit for 1256
-df_1256k = df_1256[(df_1256['w'] >= 2.051515)]
+# ------------------------------------------------------------------------------------
+# ------------------- Fix files to read all columns as Floats-------------------------
+# ------------------------------------------------------------------------------------
+df_1256 = df_1256.astype(float)
+df_young = df_young.astype(float)
+df_field = df_field.astype(float)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
 # -------------------------------------------------------------------------------------
 # Determine region good for all spectra to take the average flux over
-norm_region = df_1256k[(df_1256k['w'] >= 2.16) & (df_1256k['w'] <= 2.20)]
-norm_df_1256 = df_1256k['f']/(np.average(norm_region['f']))
+norm_region = df_1256[(df_1256['w'] >= 2.16) & (df_1256['w'] <= 2.20)]
+norm_df_1256 = df_1256['f']/(np.average(norm_region['f']))
 
 norm_region2 = df_young[(df_young['w'] >= 2.16) & (df_young['w'] <= 2.20)]
 norm_df_young = df_young['f']/(np.average(norm_region2['f']))
@@ -36,19 +41,20 @@ norm_df_field = df_field['f']/(np.average(norm_region3['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 plt.xlim([2.0, 2.35])
 plt.ylim([0, 3.5])
 
 # ------Tick size and Axes Labels --------
-plt.yticks(fontsize=20)
-plt.xticks(fontsize=20)
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
-ax1.plot(df_1256k['w'], norm_df_1256, c='blue')
+ax1.plot(df_1256['w'], norm_df_1256, c='blue')
 ax1.plot(df_field['w'], norm_df_field + 1.2, c='#7C7D70')
 ax1.plot(df_young['w'], norm_df_young + 1.7, c='#D01810')
 
@@ -75,5 +81,5 @@ COd['x'] = [2.295, 2.295]
 COd['y'] = [2.8, 2.95]
 plt.plot(COd['x'], COd['y'], color='k')
 
-# plt.tight_layout()
+plt.tight_layout()
 plt.savefig('Plots/KbandTeff.png')

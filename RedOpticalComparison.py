@@ -19,12 +19,13 @@ df_fieldspt = pd.read_csv('Data/Smoothed_data/Red_optical_comp_smoothed/0036+182
                           comment='#', header=None, names=["w", "f", "err"])
 
 # ------------------------------------------------------------------------------------
-# ------------------- Fix files to read all coulmns as Floats-------------------------
+# ------------------- Fix files to read all columns as Floats-------------------------
 # ------------------------------------------------------------------------------------
-df_1256 =df_1256.astype(float)
+df_1256 = df_1256.astype(float)
 df_young = df_young.astype(float)
 df_field = df_field.astype(float)
 df_fieldspt = df_fieldspt.astype(float)
+
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
 # -------------------------------------------------------------------------------------
@@ -49,16 +50,13 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-ax1.xaxis.set_tick_params(length=5, width=1.5)  #Make ticks longer and thicker
-ax1.yaxis.set_tick_params(length=5, width=1.5)
-for axis in ['top','bottom','left','right']:  #Thicken the frame
-  ax1.spines[axis].set_linewidth(1.5)
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)  # Lengthen ticks
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 plt.xlim([0.60, 0.90])
 plt.ylim([-0.01, 58])
 
-# ------Tick size and Axes Labels --------
-plt.yticks(fontsize=20)
-plt.xticks(fontsize=20)
+# ------ Axes Labels --------
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
@@ -79,11 +77,11 @@ plt.plot(divide['x'], divide['y'], color='k', linestyle='dashed')
 ax1.text(0.01, 0.1, 'J0036+1821  (L3.5)', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.05, '$T_\mathrm{eff}: 1868 \pm 68$ K ', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.4, 'J1256-0024  (sdL3.5)', transform=ax1.transAxes, color='k', fontsize=15)
-ax1.text(0.01, 0.35, '$T_\mathrm{eff}: 2344 \pm 314$ K', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.35, '$T_\mathrm{eff}: 2340 \pm 310$ K', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.63, 'J0024-0158  (M9)', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.58, '$T_\mathrm{eff}: 2385 \pm 77$ K', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.87, 'J2000-7523  (M9$\gamma$)', transform=ax1.transAxes, color='k', fontsize=15)
-ax1.text(0.01, 0.82, '$T_\mathrm{eff}: 2363 \pm 74$ K', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.82, '$T_\mathrm{eff}: 2450 \pm 62$ K', transform=ax1.transAxes, color='k', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Plots/RedOpticalComparison.png')

@@ -30,11 +30,13 @@ h = df[(df['w'] >= 1.48933) & (df['w'] <= 1.8)]
 k = df[(df['w'] >= 2.0175)]
 # zj = df[(df['w'] >= 0.950328) & (df['w'] <= 1.3500)]
 
+# --------- Set Up the plot Layout ----------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # This makes sure that the labels aren't cut off
-
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 
 # ----- Plot Spectra -----------
 ax1.loglog(opt['w'], opt['f'], c='#0179FF')
@@ -61,9 +63,9 @@ plt.ylim([5*10**(-19), 3*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.6, 2, 3, 4]))
-ax1.tick_params(axis='x', which='major', labelsize=20)
-ax1.tick_params(axis='x', which='minor', labelsize=20)
-plt.yticks(fontsize=20)
+ax1.tick_params(axis='both', which='major', labelsize=20, length=8, width=1.1)
+ax1.tick_params(axis='both', which='minor', labelsize=20, length=4, width=1.1)
+# plt.yticks(fontsize=20) # switched from axis='x' to both so no longer needed
 
 # ------ Axes Labels --------
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)

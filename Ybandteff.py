@@ -6,13 +6,21 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_1256 = pd.read_csv('Data/Smoothed_data/teff_bandbyband_smoothed/correctpi1256-0224 (L3.5sd) SED_smoothed.txt',
+                      sep=",", comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/teff2000-7523 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_field = pd.read_csv('Data/teff0024-0158 (M9.5) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/Smoothed_data/teff_bandbyband_smoothed/teff2000-7523 (M9gamma) SED_updated_smoothed.txt',
+                       sep=",", comment='#', header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/Smoothed_data/teff_bandbyband_smoothed/teff0024-0158 (M9.5) SED_smoothed.txt', sep=",",
+                       comment='#', header=None, names=["w", "f", "err"])
+
+# ------------------------------------------------------------------------------------
+# ------------------- Fix files to read all columns as Floats-------------------------
+# ------------------------------------------------------------------------------------
+df_1256 = df_1256.astype(float)
+df_young = df_young.astype(float)
+df_field = df_field.astype(float)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -33,14 +41,16 @@ norm_df_field = df_field['f']/(np.average(norm_region3['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.95, 1.10])
 plt.ylim([0, 3.5])
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
+
 
 # ------Tick size and Axes Labels --------
-plt.yticks(fontsize=20)
-plt.xticks(fontsize=20)
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
@@ -52,31 +62,62 @@ ax1.plot(df_young['w'], norm_df_young + 1, c='#D01810')
 # ------- Label Features --------------------------
 # --- To make line for feature
 Ti1 = pd.DataFrame()
-Ti1['x'] = [0.96, 0.97]
+Ti1['x'] = [0.96042912, 0.97884568]
 Ti1['y'] = [0.3, 0.3]
 plt.plot(Ti1['x'], Ti1['y'], color='k')
-ax1.text(0.075, 0.04, 'Ti$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
-# -- To make a vertical line
+ax1.text(0.12, 0.04, 'Ti$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
+# -- To make vertical lines
 Ti1up = pd.DataFrame()
-Ti1up['x'] = [0.96, 0.96]
+Ti1up['x'] = [0.96042912, 0.96042912]
 Ti1up['y'] = [0.3, 0.45]
 plt.plot(Ti1up['x'], Ti1up['y'], color='k')
+
 Ti1up2 = pd.DataFrame()
-Ti1up2['x'] = [0.97, 0.97]
+Ti1up2['x'] = [0.96408301, 0.96408301]
 Ti1up2['y'] = [0.3, 0.45]
 plt.plot(Ti1up2['x'], Ti1up2['y'], color='k')
-# Add all of the individual lines!!!!
 
+Ti1up3 = pd.DataFrame()
+Ti1up3['x'] = [0.96516997, 0.96516997]
+Ti1up3['y'] = [0.3, 0.45]
+plt.plot(Ti1up3['x'], Ti1up3['y'], color='k')
 
+Ti1up4 = pd.DataFrame()
+Ti1up4['x'] = [0.96774343, 0.96774343]
+Ti1up4['y'] = [0.3, 0.45]
+plt.plot(Ti1up4['x'], Ti1up4['y'], color='k')
 
+Ti1up5 = pd.DataFrame()
+Ti1up5['x'] = [0.96923371, 0.96923371]
+Ti1up5['y'] = [0.3, 0.45]
+plt.plot(Ti1up5['x'], Ti1up5['y'], color='k')
 
+Ti1up6 = pd.DataFrame()
+Ti1up6['x'] = [0.97085682, 0.97085682]
+Ti1up6['y'] = [0.3, 0.45]
+plt.plot(Ti1up6['x'], Ti1up6['y'], color='k')
 
+Ti1up7 = pd.DataFrame()
+Ti1up7['x'] = [0.97315592, 0.97315592]
+Ti1up7['y'] = [0.3, 0.45]
+plt.plot(Ti1up7['x'], Ti1up7['y'], color='k')
 
+Ti1up8 = pd.DataFrame()
+Ti1up8['x'] = [0.97465017, 0.97465017]
+Ti1up8['y'] = [0.3, 0.45]
+plt.plot(Ti1up8['x'], Ti1up8['y'], color='k')
 
+Ti1up9 = pd.DataFrame()
+Ti1up9['x'] = [0.97708032, 0.97708032]
+Ti1up9['y'] = [0.3, 0.45]
+plt.plot(Ti1up9['x'], Ti1up9['y'], color='k')
 
+Ti1up10 = pd.DataFrame()
+Ti1up10['x'] = [0.97884568, 0.97884568]
+Ti1up10['y'] = [0.3, 0.45]
+plt.plot(Ti1up10['x'], Ti1up10['y'], color='k')
 
-
-# --- To make line for feature
+# --- To make line for features ---------
 FeH1 = pd.DataFrame()
 FeH1['x'] = [0.9896, 1.0]
 FeH1['y'] = [2.3, 2.3]
@@ -98,6 +139,16 @@ FeH2d['x'] = [0.998, 0.998]
 FeH2d['y'] = [2.6, 2.75]
 plt.plot(FeH2d['x'], FeH2d['y'], color='k')
 
+VO = pd.DataFrame()
+VO['x'] = [1.0456, 1.08]
+VO['y'] = [2.54, 2.54]
+plt.plot(VO['x'], VO['y'], color='k')
+ax1.text(0.72, 0.73, 'VO', transform=ax1.transAxes, color='k', fontsize=15)
+VOd = pd.DataFrame()
+VOd['x'] = [1.0456, 1.0456]
+VOd['y'] = [2.54, 2.41]
+plt.plot(VOd['x'], VOd['y'], color='k')
+
 H2O = pd.DataFrame()
 H2O['x'] = [1.08, 1.099]
 H2O['y'] = [3, 3]
@@ -108,5 +159,5 @@ H2Od['x'] = [1.08, 1.08]
 H2Od['y'] = [2.85, 3]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
-# plt.tight_layout()
+plt.tight_layout()
 plt.savefig('Plots/YbandTeff.png')

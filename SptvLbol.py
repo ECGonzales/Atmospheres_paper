@@ -112,12 +112,14 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(10, 6.45)  # to make sure proper size run entire code at once and change 8 to 6.45 to
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 plt.xlim([5.5, 18.5])
 plt.ylim([-5, -2.3])
 
 # ------ Axes Labels --------
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6','M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
-plt.yticks(fontsize=20)
 plt.xlabel('Spectral Type', fontsize=25)
 plt.ylabel('log($L_\mathrm{bol}$/$L_\odot$)', fontsize=25)
 

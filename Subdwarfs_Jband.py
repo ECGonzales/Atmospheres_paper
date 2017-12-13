@@ -8,31 +8,27 @@ import numpy as np
 # Read  all in as pandas dataframes
 # None for 1256-1408, and problem for 0616
 
-df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_1256 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/correctpi1256-0224 (L3.5sd) SED_smoothed.txt', sep=",",
+                      comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Subdwarfs ----------------------------------
-df_0532 = pd.read_csv('Data/0532+8246 (L7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_0616 = pd.read_csv('Data/0616-6407 (L5sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_1013 = pd.read_csv('Data/1013-1356 (-) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-# df_125614 = pd.read_csv('', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_HD = pd.read_csv('Data/HD114762B (M9sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_1425 = pd.read_csv('Data/1425+7102 (M8sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_LHS = pd.read_csv('Data/1439+1839 (M7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_1444 = pd.read_csv('Data/1444-2019 (M9sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_1610 = pd.read_csv('Data/1610-0040 (M7sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_1626 = pd.read_csv('Data/1626+3925 (L4sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
-df_2036 = pd.read_csv('Data/2036+5059 (M7.5sd) SED.txt', sep=" ", comment='#', header=None, names=["w", "f", "err"])
+df_0532 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/0532+8246 (L7sd) SED_smoothed.txt', sep=",",
+                      comment='#', header=None, names=["w", "f", "err"])
+df_LHS = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/1439+1839 (M7sd) SED_smoothed.txt', sep=",",
+                     comment='#', header=None, names=["w", "f", "err"])
+df_1610 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/1610-0040 (M7sd) SED_smoothed.txt', sep=",",
+                      comment='#', header=None, names=["w", "f", "err"])
+df_2036 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/2036+5059 (M7.5sd) SED_smoothed.txt', sep=",",
+                      comment='#', header=None, names=["w", "f", "err"])
 
-# -------------------------------------------------------------------------------------
-# ---------------------- Remove Tails ------------------------------------------------
-# -------------------------------------------------------------------------------------
-df_HD = df_HD[(df_HD['w'] > 0.91) & (df_HD['w'] <= 3)]
-
-# -------- Remove lines from when trimming with SEDkit for 1256
-df_1256 = df_1256[(df_1256['w'] >= 1.15311) & (df_1256['w'] <= 1.34807)]
-df_0532 = df_0532[(df_0532['w'] >= 1.15) & (df_0532['w'] <= 1.35)]
-df_0616 = df_0616[(df_0616['w'] >= 1.262)]
+# ------------------------------------------------------------------------------------
+# ------------------- Fix files to read all columns as Floats-------------------------
+# ------------------------------------------------------------------------------------
+df_1256 = df_1256.astype(float)
+df_0532 = df_0532.astype(float)
+df_LHS = df_LHS.astype(float)
+df_1610 = df_1610.astype(float)
+df_2036 = df_2036.astype(float)
 
 # -------------------------------------------------------------------------------------
 # --------- Normalize the spectra to same as before for 1256 --------------------------
@@ -44,35 +40,14 @@ norm_df_1256 = df_1256['f']/(np.average(norm_region['f']))
 norm_region_0532 = df_0532[(df_0532['w'] >= 1.29) & (df_0532['w'] <= 1.31)]
 norm_df_0532 = df_0532['f']/(np.average(norm_region_0532['f']))
 
-norm_region_0616 = df_0616[(df_0616['w'] >= 1.29) & (df_0616['w'] <= 1.31)]
-norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
-
-norm_region_1626 = df_1626[(df_1626['w'] >= 1.29) & (df_1626['w'] <= 1.31)]
-norm_df_1626 = df_1626['f']/(np.average(norm_region_1626['f']))
-
-norm_region_1444 = df_1444[(df_1444['w'] >= 1.29) & (df_1444['w'] <= 1.31)]
-norm_df_1444 = df_1444['f']/(np.average(norm_region_1444['f']))
-
-norm_region_1013 = df_1013[(df_1013['w'] >= 1.29) & (df_1013['w'] <= 1.31)]
-norm_df_1013 = df_1013['f']/(np.average(norm_region_1013['f']))
-
 norm_region_LHS = df_LHS[(df_LHS['w'] >= 1.29) & (df_LHS['w'] <= 1.31)]
 norm_df_LHS = df_LHS['f']/(np.average(norm_region_LHS['f']))
-
-norm_region_1425 = df_1425[(df_1425['w'] >= 1.29) & (df_1425['w'] <= 1.31)]
-norm_df_1425 = df_1425['f']/(np.average(norm_region_1425['f']))
 
 norm_region_1610 = df_1610[(df_1610['w'] >= 1.29) & (df_1610['w'] <= 1.31)]
 norm_df_1610 = df_1610['f']/(np.average(norm_region_1610['f']))
 
-norm_region_HD = df_HD[(df_HD['w'] >= 1.29) & (df_HD['w'] <= 1.31)]
-norm_df_HD = df_HD['f']/(np.average(norm_region_HD['f']))
-
 norm_region_2036 = df_2036[(df_2036['w'] >= 1.29) & (df_2036['w'] <= 1.31)]
 norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
-
-# norm_region_125614 = df_125614[(df_125614['w'] >= 1.29) & (df_125614['w'] <= 1.31)]
-# norm_df_125614 = df_125614['f']/(np.average(norm_region_125614['f']))
 
 # -------------------------------------------------------------------------------------
 # --------- Plotting: Comparison of in order of decreasing Teff/ Spt Type -------------
@@ -80,14 +55,15 @@ norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(8, 10)  # to make sure proper size run entire code at once and change 8 to 6.45 to
+fig.set_size_inches(8, 10)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 plt.xlim([1.16, 1.26])   # plotting for only high res for K doublets
 plt.ylim([0, 5.5])
 
 # ------ Axes Labels --------
-plt.xticks(fontsize=20)
-plt.yticks(fontsize=20)
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
@@ -101,9 +77,10 @@ ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                           
 
 # ------- Label Sources -------------
 ax1.annotate('0532+8246 T$_\mathrm{eff}: 1647 \pm 42$ K ', xy=(1.215, 1.2), color='indigo', fontsize=12)
-ax1.annotate('1256-0224 T$_\mathrm{eff}: 2344 \pm 314$ K', xy=(1.215, 2.2), color='k', fontsize=12)
+ax1.annotate('1256-0224 T$_\mathrm{eff}: 2340 \pm 310$ K', xy=(1.215, 2.2), color='k', fontsize=12)
 ax1.annotate('LHS 377 T$_\mathrm{eff}: 2748 \pm 36$ K', xy=(1.215, 3.2), color='#01A1D6', fontsize=12)
 ax1.annotate('1610-0040 T$_\mathrm{eff}: 2878 \pm 20$ K', xy=(1.215, 4.2), color='#04A57F', fontsize=12)
-ax1.annotate('2036+5059 T$_\mathrm{eff}: 3021 \pm 102$ K', xy=(1.215, 5.2), color='#F7BE0F', fontsize=12)
+ax1.annotate('2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.215, 5.2), color='#F7BE0F', fontsize=12)
 
+plt.tight_layout()
 plt.savefig('Plots/Subdwarfs_JbandKdoublet.png')
