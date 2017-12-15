@@ -91,7 +91,7 @@ ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=
 ax1.text(0.6, 0.8, '$T_\mathrm{eff}:2450\pm 62$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.tight_layout()  # use to reduce whitespace in paper
-plt.savefig('Plots/comparison_Teff.png')
+plt.savefig('Plots/comparison_Teff.png', dpi=150)
 
 
 

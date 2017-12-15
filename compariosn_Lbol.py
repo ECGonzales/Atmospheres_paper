@@ -123,4 +123,4 @@ ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=
 ax1.text(0.6, 0.8, '$L_\mathrm{bol}:-3.615\pm0.082 $', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Plots/comparison_Lbol.png')
+plt.savefig('Plots/comparison_Lbol.png', dpi=150)

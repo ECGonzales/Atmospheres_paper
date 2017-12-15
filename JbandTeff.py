@@ -124,4 +124,4 @@ H2Od['y'] = [2.75, 2.9]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Plots/JbandTeff.png')
+plt.savefig('Plots/JbandTeff.png', dpi=150)

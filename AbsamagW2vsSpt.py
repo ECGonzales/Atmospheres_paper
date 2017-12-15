@@ -189,4 +189,4 @@ print(best_fit_coeffs)
 print(np.std(samples, axis=0))
 
 plt.tight_layout()
-plt.savefig('Plots/W2vspt.png')
+plt.savefig('Plots/W2vspt.png', dpi=150)

@@ -50,7 +50,7 @@ plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al
 
 # ax1.set_yscale('log')  # Test for Jonathan
 plt.tight_layout()
-plt.savefig('Plots/SptVmass.png')
+plt.savefig('Plots/SptVmass.png',dpi=150)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Teff v mass ------------------------------------
@@ -79,4 +79,4 @@ ax1.errorbar(df_sub['mass'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', 
 plt.scatter(df_sub['mass'][0], df_sub['Teff'][0], color='blue', s=300, zorder=7, marker="*")
 
 plt.tight_layout()
-plt.savefig('Plots/TeffVmass.png')
+plt.savefig('Plots/TeffVmass.png',dpi=150)

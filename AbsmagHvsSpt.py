@@ -182,4 +182,4 @@ print(best_fit_coeffs)
 print(np.std(samples, axis=0))
 
 plt.tight_layout()
-plt.savefig('Plots/MHvspt.png')
+plt.savefig('Plots/MHvspt.png', dpi=150)

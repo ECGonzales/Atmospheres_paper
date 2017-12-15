@@ -80,4 +80,4 @@ CH4d['y'] = [2.5, 2.7]
 plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Plots/HbandTeff.png')
+plt.savefig('Plots/HbandTeff.png', dpi=150)
