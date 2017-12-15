@@ -76,11 +76,11 @@ ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                           
 # ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
 
 # ------- Label Sources -------------
-ax1.annotate('0532+8246 T$_\mathrm{eff}: 1647 \pm 42$ K ', xy=(1.215, 1.2), color='indigo', fontsize=12)
-ax1.annotate('1256-0224 T$_\mathrm{eff}: 2340 \pm 310$ K', xy=(1.215, 2.2), color='k', fontsize=12)
-ax1.annotate('LHS 377 T$_\mathrm{eff}: 2748 \pm 36$ K', xy=(1.215, 3.2), color='#01A1D6', fontsize=12)
-ax1.annotate('1610-0040 T$_\mathrm{eff}: 2878 \pm 20$ K', xy=(1.215, 4.2), color='#04A57F', fontsize=12)
-ax1.annotate('2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.215, 5.2), color='#F7BE0F', fontsize=12)
+ax1.annotate('J0532+8246 T$_\mathrm{eff}: 1647 \pm 42$ K ', xy=(1.220, 1.2), color='indigo', fontsize=12)
+ax1.annotate('J1256-0224 T$_\mathrm{eff}: 2340 \pm 310$ K', xy=(1.220, 2.2), color='k', fontsize=12)
+ax1.annotate('LHS 377 T$_\mathrm{eff}: 2748 \pm 36$ K', xy=(1.220, 3.2), color='#01A1D6', fontsize=12)
+ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2878 \pm 20$ K', xy=(1.220, 4.2), color='#04A57F', fontsize=12)
+ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.220, 5.2), color='#F7BE0F', fontsize=12)
 
 plt.tight_layout()
 plt.savefig('Plots/Subdwarfs_JbandKdoublet.png')

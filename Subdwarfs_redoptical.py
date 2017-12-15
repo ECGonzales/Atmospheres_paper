@@ -102,25 +102,25 @@ ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                           
 
 
 # ------- Label Sources -------------
-ax1.text(0, 0.04, 'J0532+8246 (sdL7) $T_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',
+ax1.text(0.005, 0.04, 'J0532+8246 (sdL7) $T_\mathrm{eff}: 1647 \pm 42$ K ', transform=ax1.transAxes, color='indigo',
          fontsize=12)
-ax1.text(0, 0.17, 'J0616-6407 (sdL5) $T_\mathrm{eff}: 1730 \pm 280$ K ', transform=ax1.transAxes, color='darkviolet',
+ax1.text(0.005, 0.17, 'J0616-6407 (sdL5) $T_\mathrm{eff}: 1730 \pm 280$ K ', transform=ax1.transAxes, color='darkviolet',
          fontsize=12)
-ax1.text(0, 0.24, 'J1626+3925 (sdL4) $T_\mathrm{eff}: 2115 \pm 22$ K', transform=ax1.transAxes, color='#531CF7',
+ax1.text(0.005, 0.24, 'J1626+3925 (sdL4) $T_\mathrm{eff}: 2115 \pm 22$ K', transform=ax1.transAxes, color='#531CF7',
          fontsize=12)
-ax1.text(0, 0.34, 'J1256-0224 (sdL3.5) $T_\mathrm{eff}: 2340 \pm 310$ K', transform=ax1.transAxes, color='k',
+ax1.text(0.005, 0.34, 'J1256-0224 (sdL3.5) $T_\mathrm{eff}: 2340 \pm 310$ K', transform=ax1.transAxes, color='k',
          fontsize=12)
-ax1.text(0, 0.43, 'J1444-2019 (sdM9) $T_\mathrm{eff}: 2417 \pm 12$ K', transform=ax1.transAxes, color='mediumblue',
+ax1.text(0.005, 0.43, 'J1444-2019 (sdM9) $T_\mathrm{eff}: 2417 \pm 12$ K', transform=ax1.transAxes, color='mediumblue',
          fontsize=12)
-ax1.text(0, 0.52, 'J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2545 \pm 31$ K', transform=ax1.transAxes, color='#015DF7',
+ax1.text(0.005, 0.52, 'J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2545 \pm 31$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
-ax1.text(0, 0.615, 'LHS 377 (sdM7) $T_\mathrm{eff}: 2748 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6',
+ax1.text(0.005, 0.615, 'LHS 377 (sdM7) $T_\mathrm{eff}: 2748 \pm 36$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
-ax1.text(0, 0.71, 'J1425+7102 (sdM8) $T_\mathrm{eff}: 2825 \pm 54$ K', transform=ax1.transAxes, color='#09D5D6',
+ax1.text(0.005, 0.71, 'J1425+7102 (sdM8) $T_\mathrm{eff}: 2825 \pm 54$ K', transform=ax1.transAxes, color='#09D5D6',
          fontsize=12)
-ax1.text(0, 0.79, 'J1610-0040 (sdM7) $T_\mathrm{eff}: 2878 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
+ax1.text(0.005, 0.79, 'J1610-0040 (sdM7) $T_\mathrm{eff}: 2878 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
          fontsize=12)
-ax1.text(0, 0.97, 'J2036+5059 (sdM7.5) $T_\mathrm{eff}: 2983 \pm 22$ K', transform=ax1.transAxes, color='#F7BE0F',
+ax1.text(0.005, 0.97, 'J2036+5059 (sdM7.5) $T_\mathrm{eff}: 2983 \pm 22$ K', transform=ax1.transAxes, color='#F7BE0F',
          fontsize=12)
 
 # ---- Label Features ------
