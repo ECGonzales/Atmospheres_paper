@@ -177,7 +177,7 @@ plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fon
 # ---- Plot fit lines  from the mcmc, random 100 -----
 xl = np.array([0, 20])
 for x in samples[np.random.randint(len(samples), size=500)]:
-    plt.plot(xl, x[0]*xl+x[1], color="#17becf", alpha=0.05)
+    plt.plot(xl, x[0]*xl+x[1], color="#17becf", alpha=0.05, zorder=1)
 
 # To get the best fit line
 best_fit_coeffs = np.median(samples, axis=0)
