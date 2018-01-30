@@ -75,7 +75,7 @@ plt.ylabel('Flux ($\mathrm{erg\ s^{-1} cm^{-2} A^{-1}}$)', fontsize=25)
 ax1.text(0.17, 0.4, 'J1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.17, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.17, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.17, 0.25, '$T_\mathrm{eff}:2340\pm 310$ K', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.17, 0.25, '$T_\mathrm{eff}:2400\pm 320$ K', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
 ax1.text(0.58, 0.2, 'J0024-0158', transform=ax1.transAxes, color='#7C7D70', fontsize=15)

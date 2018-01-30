@@ -22,7 +22,7 @@ plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
     ax1.spines[axis].set_linewidth(1.1)
 plt.xlim([5.5, 19.5]) # sample goes into T's keep all or only relavent to subs?
-#plt.ylim([500, 3200])
+plt.ylim([0, 175])
 
 # ------ Axes Labels --------
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
@@ -50,7 +50,7 @@ plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al
 
 # ax1.set_yscale('log')  # Test for Jonathan
 plt.tight_layout()
-plt.savefig('Plots/SptVmass.png',dpi=150)
+plt.savefig('Plots/SptVmass.png', dpi=150)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Teff v mass ------------------------------------
