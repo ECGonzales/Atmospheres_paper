@@ -258,7 +258,7 @@ ax1.annotate('CIA H$_\mathrm{2} $', xy=(2, 5.3), color='k', fontsize=12)
 
 # ------- Label Sources -------------
 ax1.text(0.72, 0.11, 'J1013-1356 (sdM9.5)', transform=ax1.transAxes, color='#015DF7', fontsize=12)
-ax1.text(0.72, 0.07, '$T_\mathrm{eff}: 2606 \pm 32$ K', transform=ax1.transAxes, color='#015DF7', fontsize=12)
+ax1.text(0.72, 0.07, '$T_\mathrm{eff}: 2610 \pm 32$ K', transform=ax1.transAxes, color='#015DF7', fontsize=12)
 ax1.text(0.72, 0.29, 'LHS 377 (sdM7)', transform=ax1.transAxes, color='#01A1D6',  fontsize=12)
 ax1.text(0.72, 0.25, '$T_\mathrm{eff}: 2784 \pm 42$ K', transform=ax1.transAxes, color='#01A1D6', fontsize=12)
 ax1.text(0.72, 0.52, 'HD114762$\,$B (d/sdM9)', transform=ax1.transAxes, color='#09D67E', fontsize=12)

@@ -112,7 +112,7 @@ ax1.text(0.005, 0.34, 'J1256-0224 (sdL3.5) $T_\mathrm{eff}: 2400 \pm 320$ K', tr
          fontsize=12)
 ax1.text(0.005, 0.43, 'J1444-2019 (sdM9) $T_\mathrm{eff}: 2477 \pm 13$ K', transform=ax1.transAxes, color='mediumblue',
          fontsize=12)
-ax1.text(0.005, 0.52, 'J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2606 \pm 32$ K', transform=ax1.transAxes, color='#015DF7',
+ax1.text(0.005, 0.52, 'J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2610 \pm 32$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
 ax1.text(0.005, 0.615, 'LHS 377 (sdM7) $T_\mathrm{eff}: 2784 \pm 42$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
