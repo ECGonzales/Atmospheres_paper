@@ -9,9 +9,9 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED_nan.txt', sep=" ", comment='#', header=None,
+df = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                  names=["w", "f", "err"])
-df2 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df2 = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 # header=1 skips the 2MASS H which is ok here but not other times, use stuff above
 
 
