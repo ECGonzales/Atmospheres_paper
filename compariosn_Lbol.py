@@ -8,7 +8,7 @@ import numpy as np
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
-# Read  all in as pandas Dataframes
+# Read  all in as pandas Dataframes TODO: Add in new smoothed data
 
 df_1256 = pd.read_csv('Data/Smoothed_data/lbol_smoothed/correctpi1256-0224 (L3.5sd) SED_nan_smoothed.txt', sep=",",
                       comment='#', header=None, names=["w", "f", "err"])
@@ -108,19 +108,19 @@ plt.ylabel('Flux ($\mathrm{erg\ s^{-1} cm^{-2} A^{-1}}$)', fontsize=25)
 ax1.text(0.1, 0.4, 'J1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.1, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.1, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.1, 0.25, '$L_\mathrm{bol}:-3.52\pm 0.23$', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.1, 0.25, '$L_\mathrm{bol}:-3.625\pm 0.05$', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
 ax1.text(0.58, 0.2, 'J1048-3956', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 ax1.text(0.58, 0.15, 'Age: 500 - 10000 Myr ', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 ax1.text(0.58, 0.1, 'Field', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
-ax1.text(0.58, 0.05, '$L_\mathrm{bol}:-3.489\pm0.002 $', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
+ax1.text(0.58, 0.05, '$L_\mathrm{bol}:-3.485\pm 0.001$', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
 
 # Young
 ax1.text(0.6, 0.95, 'J0223-5815', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.9, 'Age: 10-40 Myr (Tuc-Hor)', transform=ax1.transAxes, color='#D01810', fontsize=15)
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, '$L_\mathrm{bol}:-3.615\pm0.082 $', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, '$L_\mathrm{bol}:-3.515\pm0.022 $', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Plots/comparison_Lbol.png', dpi=150)
