@@ -59,7 +59,7 @@ ax1.scatter(df2['w'][6], df2['f'][6],  c='#7a0177', s=150, zorder=6)  # WISE_W2
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.59, 4.8])
-plt.ylim([5*10**(-19), 3*10**(-14)])
+plt.ylim([5*10**(-19), 2*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.6, 2, 3, 4]))
