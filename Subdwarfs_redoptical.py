@@ -93,8 +93,8 @@ ax1.plot(df_1626['w'], norm_df_1626 + 2.1, c='#531CF7')                         
 ax1.plot(df_1256['w'], norm_df_1256 + 3, c='k')                                     # sdL3.5  2338
 ax1.plot(df_1444['w'], norm_df_1444 + 4, c='mediumblue')                            # sdM9 2359
 ax1.plot(df_1013['w'], norm_df_1013 + 5, c='#015DF7')                               # sdM9.5 2457
-ax1.plot(df_LHS['w'], norm_df_LHS + 6, c='#01A1D6')                                 # sdM7 2748
-ax1.plot(df_1425['w'], norm_df_1425 + 7, c='#09D5D6')                               # sdM8 2822
+ax1.plot(df_1425['w'], norm_df_1425 + 6, c='#01A1D6')                               # sdM8 2822
+ax1.plot(df_LHS['w'], norm_df_LHS + 7, c='#09D5D6')                                 # sdM7 2748
 # ax1.plot(df_HD['w'], norm_df_HD + 7, c='#09D67E')                                 # sd--IRM9 2859
 ax1.plot(df_1610['w'], norm_df_1610 + 8, c='#04A57F')                               # sdM7 2878
 ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                               # sdM7.5 3021
@@ -102,21 +102,21 @@ ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                           
 
 
 # ------- Label Sources -------------
-ax1.text(0.005, 0.04, 'J0532+8246 (sdL7) $T_\mathrm{eff}: 1723 \pm 45$ K ', transform=ax1.transAxes, color='indigo',
+ax1.text(0.005, 0.04, 'J0532+8246 (sdL7) $T_\mathrm{eff}: 1664 \pm 24$ K ', transform=ax1.transAxes, color='indigo',
          fontsize=12)
 ax1.text(0.005, 0.17, 'J0616-6407 (sdL5) $T_\mathrm{eff}: 1800 \pm 300$ K ', transform=ax1.transAxes, color='darkviolet',
          fontsize=12)
-ax1.text(0.005, 0.24, 'J1626+3925 (sdL4) $T_\mathrm{eff}: 2184 \pm 23$ K', transform=ax1.transAxes, color='#531CF7',
+ax1.text(0.005, 0.24, 'J1626+3925 (sdL4) $T_\mathrm{eff}: 2148 \pm 14$ K', transform=ax1.transAxes, color='#531CF7',
          fontsize=12)
-ax1.text(0.005, 0.34, 'J1256-0224 (sdL3.5) $T_\mathrm{eff}: 2400 \pm 320$ K', transform=ax1.transAxes, color='k',
+ax1.text(0.005, 0.34, 'J1256-0224 (sdL3.5) $T_\mathrm{eff}: 2307 \pm 71$ K', transform=ax1.transAxes, color='k',
          fontsize=12)
 ax1.text(0.005, 0.43, 'J1444-2019 (sdM9) $T_\mathrm{eff}: 2477 \pm 13$ K', transform=ax1.transAxes, color='mediumblue',
          fontsize=12)
-ax1.text(0.005, 0.52, 'J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2610 \pm 32$ K', transform=ax1.transAxes, color='#015DF7',
+ax1.text(0.005, 0.52, 'J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2621 \pm 22$ K', transform=ax1.transAxes, color='#015DF7',
          fontsize=12)
-ax1.text(0.005, 0.615, 'LHS 377 (sdM7) $T_\mathrm{eff}: 2784 \pm 42$ K', transform=ax1.transAxes, color='#01A1D6',
+ax1.text(0.005, 0.615, 'J1425+7102 (sdM8) $T_\mathrm{eff}: 2829 \pm 22$ K', transform=ax1.transAxes, color='#01A1D6',
          fontsize=12)
-ax1.text(0.005, 0.71, 'J1425+7102 (sdM8) $T_\mathrm{eff}: 2836 \pm 55$ K', transform=ax1.transAxes, color='#09D5D6',
+ax1.text(0.005, 0.71, 'LHS 377 (sdM7) $T_\mathrm{eff}: 2839 \pm 6$ K', transform=ax1.transAxes, color='#09D5D6',
          fontsize=12)
 ax1.text(0.005, 0.79, 'J1610-0040 (sdM7) $T_\mathrm{eff}: 2890 \pm 20$ K', transform=ax1.transAxes, color='#04A57F',
          fontsize=12)
