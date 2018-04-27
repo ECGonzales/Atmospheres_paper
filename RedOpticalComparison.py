@@ -81,7 +81,7 @@ ax1.text(0.01, 0.35, '$T_\mathrm{eff}: 2307 \pm 71$ K', transform=ax1.transAxes,
 ax1.text(0.01, 0.63, 'J0024-0158  (M9)', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.58, '$T_\mathrm{eff}: 2385 \pm 77$ K', transform=ax1.transAxes, color='k', fontsize=15)
 ax1.text(0.01, 0.87, 'J2000-7523  (M9$\gamma$)', transform=ax1.transAxes, color='k', fontsize=15)
-ax1.text(0.01, 0.82, '$T_\mathrm{eff}: 2450 \pm 62$ K', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.text(0.01, 0.82, '$T_\mathrm{eff}: 2388 \pm 36$ K', transform=ax1.transAxes, color='k', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Plots/RedOpticalComparison.png', dpi=150)
