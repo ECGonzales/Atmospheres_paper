@@ -10,14 +10,14 @@ from astropy.analytic_functions import blackbody_lambda as bblam
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes, commas for Jonathan's
 
-df_1256 = pd.read_csv('Data/Smoothed_data/teff_smoothed/correctpi1256-0224 (L3.5sd) SED_nan_smoothed.txt', sep=",",
+df_1256 = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) SED.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_1256_phot = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/Smoothed_data/teff_smoothed/teff2000-7523 (M9gamma) SED_updated_smoothed.txt', sep=",",
+df_young = pd.read_csv('Data/Gaia2000-7523 (M9gamma) SED.txt', sep=" ",
                        comment='#', header=None, names=["w", "f", "err"])
-df_young_phot = pd.read_csv('Data/teff2000-7523 (M9gamma) phot_updated.txt', sep=" ", comment='#', header=None,
+df_young_phot = pd.read_csv('Data/Gaia2000-7523 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 # df_young_phot_synth = pd.read_csv('Data/teff2000-7523_synthetic_phot.txt', sep=" ", comment='#', header=None,
 #                             names=["w", "f", "err"])
@@ -29,8 +29,8 @@ df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comme
 # ------------------------------------------------------------------------------------
 # ------------------- Fix files to read all columns as Floats-------------------------
 # ------------------------------------------------------------------------------------
-df_1256 = df_1256.astype(float)
-df_young = df_young.astype(float)
+#df_1256 = df_1256.astype(float)
+#df_young = df_young.astype(float)
 df_field = df_field.astype(float)
 
 # -------------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ plt.ylabel('Flux ($\mathrm{erg\ s^{-1} cm^{-2} A^{-1}}$)', fontsize=25)
 ax1.text(0.17, 0.4, 'J1256-0224', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.17, 0.35, 'Age: >> 1 Gyr', transform=ax1.transAxes, color='blue', fontsize=15)
 ax1.text(0.17, 0.3, 'Old', transform=ax1.transAxes, color='blue', fontsize=15)
-ax1.text(0.17, 0.25, '$T_\mathrm{eff}:2400\pm 320$ K', transform=ax1.transAxes, color='blue', fontsize=15)
+ax1.text(0.17, 0.25, '$T_\mathrm{eff}:2307\pm 71$ K', transform=ax1.transAxes, color='blue', fontsize=15)
 
 # Field
 ax1.text(0.58, 0.2, 'J0024-0158', transform=ax1.transAxes, color='#7C7D70', fontsize=15)
@@ -88,7 +88,7 @@ ax1.text(0.6, 0.95, 'J2000-7523', transform=ax1.transAxes, color='#D01810', font
 ax1.text(0.6, 0.9, r'Age: 12 - 22 Myr ($\beta$ Pictoris)', transform=ax1.transAxes, color='#D01810', fontsize=15)
 # r is to deal with \a or \b as being special python characters
 ax1.text(0.6, 0.85, 'Young', transform=ax1.transAxes, color='#D01810', fontsize=15)
-ax1.text(0.6, 0.8, '$T_\mathrm{eff}:2450\pm 62$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
+ax1.text(0.6, 0.8, '$T_\mathrm{eff}:2388\pm 36$ K', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.tight_layout()  # use to reduce whitespace in paper
 plt.savefig('Plots/comparison_Teff.png', dpi=150)
