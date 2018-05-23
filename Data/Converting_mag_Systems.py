@@ -25,3 +25,34 @@ AbsmagK_unc = np.sqrt(m_K_unc ** 2 + 25 * (dist_err / (dist * np.log(10)))**2)
 print(AbsmagH, AbsmagH_unc)
 print(AbsmagK, AbsmagK_unc)
 
+# Calculate Abs Maf for 1256-1408
+MASS_J = 14.011
+MASS_Jerr = 0.027
+MASS_H = 13.618
+MASS_H_err = 0.033
+MASS_Ks = 13.444
+MASS_Kserr = 0.037
+WISE_W1 = 13.118
+WISE_W1err = 0.026
+WISE_W2 = 12.896
+WISE_W2err = 0.028
+
+dist_1408 = 44.4
+dist_err_1408 = 0.39
+
+AbsJ = -(5*np.log10(dist_1408)-5) + MASS_J
+AbsJ_unc = np.sqrt(MASS_Jerr ** 2 + 25 * (dist_err_1408 / (dist * np.log(10)))**2)
+AbsH = -(5*np.log10(dist_1408)-5) + MASS_H
+AbsH_unc = np.sqrt(MASS_H_err ** 2 + 25 * (dist_err_1408 / (dist * np.log(10)))**2)
+AbsK = -(5*np.log10(dist_1408)-5) + MASS_Ks
+AbsK_unc = np.sqrt(MASS_Kserr ** 2 + 25 * (dist_err_1408 / (dist * np.log(10)))**2)
+AbsW1 = -(5*np.log10(dist_1408)-5) + WISE_W1
+AbsW1_unc = np.sqrt(WISE_W1err ** 2 + 25 * (dist_err_1408 / (dist * np.log(10)))**2)
+AbsW2 = -(5*np.log10(dist_1408)-5) + WISE_W2
+AbsW2_unc = np.sqrt(WISE_W2err ** 2 + 25 * (dist_err_1408 / (dist * np.log(10)))**2)
+
+print(AbsJ , AbsJ_unc)
+print(AbsH , AbsH_unc)
+print(AbsK , AbsK_unc)
+print(AbsW1 , AbsW1_unc)
+print(AbsW2 , AbsW2_unc)
