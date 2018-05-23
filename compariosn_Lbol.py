@@ -10,18 +10,18 @@ import numpy as np
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas Dataframes TODO: Add in new smoothed data
 
-df_1256 = pd.read_csv('Data/Smoothed_data/lbol_smoothed/correctpi1256-0224 (L3.5sd) SED_nan_smoothed.txt', sep=",",
+df_1256 = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) SED.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
+df_1256_phot = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Lbol ----------------------------------
-df_young = pd.read_csv('Data/Smoothed_data/lbol_smoothed/lbol0223-5815 (L0gamma) SED_updated_smoothed.txt', sep=",",
+df_young = pd.read_csv('Data/Gaia0223-5815 (L0gamma) SED.txt', sep=" ",
                        comment='#', header=None, names=["w", "f", "err"])
-df_young_phot = pd.read_csv('Data/lbol0223-5815 (L0gamma) phot_updated.txt', sep=" ", comment='#', header=None,
+df_young_phot = pd.read_csv('Data/Gaia0223-5815 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_field = pd.read_csv('Data/Smoothed_data/lbol_smoothed/1048-3956 (M9) SED_smoothed.txt', sep=",", comment='#',
+df_field = pd.read_csv('Data/Gaia1048-3956 (M9) SED.txt', sep=" ", comment='#',
                        header=None, names=["w", "f", "err"])
-df_field_phot = pd.read_csv('Data/1048-3956 (M9) phot.txt', sep=" ", comment='#', header=None,
+df_field_phot = pd.read_csv('Data/Gaia1048-3956 (M9) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
 # ------------------------------------------------------------------------------------

@@ -8,7 +8,7 @@ import matplotlib.patches as mpatches
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_1256 = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
+df_1256 = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_1256_phot = pd.read_csv('Data/correctpi1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
