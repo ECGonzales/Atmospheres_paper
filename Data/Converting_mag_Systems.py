@@ -9,7 +9,7 @@ import numpy as np
 m_H = 16.078
 m_H_unc = 0.016
 m_K = 16.605
-m_K_unc = 0.099
+m_K_unc = 0.018
 dist = 79.67
 dist_err = 4.57
 
