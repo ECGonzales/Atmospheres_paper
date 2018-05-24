@@ -159,5 +159,10 @@ H2Od['x'] = [1.08, 1.08]
 H2Od['y'] = [2.85, 3]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
+# Create a Legend for the sources
+ax1.annotate('J2000-7523', xy=(0.951, 3.3), color='#D01810', fontsize=15)
+ax1.annotate('J0024-0158', xy=(0.951, 3.1), color='#7C7D70', fontsize=15)
+ax1.annotate('J1256-0224', xy=(0.951, 2.9), color='blue', fontsize=15)
+
 plt.tight_layout()
 plt.savefig('Plots/YbandTeff.png', dpi=150)

@@ -80,6 +80,10 @@ COd = pd.DataFrame()
 COd['x'] = [2.295, 2.295]
 COd['y'] = [2.8, 2.95]
 plt.plot(COd['x'], COd['y'], color='k')
+# Create a Legend for the sources
+ax1.annotate('J2000-7523', xy=(2.003, 0.5), color='#D01810', fontsize=15)
+ax1.annotate('J0024-0158', xy=(2.003, 0.3), color='#7C7D70', fontsize=15)
+ax1.annotate('J1256-0224', xy=(2.003, 0.1), color='blue', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Plots/KbandTeff.png', dpi=150)

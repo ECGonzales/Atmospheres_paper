@@ -79,5 +79,10 @@ CH4d['x'] = [1.67, 1.67]
 CH4d['y'] = [2.5, 2.7]
 plt.plot(CH4d['x'], CH4d['y'], color='k')
 
+# Create a Legend for the sources
+ax1.annotate('J2000-7523', xy=(1.422, 3.3), color='#D01810', fontsize=15)
+ax1.annotate('J0024-0158', xy=(1.422, 3.1), color='#7C7D70', fontsize=15)
+ax1.annotate('J1256-0224', xy=(1.422, 2.9), color='blue', fontsize=15)
+
 plt.tight_layout()
 plt.savefig('Plots/HbandTeff.png', dpi=150)
