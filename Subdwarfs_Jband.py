@@ -14,6 +14,8 @@ df_1256 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/correctpi1256-02
 # -------------- Subdwarfs ----------------------------------
 df_0532 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/0532+8246 (L7sd) SED_smoothed.txt', sep=",",
                       comment='#', header=None, names=["w", "f", "err"])
+df_0616 = pd.read_csv('Data/X-shooter0616-6407 (L5sd) SED.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])  # If adding in propage this through
 df_LHS = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/1439+1839 (M7sd) SED_smoothed.txt', sep=",",
                      comment='#', header=None, names=["w", "f", "err"])
 df_1610 = pd.read_csv('Data/Smoothed_data/Subdwarfs_KI_smoothed/1610-0040 (M7sd) SED_smoothed.txt', sep=",",
@@ -39,6 +41,9 @@ norm_df_1256 = df_1256['f']/(np.average(norm_region['f']))
 
 norm_region_0532 = df_0532[(df_0532['w'] >= 1.29) & (df_0532['w'] <= 1.31)]
 norm_df_0532 = df_0532['f']/(np.average(norm_region_0532['f']))
+
+norm_region_0616 = df_0616[(df_0616['w'] >= 1.29) & (df_0616['w'] <= 1.31)]
+norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
 
 norm_region_LHS = df_LHS[(df_LHS['w'] >= 1.29) & (df_LHS['w'] <= 1.31)]
 norm_df_LHS = df_LHS['f']/(np.average(norm_region_LHS['f']))
@@ -69,6 +74,7 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                # sdL7 1647
+ax1.plot(df_0616['w'], norm_df_0616 + 1, c='darkviolet') # ?? ADD
 ax1.plot(df_1256['w'], norm_df_1256 + 1, c='k')                                 # sdL4 2158
 ax1.plot(df_LHS['w'], norm_df_LHS + 2, c='#01A1D6')                                 # sdM7 2775
 ax1.plot(df_1610['w'], norm_df_1610 + 3, c='#04A57F')                               # sdM7 2852
