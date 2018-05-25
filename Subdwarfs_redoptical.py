@@ -104,7 +104,7 @@ ax1.plot(df_2036['w'], norm_df_2036 + 9, c='#F7BE0F')                           
 # ------- Label Sources -------------
 ax1.text(0.005, 0.04, 'J0532+8246 (sdL7) $T_\mathrm{eff}: 1664 \pm 24$ K ', transform=ax1.transAxes, color='indigo',
          fontsize=12)
-ax1.text(0.005, 0.17, 'J0616-6407 (sdL5) $T_\mathrm{eff}: 1800 \pm 300$ K ', transform=ax1.transAxes, color='darkviolet',
+ax1.text(0.005, 0.17, 'J0616-6407 (sdL5) $T_\mathrm{eff}: 1720 \pm 280$ K ', transform=ax1.transAxes, color='darkviolet',
          fontsize=12)
 ax1.text(0.005, 0.24, 'J1626+3925 (sdL4) $T_\mathrm{eff}: 2148 \pm 14$ K', transform=ax1.transAxes, color='#531CF7',
          fontsize=12)
