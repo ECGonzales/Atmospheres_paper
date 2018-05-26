@@ -74,7 +74,7 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                # sdL7 1647
-ax1.plot(df_0616['w'], norm_df_0616 + 1, c='darkviolet') # ?? ADD
+#ax1.plot(df_0616['w'], norm_df_0616 + 1, c='darkviolet') # ?? ADD
 ax1.plot(df_1256['w'], norm_df_1256 + 1, c='k')                                 # sdL4 2158
 ax1.plot(df_LHS['w'], norm_df_LHS + 2, c='#01A1D6')                                 # sdM7 2775
 ax1.plot(df_1610['w'], norm_df_1610 + 3, c='#04A57F')                               # sdM7 2852
@@ -82,7 +82,7 @@ ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#F7BE0F')                           
 # ax1.plot(df_125614['w'], norm_df_125614, c='#C56201')                         # sdM8
 
 # ------- Label Sources -------------
-ax1.annotate('J0532+8246 T$_\mathrm{eff}: 1664 \pm 424$ K ', xy=(1.220, 1.2), color='indigo', fontsize=12)
+ax1.annotate('J0532+8246 T$_\mathrm{eff}: 1677 \pm 25$ K ', xy=(1.220, 1.2), color='indigo', fontsize=12)
 ax1.annotate('J1256-0224 T$_\mathrm{eff}: 2307 \pm 71$ K', xy=(1.220, 2.2), color='k', fontsize=12)
 ax1.annotate('LHS 377 T$_\mathrm{eff}: 2839 \pm 6$ K', xy=(1.220, 3.2), color='#01A1D6', fontsize=12)
 ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.220, 4.2), color='#04A57F', fontsize=12)
