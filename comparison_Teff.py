@@ -10,18 +10,18 @@ from astropy.analytic_functions import blackbody_lambda as bblam
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes, commas for Jonathan's
 
-df_1256 = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) SED.txt', sep=" ",
+df_1256 = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Teff_comparison/Gaia1256-0224 (L3.5sd) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
 df_1256_phot = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_young = pd.read_csv('Data/Gaia2000-7523 (M9gamma) SED.txt', sep=" ",
+df_young = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Teff_comparison/Gaia2000-7523 (M9gamma) SED_spexified.txt', sep=" ",
                        comment='#', header=None, names=["w", "f", "err"])
 df_young_phot = pd.read_csv('Data/Gaia2000-7523 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 # df_young_phot_synth = pd.read_csv('Data/teff2000-7523_synthetic_phot.txt', sep=" ", comment='#', header=None,
 #                             names=["w", "f", "err"])
-df_field = pd.read_csv('Data/Smoothed_data/teff_smoothed/teff0024-0158 (M9.5) SED_smoothed.txt', sep=",", comment='#',
+df_field = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Teff_comparison/teff0024-0158 (M9.5) SED_spexified.txt', sep=" ", comment='#',
                        header=None, names=["w", "f", "err"])
 df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
@@ -29,8 +29,8 @@ df_field_phot = pd.read_csv('Data/teff0024-0158 (M9.5) phot.txt', sep=" ", comme
 # ------------------------------------------------------------------------------------
 # ------------------- Fix files to read all columns as Floats-------------------------
 # ------------------------------------------------------------------------------------
-#df_1256 = df_1256.astype(float)
-#df_young = df_young.astype(float)
+df_1256 = df_1256.astype(float)
+df_young = df_young.astype(float)
 df_field = df_field.astype(float)
 
 # -------------------------------------------------------------------------------------
