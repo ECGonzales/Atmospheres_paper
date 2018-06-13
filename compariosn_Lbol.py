@@ -10,17 +10,17 @@ import numpy as np
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas Dataframes TODO: Add in new smoothed data
 
-df_1256 = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Lbol_overall/Gaia1256-0224 (L3.5sd) SED.txt', sep=" ",
-                      comment='#', header=None, names=["w", "f", "err"])
+df_1256 = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Lbol_overall/Gaia1256-0224 (L3.5sd) SED_spexified.txt',
+                      sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_1256_phot = pd.read_csv('Data/Gaia1256-0224 (L3.5sd) phot.txt', sep=" ", header=1, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Lbol ----------------------------------
-df_young = pd.read_csv('Data/Gaia0223-5815 (L0gamma) SED.txt', sep=" ",
-                       comment='#', header=None, names=["w", "f", "err"])
+df_young = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Lbol_overall/Gaia0223-5815 (L0gamma) SED_spexified.txt'
+                       , sep=" ", comment='#', header=None, names=["w", "f", "err"])
 df_young_phot = pd.read_csv('Data/Gaia0223-5815 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_field = pd.read_csv('Data/Gaia1048-3956 (M9) SED.txt', sep=" ", comment='#',
-                       header=None, names=["w", "f", "err"])
+df_field = pd.read_csv('Data/Smoothed_data/Eileen_spectra_output/Lbol_overall/Gaia1048-3956 (M9) SED_spexified.txt',
+                       sep=" ", comment='#',header=None, names=["w", "f", "err"])
 df_field_phot = pd.read_csv('Data/Gaia1048-3956 (M9) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
