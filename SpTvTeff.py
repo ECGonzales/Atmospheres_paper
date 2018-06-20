@@ -141,7 +141,7 @@ ax1.errorbar(df_sub['SpT'], df_sub['Teff'], yerr=df_sub['Teff_err'], c='blue', f
 
 # --- Designate 1256-0224 -----
 sub1256 = plt.scatter(df_sub['SpT'][0], df_sub['Teff'][0], color='blue', s=500, zorder=7, marker="*")
-ax1.annotate('J1256-0224', xy=(12.7, 2750), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(12.7, 2400), color='k', fontsize=12)
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)
