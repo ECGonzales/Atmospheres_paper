@@ -56,7 +56,7 @@ df_young['AbsW1_err'] = AbsW1y_err
 # -------------------------------------------------------------------------------------
 # ------ Fit polynomial for subdwarfs ------
 # Need to drop nans
-df_sub2 = df_sub.drop(df_sub.index[[1, 5, 11]])
+df_sub2 = df_sub.drop(df_sub.index[[1, 10]])
 
 # --- Get uncertainites for upper and lower teff limits ----
 df_sub2['AbsW1_up'] = df_sub2['MW1'] + df_sub2['MW1_unc']
@@ -167,10 +167,10 @@ ax1.errorbar(df_sub['SpT'], df_sub['MW1'], yerr=df_sub['MW1_unc'], c='blue', fmt
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], df_sub['MW1'][0], color='blue', s=500, zorder=7, marker="*")
-ax1.annotate('J1256-0224', xy=(12.7, 9), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(12.7, 12), color='k', fontsize=12)
 pointer = pd.DataFrame()
 pointer['x'] = [13.5, 13.5]
-pointer['y'] = [9.8, 9.1]
+pointer['y'] = [10.9, 11.8]
 ax1.plot(pointer['x'], pointer['y'], color='k')
 
 # ---- Add Legend ----

@@ -163,6 +163,10 @@ ax1.errorbar(df_sub['SpT'], df_sub['MH'], yerr=df_sub['MH_unc'], c='blue', fmt='
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], np.round(df_sub['MH'][0], 3), color='blue', s=500, zorder=7, marker="*")
 ax1.annotate('J1256-0224', xy=(12.7, 10.5), color='k', fontsize=12)
+pointer = pd.DataFrame()
+pointer['x'] = [13.5, 13.5]
+pointer['y'] = [11, 10.6]
+ax1.plot(pointer['x'], pointer['y'], color='k')
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)

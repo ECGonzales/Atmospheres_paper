@@ -96,8 +96,8 @@ def lnprob(x, MJ, MJ_unc, spt):
         return -np.inf
     model_line = x[0]*spt + x[1]
     sigma_dm = (MJ - model_line)/np.sqrt(MJ_unc**2+x[2]**2)  # Distance between the data points and the model line
-    return -(1./2.)*sum(np.log(x[2]**2+MJ_unc**2))-(1./2.)*sum(sigma_dm**2)-np.log(x[2])  # np.log(x[2]) is an uninformative prior on the intrinsic dispersion
-                                                    # It favors large numbers less
+    return -(1./2.)*sum(np.log(x[2]**2+MJ_unc**2))-(1./2.)*sum(sigma_dm**2)-np.log(x[2])
+    # np.log(x[2]) is an uninformative prior on the intrinsic dispersion. It favors large numbers less
 
 # Define the parameters we need to imput into the mcmc
 ndim = 3  # Number of parameters in my lnprob after the x
@@ -114,7 +114,7 @@ pos = parm_est_2d + np.random.rand(nwalkers, ndim)*parm_scale_2d
 # Start the mcmc add .values to the pandas dataframe to convert to numpy array
 # Use the df_subpoly array that has removed the nans before can rum the mcmc
 sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, args=(df_sub['MJ'].values,
-                                                              df_sub['MJ_unc'].values,df_sub['SpT'].values))
+                                                              df_sub['MJ_unc'].values, df_sub['SpT'].values))
 sampler.run_mcmc(pos, nsteps)
 
 # Check what the burn in is so it can be thrown out
@@ -122,7 +122,7 @@ labels = ["slope", "intercept", 'dispersion']
 for k in range(ndim):
     plt.figure()
     for n in range(nwalkers):
-        plt.plot(sampler.chain[n,:,k])
+        plt.plot(sampler.chain[n, :, k])
     plt.ylabel(labels[k], fontsize='16')
     plt.xlabel("step number", fontsize='12')
 
@@ -130,7 +130,7 @@ for k in range(ndim):
 samples = sampler.chain[:, 200:, :].reshape((-1, ndim))
 
 # Check the corner plot of the chain
-figcheck = corner.corner(samples, labels=["$m$", "$b$",'dispersion'])
+figcheck = corner.corner(samples, labels=["$m$", "$b$", 'dispersion'])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Spt v Abs Mags ---------------------------------
@@ -161,7 +161,7 @@ ax1.errorbar(df_sub['SpT'], df_sub['MJ'], yerr=df_sub['MJ_unc'], c='blue', fmt='
 
 # --- Designate 1256-0224 -----
 plt.scatter(df_sub['SpT'][0], df_sub['MJ'][0], color='blue', s=500, zorder=7, marker="*")
-ax1.annotate('J1256-0224', xy=(12.7, 10.5), color='k', fontsize=12)
+ax1.annotate('J1256-0224', xy=(12.7, 11), color='k', fontsize=12)
 
 # ---- Add Legend ----
 plt.legend([fld, young, sub], ["Field", "Young", 'Subdwarf'], frameon=False, fontsize=12)
