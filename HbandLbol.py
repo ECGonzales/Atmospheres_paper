@@ -73,4 +73,4 @@ CH4d['x'] = [1.67, 1.67]
 CH4d['y'] = [2.6, 2.75]
 plt.plot(CH4d['x'], CH4d['y'], color='k')
 
-plt.savefig('Plots/HbandLbol.png')
+plt.savefig('Plots/HbandLbol.pdf')

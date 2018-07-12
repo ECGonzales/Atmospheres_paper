@@ -185,4 +185,4 @@ ax1.text(0.01, 0.3, 'J0024-0158', transform=ax1.transAxes, color='#7C7D70', font
 ax1.text(0.01, 0.42, 'J2000-7523', transform=ax1.transAxes, color='#D01810', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Plots/RedOpticalComparison_referee.png', dpi=150)
+plt.savefig('Plots/RedOpticalComparison_referee.pdf', dpi=150)

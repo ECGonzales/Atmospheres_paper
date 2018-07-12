@@ -119,7 +119,7 @@ W2['y'] = [7.2961*10**(-19), 7.2961*10**(-19)]
 plt.plot(W2['x'], W2['y'], color='#7a0177', linestyle='solid')
 
 plt.tight_layout()  # use to minimize whitespace on edges. May be best for figures in the paper
-plt.savefig('Plots/regimes.png', dpi=150)
+plt.savefig('Plots/regimes.pdf', dpi=150)
 
 # -------- Add the bandpasses at the bottom of the plot ---------
 

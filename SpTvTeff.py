@@ -161,7 +161,7 @@ print(best_fit_coeffs)
 print(np.std(samples, axis=0))
 
 plt.tight_layout()
-plt.savefig('Plots/SptvTeff.png', dpi=150)
+plt.savefig('Plots/SptvTeff.pdf', dpi=150)
 
 # From this example on curve fitting using the cov=True
 # https://stackoverflow.com/questions/28505008/numpy-polyfit-how-to-get-1-sigma-uncertainty-around-the-estimated-curve

@@ -84,4 +84,4 @@ ax1.text(0.01, 0.87, 'J2000-7523  (M9$\gamma$)', transform=ax1.transAxes, color=
 ax1.text(0.01, 0.82, '$T_\mathrm{eff}: 2388 \pm 36$ K', transform=ax1.transAxes, color='k', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Plots/RedOpticalComparison.png', dpi=150)
+plt.savefig('Plots/RedOpticalComparison.pdf', dpi=150)

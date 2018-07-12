@@ -89,4 +89,4 @@ ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.220, 4.2), colo
 ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.220, 5.2), color='#F7BE0F', fontsize=12)
 
 plt.tight_layout()
-plt.savefig('Plots/Subdwarfs_JbandKdoublet.png', dpi=150)
+plt.savefig('Plots/Subdwarfs_JbandKdoublet.pdf', dpi=150)

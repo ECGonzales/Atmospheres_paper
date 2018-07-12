@@ -181,7 +181,7 @@ ax1.text(0.73, 0.72, 'J1256-0224 (sdL3.5)', transform=ax1.transAxes, color='k', 
 ax1.text(0.73, 0.68, '$T_\mathrm{eff}: 2307 \pm 71$ K', transform=ax1.transAxes, color='k', fontsize=12)
 
 plt.tight_layout()
-plt.savefig('Plots/Subdwarfs_secondpannel.png', dpi=150)
+plt.savefig('Plots/Subdwarfs_secondpannel.pdf', dpi=150)
 
 # ------ Set up figure layout --------
 fig = plt.figure()
@@ -271,4 +271,4 @@ ax1.text(0.72, 0.84, 'J2036+5059 (sdM7.5)', transform=ax1.transAxes, color='#F7B
 ax1.text(0.72, 0.8, '$T_\mathrm{eff}: 2983 \pm 22$ K', transform=ax1.transAxes, color='#F7BE0F',fontsize=12)
 
 plt.tight_layout()
-plt.savefig('Plots/Subdwarfs_firstpannel.png', dpi=150)
+plt.savefig('Plots/Subdwarfs_firstpannel.pdf', dpi=150)

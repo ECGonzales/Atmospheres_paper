@@ -50,7 +50,7 @@ plt.legend([fld, young, sub, dupuy], ["Field", "Young", 'Subdwarf', "Dupuy et al
 
 # ax1.set_yscale('log')  # Test for Jonathan
 plt.tight_layout()
-plt.savefig('Plots/SptVmass.png', dpi=150)
+plt.savefig('Plots/SptVmass.pdf', dpi=150)
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Make Plot: Teff v mass ------------------------------------

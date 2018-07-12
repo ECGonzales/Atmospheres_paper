@@ -86,4 +86,4 @@ ax1.annotate('J0024-0158', xy=(2.003, 0.3), color='#7C7D70', fontsize=15)
 ax1.annotate('J1256-0224', xy=(2.003, 0.1), color='blue', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Plots/KbandTeff.png', dpi=150)
+plt.savefig('Plots/KbandTeff.pdf', dpi=150)

@@ -183,4 +183,4 @@ print(best_fit_coeffs)
 print(np.std(samples, axis=0))
 
 plt.tight_layout()
-plt.savefig('Plots/MKvspt.png', dpi=150)
+plt.savefig('Plots/MKvspt.pdf', dpi=150)
