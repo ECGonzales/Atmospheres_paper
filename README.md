@@ -1,6 +1,6 @@
 # Atmospheres_paper
 SEDs/ work for Atmospheres paper 
 
-This repo contains the plots and associated code to generate them needed for my atmospheres paper focused on 1256-0224.
-These plots started off as part of my NSBP Fall 2016 poster and will be resused in my poster for Women in Astronomy,
-Emerging Researchers in Exoplanet Science, and possibly SACNAS.
+This repo contains code to generate figures in for Gonzales et al. 2018 (http://adsabs.harvard.edu/abs/2018ApJ...864..100G) focused on SDSS J1256-0224.
+
+The repo also contains the posters and talks that I have done on this work at various conferences.
